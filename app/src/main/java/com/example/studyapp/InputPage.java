@@ -30,6 +30,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
 
+        
         b_pick = (Button) findViewById(R.id.pickDate);
         tv_result = (TextView) findViewById(R.id.dateTV);
         tv_result2 = (TextView) findViewById(R.id.timeTV);
