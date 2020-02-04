@@ -29,12 +29,9 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // These integers can be used to be passed into the event class
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
-
-<<<<<<< Updated upstream
-=======
+    
     int option = 0;
 
->>>>>>> Stashed changes
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
