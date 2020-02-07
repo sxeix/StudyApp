@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputPage">
+    tools:context=".InputPage"
+    android:background="@color/colorPrimary">
 
     <Button
         android:id="@+id/BackPage"
@@ -16,7 +17,10 @@
         android:text="Go Back Page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        StudyNow_updated_toolbar-buttons
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorAccent"/>
 
     <Button
         android:id="@+id/pickDate"
@@ -28,7 +32,13 @@
         android:text="Pick Start Date and Time"
         app:layout_constraintBottom_toTopOf="@+id/pickEndDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        StudyNow_updated_toolbar-buttons
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.538"
+        android:background="@color/colorAccent"/>
+
 
     <TextView
         android:id="@+id/dateTV"
@@ -41,7 +51,12 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/timeTV"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        StudyNow_updated_toolbar-buttons
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.689"
+        android:textColor="#000000"/>
 
     <TextView
         android:id="@+id/timeTV"
@@ -137,7 +152,13 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/pickDate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        StudyNow_updated_toolbar-buttons
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dateTV"
+        app:layout_constraintVertical_bias="0.894"
+        android:textColor="#000000"/>
+
 
     <Button
         android:id="@+id/pickEndDate"
