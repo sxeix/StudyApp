@@ -13,10 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="168dp"
+        android:layout_marginBottom="56dp"
         android:text="Go Back Page"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        StudyNow_updated_toolbar-buttons
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         android:background="@color/colorAccent"/>
@@ -26,30 +27,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Pick Date and Time"
-        app:layout_constraintBottom_toTopOf="@+id/BackPage"
+        android:text="Pick Start Date and Time"
+        app:layout_constraintBottom_toTopOf="@+id/pickEndDate"
         app:layout_constraintEnd_toEndOf="parent"
+        StudyNow_updated_toolbar-buttons
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.538"
         android:background="@color/colorAccent"/>
 
+
     <TextView
         android:id="@+id/dateTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Date"
+        android:text="Start Date"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/pickDate"
+        app:layout_constraintBottom_toTopOf="@+id/timeTV"
         app:layout_constraintEnd_toEndOf="parent"
+        StudyNow_updated_toolbar-buttons
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -61,17 +63,113 @@
         android:layout_width="wrap_content"
         android:layout_height="37dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Start Time"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/dateTVend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/eventTitleInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Time"
+        android:ems="10"
+        android:hint="Title"
+        android:inputType="textUri|textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/eventDescInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/addEventButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Add Event"
+        app:layout_constraintBottom_toTopOf="@+id/BackPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/eventDescInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/eventLocationInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/eventLocationInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:ems="10"
+        android:hint="Location"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/dateTV"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/dateTVend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="End Date"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/timeTVend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/timeTVend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        android:text="End Time"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/pickDate"
         app:layout_constraintEnd_toEndOf="parent"
+        StudyNow_updated_toolbar-buttons
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dateTV"
         app:layout_constraintVertical_bias="0.894"
         android:textColor="#000000"/>
+
+
+    <Button
+        android:id="@+id/pickEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Pick End Date and Time"
+        app:layout_constraintBottom_toTopOf="@+id/addEventButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
