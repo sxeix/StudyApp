@@ -1,26 +1,35 @@
 package com.example.studyapp;
 
 import android.content.Intent;
-import android.renderscript.ScriptGroup;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class infoPage extends AppCompatActivity {
+
+    Button button_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        configureNextButton();
-
-        /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
-        Toolbar toolbar = findViewById(R.id.Toolbar);
+        setContentView(R.layout.activity_info_page);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        button_back = findViewById(R.id.goback);
+        button_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     /** Toolbar dropdown menu*/
@@ -37,22 +46,12 @@ public class MainActivity extends AppCompatActivity {
         if(id == R.id.search){
             Toast.makeText(getApplicationContext(), "You clicked Search", Toast.LENGTH_SHORT).show();
         }else if(id == R.id.about){
-            Intent infopage = new Intent(MainActivity.this, infoPage.class);
-            startActivity(infopage);
+            return true;
         }else if(id == R.id.settings){
-            Intent settings = new Intent(MainActivity.this, settingsPage.class);
+            Intent settings = new Intent(infoPage.this, settingsPage.class);
             startActivity(settings);
         }
         return true;
     }
 
-    private void configureNextButton() {
-        Button nextButton = (Button) findViewById(R.id.AddEvent);
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, InputPage.class));
-            }
-        });
-    }
 }
