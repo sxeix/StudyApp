@@ -2,9 +2,13 @@ package com.example.studyapp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.renderscript.ScriptGroup;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -36,7 +40,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
-
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
         b_pick = (Button) findViewById(R.id.pickDate);
         tv_result = (TextView) findViewById(R.id.dateTV);
@@ -65,6 +70,28 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         configureBackButton();
     }
 
+    /** Toolbar dropdown menu*/
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    /** Toolbar icons implementations*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if(id == R.id.events){
+            Intent eventspage = new Intent(InputPage.this, eventsPage.class);
+            startActivity(eventspage);
+        }else if(id == R.id.about){
+            Intent infopage = new Intent(InputPage.this, infoPage.class);
+            startActivity(infopage);
+        }else if(id == R.id.settings){
+            Intent settings = new Intent(InputPage.this, settingsPage.class);
+            startActivity(settings);
+        }
+        return true;
+    }
 
     // This function opens the calendar and time picker for the user
     public void calendarOpen() {
@@ -129,4 +156,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
         }
     }
+
+
 }

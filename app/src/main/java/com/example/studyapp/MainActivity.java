@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Toolbar dropdown menu*/
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
@@ -33,14 +34,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
-        if(id == R.id.search){
-            Toast.makeText(getApplicationContext(), "You clicked Search", Toast.LENGTH_SHORT).show();
+        if(id == R.id.events){
+            Intent eventspage = new Intent(MainActivity.this, eventsPage.class);
+            startActivity(eventspage);
         }else if(id == R.id.about){
-            Toast.makeText(getApplicationContext(), "Made by Segmentation Fault: \nJames\nDaniel\nRoyston\nRyan\nChris\nModule: Innovative Product Development",
-                    Toast.LENGTH_SHORT).show();
+            Intent infopage = new Intent(MainActivity.this, infoPage.class);
+            startActivity(infopage);
         }else if(id == R.id.settings){
-            Toast.makeText(getApplicationContext(), "You clicked Settings", Toast.LENGTH_SHORT).show();
+            Intent settings = new Intent(MainActivity.this, settingsPage.class);
+            startActivity(settings);
         }
         return true;
     }

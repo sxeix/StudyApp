@@ -2,10 +2,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="Search"
-        android:id="@+id/search"
-        android:icon="@drawable/ic_search"
-        app:showAsAction="always"/>
+        android:title="Events"
+        android:id="@+id/events"
+        android:icon="@drawable/ic_event"
+        app:showAsAction="always" />
     <item
         android:title="About App"
         android:id="@+id/about"
