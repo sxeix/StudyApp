@@ -29,7 +29,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // These integers can be used to be passed into the event class
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
-    
+
     int option = 0;
 
     @Override
