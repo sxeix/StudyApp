@@ -30,21 +30,9 @@
         <ListView
             android:id="@+id/listView"
             android:layout_width="match_parent"
-            android:layout_height="400dp" >
+            android:layout_height="match_parent">
 
         </ListView>
-
-        <Button
-            android:id="@+id/goback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/custom_buttons"
-            android:text="Go Back"
-            android:textAllCaps="false"
-            android:textColor="#000000" />
 
     </LinearLayout>
 

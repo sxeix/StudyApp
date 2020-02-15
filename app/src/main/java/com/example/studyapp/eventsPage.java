@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class eventsPage extends AppCompatActivity {
-    Button button_back;
     ListView listView;
 
     @Override
@@ -55,13 +54,7 @@ public class eventsPage extends AppCompatActivity {
             }
         });
 
-        button_back = findViewById(R.id.goback);
-        button_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /** Toolbar dropdown menu*/
@@ -83,6 +76,8 @@ public class eventsPage extends AppCompatActivity {
         }else if(id == R.id.settings){
             Intent settings = new Intent(eventsPage.this, settingsPage.class);
             startActivity(settings);
+        }else if(id == android.R.id.home){
+            this.finish();
         }
         return true;
     }

@@ -11,7 +11,7 @@
         <activity
             android:name=".eventsPage"
             android:label="@string/title_activity_events_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".settingsPage"
             android:label="@string/title_activity_settings_page"

@@ -42,6 +42,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         setContentView(R.layout.activity_input_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         b_pick = (Button) findViewById(R.id.pickDate);
         tv_result = (TextView) findViewById(R.id.dateTV);
@@ -66,8 +67,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 calendarOpen();
             }
         });
-
-        configureBackButton();
     }
 
     /** Toolbar dropdown menu*/
@@ -89,6 +88,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         }else if(id == R.id.settings){
             Intent settings = new Intent(InputPage.this, settingsPage.class);
             startActivity(settings);
+        }else if(id == android.R.id.home){
+            this.finish();
         }
         return true;
     }
@@ -103,17 +104,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         DatePickerDialog datePickerDialog = new DatePickerDialog(InputPage.this, InputPage.this, year, month, day);
         datePickerDialog.show();
     }
-
-    private void configureBackButton() {
-        Button backButton = (Button) findViewById(R.id.BackPage);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
-
 
     @Override
     public void onDateSet(DatePicker view, int y, int m, int d) {

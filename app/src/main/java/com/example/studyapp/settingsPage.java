@@ -16,9 +16,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 public class settingsPage extends AppCompatActivity {
-
     private Switch colorMode;
-    private Button button_back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,13 +25,7 @@ public class settingsPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        button_back = findViewById(R.id.goback);
-        button_back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     /** Toolbar dropdown menu*/
@@ -54,6 +47,8 @@ public class settingsPage extends AppCompatActivity {
             startActivity(infopage);
         }else if(id == R.id.settings){
             return true;
+        }else if(id == android.R.id.home){
+            this.finish();
         }
         return true;
     }
