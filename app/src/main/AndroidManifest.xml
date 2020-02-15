@@ -4,12 +4,23 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/studynow_launchericon"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".InputPage"></activity>
+        <activity
+            android:name=".eventsPage"
+            android:label="@string/title_activity_events_page"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".settingsPage"
+            android:label="@string/title_activity_settings_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".infoPage"
+            android:label="@string/title_activity_info_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".InputPage" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,6 +28,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
