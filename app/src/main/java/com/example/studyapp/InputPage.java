@@ -1,10 +1,5 @@
 package com.example.studyapp;
 
-import studynowbackend.Timetable;
-import studynowbackend.TimetableEvent;
-
-import android.annotation.TargetApi;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -17,20 +12,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.text.format.DateFormat;
-import android.widget.Toast;
-
-import java.lang.annotation.Target;
-import java.time.LocalDateTime;
-
 
 import org.w3c.dom.Text;
 
 // import java.text.DateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -42,17 +30,10 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     Button endDT;
     TextView endDateResult, endTimeResult;
 
-    Button addEvent;
-
-    EditText title, location, description;
-    String t, l, d;
-
-    /** These integers can be used to be passed into the event class*/
+    // These integers can be used to be passed into the event class
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
-
-    boolean set1 = false, set2 = false;
-    LocalDateTime start, end;
+    
     int option = 0;
 
     @Override
@@ -84,29 +65,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             public void onClick(View v) {
                 option = 2;
                 calendarOpen();
-            }
-        });
-
-        title = (EditText) findViewById(R.id.eventTitleInput);
-        location = (EditText) findViewById(R.id.eventLocationInput);
-        description = (EditText) findViewById(R.id.eventDescInput);
-        addEvent = (Button) findViewById(R.id.addEventButton);
-
-        addEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                t = title.getText().toString();
-                l = location.getText().toString();
-                d = description.getText().toString();
-
-                if (set1 && set2 && t.equals("") == false && l.equals("") == false && d.equals("") == false ) {
-                    Toast.makeText(InputPage.this, "Event added", Toast.LENGTH_SHORT).show();
-                    TimetableEvent x = new TimetableEvent(t, d, l, start, end);
-                    eventsPage.EVENTS.AddEventUnchecked(x);
-                } else {
-                    Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
-                    /**Make a notification asking the user to input more information*/
-                }
             }
         });
     }
@@ -165,15 +123,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     This method will update the text displaying the time and date depending on whether the user is choosing a start or end time/date
      */
     @Override
-    @TargetApi(26)
     public void onTimeSet(TimePicker view, int h, int m) {
-        String date = formatCharacter(dayFinal) + formatCharacter(monthFinal) + formatCharacter(yearFinal);
-        String time = formatCharacter(hourFinal) + formatCharacter(minuteFinal) + "00";
-        String dateTime = date + time;
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
         if (option == 1) {
-            set1 = true;
-            start = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
 
@@ -184,8 +135,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 tv_result2.setText("Start Time: " + hourFinal + ":0" + minuteFinal);
             }
         } else if (option == 2) {
-            set2 = true;
-            end = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
             endDateResult.setText("End Date: " + dayFinal + "/" + monthFinal + "/" + yearFinal);
@@ -197,11 +146,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
         }
     }
-    public String formatCharacter(int a) {
-        if (a<10) {
-            return "0" + Integer.toString(a);
-        }
-        return Integer.toString(a);
-    }
+
 
 }

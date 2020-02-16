@@ -11,10 +11,6 @@ import android.widget.Button;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
-import studynowbackend.Timetable;
-import studynowbackend.TimetableEvent;
-
-
 public class MainActivity extends AppCompatActivity {
 
     @Override

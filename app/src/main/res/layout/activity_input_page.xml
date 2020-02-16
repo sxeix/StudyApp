@@ -34,10 +34,7 @@
                 android:layout_marginRight="10dp"
                 android:ems="10"
                 android:hint="Title"
-                android:inputType="textUri|textPersonName"
-                android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-                android:textColor="#000000"
-                android:textSize="14sp" />
+                android:inputType="textUri|textPersonName" />
 
             <EditText
                 android:id="@+id/eventLocationInput"
@@ -47,9 +44,7 @@
                 android:layout_marginRight="10dp"
                 android:ems="10"
                 android:hint="Location"
-                android:inputType="textPersonName"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/eventDescInput"
@@ -59,9 +54,7 @@
                 android:layout_marginRight="10dp"
                 android:ems="10"
                 android:hint="Description"
-                android:inputType="textPersonName"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:inputType="textPersonName" />
 
             <Button
                 android:id="@+id/pickDate"
@@ -79,7 +72,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/russo_one"
                 android:gravity="center_horizontal"
                 android:text="Start Date"
                 android:textColor="#000000"
@@ -90,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/russo_one"
                 android:gravity="center_horizontal"
                 android:text="Start Time"
                 android:textColor="#000000"
@@ -112,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/russo_one"
                 android:gravity="center_horizontal"
                 android:text="End Date"
                 android:textColor="#000000"
@@ -123,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
+                android:fontFamily="@font/russo_one"
                 android:gravity="center_horizontal"
                 android:text="End Time"
                 android:textColor="#000000"
