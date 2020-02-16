@@ -47,7 +47,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     EditText title, location, description;
     String t, l, d;
 
-    // These integers can be used to be passed into the event class
+    /** These integers can be used to be passed into the event class*/
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
 
@@ -105,7 +105,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                     eventsPage.EVENTS.AddEventUnchecked(x);
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
-                    // Make a notification asking the user to input more information
+                    /**Make a notification asking the user to input more information*/
                 }
             }
         });

@@ -34,21 +34,9 @@ public class eventsPage extends AppCompatActivity {
 
         listView = (ListView) findViewById(R.id.listView);
 
-         final ArrayList<String> arrayList = new ArrayList<>();
-         ArrayList<TimetableEvent> temp = EVENTS.getEvents();
-         for(TimetableEvent e: temp) arrayList.add(e.getName() + ": " + e.getStart().toString());
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
-//        arrayList.add("test1"); arrayList.add("test1"); arrayList.add("test1");
+        final ArrayList<String> arrayList = new ArrayList<>();
+        ArrayList<TimetableEvent> temp = EVENTS.getEvents();
+        for(TimetableEvent e: temp) arrayList.add(e.getName() + ": " + e.getStart().toString());
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
