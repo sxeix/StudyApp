@@ -3,5 +3,6 @@
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_events_page">Events</string>
+    <string name="title_activity_calendar_date">Events on Date</string>
 
 </resources>

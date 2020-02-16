@@ -168,7 +168,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     @TargetApi(26)
     public void onTimeSet(TimePicker view, int h, int m) {
         String date = formatCharacter(dayFinal) + formatCharacter(monthFinal) + formatCharacter(yearFinal);
-        String time = formatCharacter(hourFinal) + formatCharacter(minuteFinal) + "00";
+        String time = formatCharacter(h) + formatCharacter(m) + "00";
         String dateTime = date + time;
         DateTimeFormatter format = DateTimeFormatter.ofPattern("ddMMyyyyHHmmss");
         if (option == 1) {
