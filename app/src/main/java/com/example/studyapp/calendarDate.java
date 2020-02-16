@@ -33,7 +33,6 @@ public class calendarDate extends AppCompatActivity {
             if(e.getStart().getYear() == MainActivity.sYear && e.getStart().getMonthValue() == MainActivity.sMonth
             && e.getStart().getDayOfMonth() == MainActivity.sDay){
                 EVENTS_DAY.AddEventUnchecked(e);
-                Toast.makeText(calendarDate.this, "it worked", Toast.LENGTH_SHORT).show();
             }
         }
         title = (TextView) findViewById(R.id.eventsForDay);
