@@ -4,8 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".MainActivity">
+    android:background="@drawable/gradient_list"
+    tools:context=".MainActivity"
+    android:orientation="horizontal"
+    android:id="@+id/layout">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/Toolbar"
