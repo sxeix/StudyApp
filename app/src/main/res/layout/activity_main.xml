@@ -47,7 +47,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/custom_buttons"
-            android:text=" Add Event" />
+            android:text=" Add Event"
+            android:alpha="0.45"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

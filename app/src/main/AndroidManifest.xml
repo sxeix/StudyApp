@@ -18,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".calendarDate" android:screenOrientation="portrait">
+        <activity android:name=".calendarDate"
+            android:screenOrientation="portrait"
+            android:label="@string/title_activity_calendar_date"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
             android:name=".eventsPage"
@@ -37,7 +40,6 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".InputPage"
             android:screenOrientation="portrait"/>
-
 
         <meta-data
             android:name="preloaded_fonts"

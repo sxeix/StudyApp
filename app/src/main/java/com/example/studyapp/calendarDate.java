@@ -35,7 +35,7 @@ public class calendarDate extends AppCompatActivity {
                 EVENTS_DAY.AddEventUnchecked(e);
             }
         }
-        title = (TextView) findViewById(R.id.eventsForDay);
+        title = findViewById(R.id.eventsForDay);
         title.setText("Events for " + MainActivity.sDay + "/" + MainActivity.sMonth + "/" + MainActivity.sYear);
         listView = (ListView) findViewById(R.id.listView);
 
@@ -68,7 +68,7 @@ public class calendarDate extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.events){
-            Intent eventspage = new Intent(calendarDate.this, calendarDate.class);
+            Intent eventspage = new Intent(calendarDate.this, eventsPage.class);
             startActivity(eventspage);
         }else if(id == R.id.about){
             Intent infopage = new Intent(calendarDate.this, infoPage.class);
