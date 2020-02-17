@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.studyapp">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/studynow_launchericon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".calendarDate"></activity>
+        <activity
+            android:name=".eventsPage"
+            android:label="@string/title_activity_events_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".settingsPage"
+            android:label="@string/title_activity_settings_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".infoPage"
+            android:label="@string/title_activity_info_page"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".InputPage" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>
