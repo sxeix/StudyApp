@@ -3,10 +3,16 @@ package studynowbackend;
 import java.util.ArrayList;
 
 public class Timetable {
+    private static Timetable instance = new Timetable();
+
     private ArrayList<TimetableEvent> events;
 
-    public Timetable() {
+    private Timetable() {
         this.events = new ArrayList<>();
+    }
+
+    public static Timetable getInstance() {
+        return instance;
     }
 
     public ArrayList<TimetableEvent> getEvents() {

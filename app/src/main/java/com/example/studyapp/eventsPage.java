@@ -23,7 +23,6 @@ import studynowbackend.TimetableEvent;
 
 public class eventsPage extends AppCompatActivity {
     ListView listView;
-    public static Timetable EVENTS = new Timetable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +34,9 @@ public class eventsPage extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
 
         final ArrayList<String> arrayList = new ArrayList<>();
-        ArrayList<TimetableEvent> temp = EVENTS.getEvents();
-        for(TimetableEvent e: temp) arrayList.add(e.getName() + ": " + e.getStart().toString());
+        for(TimetableEvent e: Timetable.getInstance().getEvents()) {
+            arrayList.add(e.getName() + ": " + e.getStart().toString());
+        }
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);

@@ -102,7 +102,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 if (set1 && set2 && t.equals("") == false && l.equals("") == false && d.equals("") == false ) {
                     Toast.makeText(InputPage.this, "Event added", Toast.LENGTH_SHORT).show();
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end);
-                    eventsPage.EVENTS.AddEventUnchecked(x);
+                    Timetable.getInstance().AddEventUnchecked(x);
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
                     /**Make a notification asking the user to input more information*/
