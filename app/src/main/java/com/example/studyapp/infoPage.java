@@ -13,9 +13,17 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class infoPage extends AppCompatActivity {
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**Imports theme mode user preferences*/
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_page);
         Toolbar toolbar = findViewById(R.id.toolbar);

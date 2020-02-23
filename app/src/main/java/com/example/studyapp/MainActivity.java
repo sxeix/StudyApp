@@ -1,6 +1,7 @@
 package com.example.studyapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.renderscript.ScriptGroup;
 import android.support.constraint.ConstraintLayout;
@@ -11,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.support.v7.widget.Toolbar;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.CalendarView;
 import studynowbackend.Timetable;
@@ -18,24 +21,38 @@ import studynowbackend.TimetableEvent;
 
 
 public class MainActivity extends AppCompatActivity {
+    SharedPrefs sharedPrefs;
     public static CalendarView calendar;
     public static int sDay, sMonth, sYear;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        /**Imports theme mode user preferences*/
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configureNextButton();
+        /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
+        Toolbar toolbar = findViewById(R.id.Toolbar);
+        setSupportActionBar(toolbar);
 
-        /** Creating the animation for the background */
+        /** Creating the animation for the background *//*
         ConstraintLayout constraintLayout = findViewById(R.id.layout);
         AnimationDrawable animationDrawable = (AnimationDrawable)constraintLayout.getBackground();
         animationDrawable.setEnterFadeDuration(2000);
         animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();
+        animationDrawable.start();*/
 
-        /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
-        Toolbar toolbar = findViewById(R.id.Toolbar);
-        setSupportActionBar(toolbar);
+
 
         calendar = (CalendarView)findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
@@ -45,6 +62,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, calendarDate.class));
             }
         });
+
+
+
     }
 
     /** Toolbar dropdown menu*/

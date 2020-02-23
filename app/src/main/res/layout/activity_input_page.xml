@@ -27,21 +27,27 @@
 
             <Switch
                 android:id="@+id/dayEventSwitch"
-                android:padding="@dimen/cardview_default_radius"
-                android:checked="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:checked="false"
                 android:gravity="center_horizontal|fill_horizontal|center_vertical"
-                android:text="All Day Event" />
+                android:padding="@dimen/cardview_default_radius"
+                android:text="All Day Event"
+                android:textColor="#000000" />
 
             <Switch
                 android:id="@+id/routineEventSwitch"
-                android:padding="@dimen/cardview_default_radius"
-                android:checked="false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:checked="false"
                 android:gravity="center_horizontal|fill_horizontal|center_vertical"
-                android:text="Routine event" />
+                android:padding="@dimen/cardview_default_radius"
+                android:text="Routine event"
+                android:textColor="#000000" />
 
             <EditText
                 android:id="@+id/eventTitleInput"
@@ -55,6 +61,8 @@
                 android:inputType="textUri|textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
                 android:textSize="14sp" />
 
             <EditText
@@ -67,7 +75,8 @@
                 android:hint="Location"
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
 
             <EditText
                 android:id="@+id/eventDescInput"
@@ -79,7 +88,8 @@
                 android:hint="Description"
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textColorHint="#000000" />
 
             <Button
                 android:id="@+id/pickDate"
