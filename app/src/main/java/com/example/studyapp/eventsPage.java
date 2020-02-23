@@ -44,7 +44,13 @@ public class eventsPage extends AppCompatActivity {
 
         final ArrayList<String> arrayList = new ArrayList<>();
         for(TimetableEvent e: Timetable.getInstance().getEvents()) {
-            arrayList.add(e.getName() + ": " + e.getStart().toString());
+            if (e.getType() == 1) {
+                arrayList.add(0,e.getName() + ": All Day Event");
+            } else if (e.getType() == 2) {
+                arrayList.add(e.getName() + " // routine : " + e.getStart().toString());
+            } else {
+                arrayList.add(e.getName() + ": " + e.getStart().toString());
+            }
         }
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);

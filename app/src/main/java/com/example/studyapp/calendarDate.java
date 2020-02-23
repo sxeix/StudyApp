@@ -42,12 +42,21 @@ public class calendarDate extends AppCompatActivity {
         final ArrayList<String> arrayList = new ArrayList<>();
         for(TimetableEvent e: Timetable.getInstance().getEvents()){
             if(e.getStart().getYear() == MainActivity.sYear && e.getStart().getMonthValue() == MainActivity.sMonth
-                    && e.getStart().getDayOfMonth() == MainActivity.sDay) {
+                    && e.getStart().getDayOfMonth() == MainActivity.sDay && e.getType() == 0) {
                 arrayList.add(e.getName() + ": "
                         + InputPage.formatCharacter(e.getStart().getHour()) + ":"
                         + InputPage.formatCharacter(e.getStart().getMinute()) + "-"
                         + InputPage.formatCharacter(e.getEnd().getHour()) + ":"
                         + InputPage.formatCharacter(e.getEnd().getMinute()));
+            } else if (e.getType() == 2){
+                arrayList.add(e.getName() + " // routine: "
+                        + InputPage.formatCharacter(e.getStart().getHour()) + ":"
+                        + InputPage.formatCharacter(e.getStart().getMinute()) + "-"
+                        + InputPage.formatCharacter(e.getEnd().getHour()) + ":"
+                        + InputPage.formatCharacter(e.getEnd().getMinute()));
+            } else if(e.getStart().getYear() == MainActivity.sYear && e.getStart().getMonthValue() == MainActivity.sMonth
+                    && e.getStart().getDayOfMonth() == MainActivity.sDay && e.getType() == 1) {
+                arrayList.add(0, e.getName() + ": All Day Event");
             }
         }
 

@@ -8,13 +8,15 @@ public class TimetableEvent {
     private String location;
     private LocalDateTime start;
     private LocalDateTime end;
+    private int type;
 
-    public TimetableEvent(String name, String description, String location, LocalDateTime start, LocalDateTime end) {
+    public TimetableEvent(String name, String description, String location, LocalDateTime start, LocalDateTime end, int type) {
         this.name = name;
         this.description = description;
         this.location = location;
         this.start = start;
         this.end = end;
+        this.type = type;
     }
 
     public String getName() {
@@ -56,4 +58,6 @@ public class TimetableEvent {
     public void setEnd(LocalDateTime end) {
         this.end = end;
     }
+
+    public int getType() { return type; }
 }

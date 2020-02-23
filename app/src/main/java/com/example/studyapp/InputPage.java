@@ -128,13 +128,18 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 if (set1 && set2 && t.equals("") == false && l.equals("") == false && d.equals("") == false) {
                     if (!allDayEventBool && !routineEventBool) {
                         Toast.makeText(InputPage.this, "Custom event added", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end);
+                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 0);
                         Timetable.getInstance().AddEventUnchecked(x);
                         sortList(x);
                     } else if (allDayEventBool && !routineEventBool){
                         Toast.makeText(InputPage.this, "All Day Event Selected", Toast.LENGTH_SHORT).show();
+                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 1);
+                        Timetable.getInstance().AddEventUnchecked(x);
                     } else if (!allDayEventBool && routineEventBool){
                         Toast.makeText(InputPage.this, "Routine Event Selected", Toast.LENGTH_SHORT).show();
+                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 2);
+                        Timetable.getInstance().AddEventUnchecked(x);
+                        sortList(x);
                     } else Toast.makeText(InputPage.this, "Only select one Switch", Toast.LENGTH_SHORT).show();
 
                 } else {
