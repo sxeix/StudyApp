@@ -36,8 +36,11 @@ public class calendarDate extends AppCompatActivity {
         for(TimetableEvent e: Timetable.getInstance().getEvents()){
             if(e.getStart().getYear() == MainActivity.sYear && e.getStart().getMonthValue() == MainActivity.sMonth
                     && e.getStart().getDayOfMonth() == MainActivity.sDay) {
-                arrayList.add(e.getName() + ": " + e.getStart().getHour() + ":" + e.getStart().getMinute() + "-" +
-                        e.getEnd().getHour() + ":" + e.getEnd().getMinute());
+                arrayList.add(e.getName() + ": "
+                        + InputPage.formatCharacter(e.getStart().getHour()) + ":"
+                        + InputPage.formatCharacter(e.getStart().getMinute()) + "-"
+                        + InputPage.formatCharacter(e.getEnd().getHour()) + ":"
+                        + InputPage.formatCharacter(e.getEnd().getMinute()));
             }
         }
 
