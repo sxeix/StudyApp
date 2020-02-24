@@ -31,6 +31,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener {
+    SharedPrefs sharedPrefs;
 
     // These variables are for selecting the Date and Time for start time and end time
     Button b_pick;
@@ -60,6 +61,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**Imports theme mode user preferences*/
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -122,6 +131,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                         Toast.makeText(InputPage.this, "Custom event added", Toast.LENGTH_SHORT).show();
                         TimetableEvent x = new TimetableEvent(t, d, l, start, end);
                         Timetable.getInstance().AddEventUnchecked(x);
+                        sortList(x);
                     } else if (allDayEventBool && !routineEventBool){
                         Toast.makeText(InputPage.this, "All Day Event Selected", Toast.LENGTH_SHORT).show();
                     } else if (!allDayEventBool && routineEventBool){
@@ -221,12 +231,30 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     }
 
     // This method is used for displaying date and time values correctly
-    // If the value is less than 10 then it adds a '0' to the start of a string with the number
-    public String formatCharacter(int a) {
+    /** If the value is less than 10 then it adds a '0' to the start of a string with the number*/
+
+    public static String formatCharacter(int a) {
         if (a<10) {
             return "0" + a;
         }
         return Integer.toString(a);
+    }
+
+    @TargetApi(26)
+    public void sortList(TimetableEvent a){
+        if (Timetable.getInstance().getEvents().size() > 1) {
+            int index = Timetable.getInstance().getEvents().indexOf(a);
+            while (index > 0) {
+                if (a.getStart().isBefore(Timetable.getInstance().getEvents().get(index-1).getStart()))index--;
+                else {
+                    Timetable.getInstance().getEvents().remove(a);
+                    Timetable.getInstance().getEvents().add(index, a);
+                    return;
+                }
+            }
+            Timetable.getInstance().getEvents().remove(a);
+            Timetable.getInstance().getEvents().add(0, a);
+        }
     }
 
 }

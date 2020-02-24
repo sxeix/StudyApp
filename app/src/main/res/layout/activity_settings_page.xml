@@ -31,9 +31,9 @@
 
             <Switch
                 android:id="@+id/light_mode_switch"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Light Mode"
+                android:text="Light Mode / Dark Mode"
                 android:textColor="#000000" />
 
         </LinearLayout>

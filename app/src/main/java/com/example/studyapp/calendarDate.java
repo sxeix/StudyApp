@@ -18,13 +18,20 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class calendarDate extends AppCompatActivity {
+    SharedPrefs sharedPrefs;
     ListView listView;
     TextView title;
     @Override
     @TargetApi(26)
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
         setContentView(R.layout.activity_calendar_date);
+        super.onCreate(savedInstanceState);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -36,8 +43,11 @@ public class calendarDate extends AppCompatActivity {
         for(TimetableEvent e: Timetable.getInstance().getEvents()){
             if(e.getStart().getYear() == MainActivity.sYear && e.getStart().getMonthValue() == MainActivity.sMonth
                     && e.getStart().getDayOfMonth() == MainActivity.sDay) {
-                arrayList.add(e.getName() + ": " + e.getStart().getHour() + ":" + e.getStart().getMinute() + "-" +
-                        e.getEnd().getHour() + ":" + e.getEnd().getMinute());
+                arrayList.add(e.getName() + ": "
+                        + InputPage.formatCharacter(e.getStart().getHour()) + ":"
+                        + InputPage.formatCharacter(e.getStart().getMinute()) + "-"
+                        + InputPage.formatCharacter(e.getEnd().getHour()) + ":"
+                        + InputPage.formatCharacter(e.getEnd().getMinute()));
             }
         }
 
@@ -51,6 +61,8 @@ public class calendarDate extends AppCompatActivity {
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
     }
 
     /** Toolbar dropdown menu*/

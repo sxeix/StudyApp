@@ -23,9 +23,18 @@ import studynowbackend.TimetableEvent;
 
 public class eventsPage extends AppCompatActivity {
     ListView listView;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**Imports theme mode user preferences*/
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -49,6 +58,7 @@ public class eventsPage extends AppCompatActivity {
         });
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
 
     /** Toolbar dropdown menu*/
