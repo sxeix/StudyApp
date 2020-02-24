@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/colorPrimary"
     android:orientation="vertical"
-    tools:context=".calendarDate"
-    android:background="@color/colorPrimary">
+    tools:context=".calendarDate">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:text="TextView"
             android:textAlignment="center"
-            android:textSize="24sp"/>
+            android:textSize="24sp" />
 
         <ListView
             android:id="@+id/listView"

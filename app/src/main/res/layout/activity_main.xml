@@ -2,12 +2,12 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_list"
-    tools:context=".MainActivity"
+    android:background="@drawable/gradient_flare"
     android:orientation="horizontal"
-    android:id="@+id/layout">
+    tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/Toolbar"
@@ -46,9 +46,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:alpha="0.45"
             android:background="@drawable/custom_buttons"
-            android:text=" Add Event"
-            android:alpha="0.45"/>
+            android:text="@string/btnAdd_event" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

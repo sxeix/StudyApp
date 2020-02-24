@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputPage"
-    android:background="@color/colorPrimary">
+    tools:context=".InputPage">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:background="@drawable/colorPrimary"
+        android:theme="@style/AppTheme">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,24 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
-            <Switch
-                android:id="@+id/dayEventSwitch"
-                android:padding="@dimen/cardview_default_radius"
-                android:checked="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal|fill_horizontal|center_vertical"
-                android:text="All Day Event" />
-
-            <Switch
-                android:id="@+id/routineEventSwitch"
-                android:padding="@dimen/cardview_default_radius"
-                android:checked="false"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal|fill_horizontal|center_vertical"
-                android:text="Routine event" />
 
             <EditText
                 android:id="@+id/eventTitleInput"
@@ -56,6 +38,25 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000000"
                 android:textSize="14sp" />
+
+            <Switch
+                android:id="@+id/dayEventSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="@dimen/cardview_default_radius"
+                android:text="All Day Event"
+                android:textColor="@color/textcolor" />
+
+            <Switch
+                android:id="@+id/routineEventSwitch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:text="Routine event"
+                android:textColor="@color/textcolor" />
 
             <EditText
                 android:id="@+id/eventLocationInput"

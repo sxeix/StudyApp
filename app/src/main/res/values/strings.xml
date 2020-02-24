@@ -4,5 +4,6 @@
     <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
+    <string name="btnAdd_event">Add Event</string>
 
 </resources>
