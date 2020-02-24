@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/colorPrimary"
+    android:background="@drawable/gradient_sunset"
     tools:context=".infoPage">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/gradient_sunset"
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
@@ -18,7 +19,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorAccent"
+            android:background="@drawable/gradient_sunset"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <LinearLayout

@@ -6,6 +6,7 @@ import android.renderscript.ScriptGroup;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.style.BackgroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,12 +27,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         configureNextButton();
 
+
         /** Creating the animation for the background */
-        ConstraintLayout constraintLayout = findViewById(R.id.layout);
-        AnimationDrawable animationDrawable = (AnimationDrawable)constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();
+//        ConstraintLayout constraintLayout = findViewById(R.id.layout);
+//        AnimationDrawable animationDrawable = (AnimationDrawable)constraintLayout.getBackground();
+//        animationDrawable.setEnterFadeDuration(2000);
+//        animationDrawable.setExitFadeDuration(4000);
+//        animationDrawable.start();
 
         /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
         Toolbar toolbar = findViewById(R.id.Toolbar);

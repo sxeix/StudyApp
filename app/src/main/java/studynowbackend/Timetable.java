@@ -7,7 +7,7 @@ public class Timetable {
 
     private ArrayList<TimetableEvent> events;
 
-    public Timetable() {
+    private Timetable() {
         this.events = new ArrayList<>();
     }
 

@@ -4,25 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InputPage">
+    tools:context=".InputPage"
+    android:background="@color/colorPrimary">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/colorPrimary"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorAccent"
+            android:background="@drawable/gradient_sunset"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@drawable/gradient_sunset"
             android:orientation="vertical">
 
             <EditText
@@ -37,26 +38,33 @@
                 android:inputType="textUri|textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
                 android:textColor="#000000"
-                android:textSize="14sp" />
+                android:textColorHint="#000000"
+                android:textSize="14sp"
+                android:textStyle="italic"
+                android:backgroundTint="#000000"/>
 
             <Switch
                 android:id="@+id/dayEventSwitch"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:checked="false"
                 android:gravity="center_horizontal|fill_horizontal|center_vertical"
                 android:padding="@dimen/cardview_default_radius"
                 android:text="All Day Event"
-                android:textColor="@color/textcolor" />
+                android:textColor="#000000"
+                android:textColorHighlight="@color/colorAccent" />
 
             <Switch
                 android:id="@+id/routineEventSwitch"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:checked="false"
                 android:gravity="center_horizontal|fill_horizontal|center_vertical"
-                android:text="Routine event"
-                android:textColor="@color/textcolor" />
+                android:padding="@dimen/cardview_default_radius"
+                android:text="Routine Event"
+                android:textColor="#000000" />
 
             <EditText
                 android:id="@+id/eventLocationInput"
@@ -68,19 +76,26 @@
                 android:hint="Location"
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:backgroundTint="#000000"
+                android:textStyle="italic" />
 
             <EditText
                 android:id="@+id/eventDescInput"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="120dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:ems="10"
                 android:hint="Description"
                 android:inputType="textPersonName"
+                android:singleLine="false"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:backgroundTint="#000000"
+                android:textColorHint="#000000"
+                android:textStyle="italic" />
 
             <Button
                 android:id="@+id/pickDate"
@@ -93,60 +108,80 @@
                 android:text="Pick Start Date and Time"
                 android:textColor="#000000" />
 
-            <TextView
-                android:id="@+id/dateTV"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal"
-                android:text="Start Date"
-                android:textColor="#000000"
-                android:textSize="24sp" />
+                android:padding="0dp">
 
-            <TextView
-                android:id="@+id/timeTV"
-                android:layout_width="match_parent"
-                android:layout_height="37dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal"
-                android:text="Start Time"
-                android:textColor="#000000"
-                android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/dateTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="50"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:text="Start Date:"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/timeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="50"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center_horizontal"
+                    android:text="Start Time"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/pickEndDate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/custom_buttons"
                 android:text="Pick End Date and Time"
                 android:textColor="#000000" />
 
-            <TextView
-                android:id="@+id/dateTVend"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal"
-                android:text="End Date"
-                android:textColor="#000000"
-                android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/timeTVend"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="sans-serif-thin"
-                android:gravity="center_horizontal"
-                android:text="End Time"
-                android:textColor="#000000"
-                android:textSize="24sp" />
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/dateTVend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:text="End Date:      "
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/timeTVend"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="70"
+                    android:fontFamily="sans-serif-thin"
+                    android:gravity="center"
+                    android:text="End Time    "
+                    android:textAlignment="center"
+                    android:textColor="#000000"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/addEventButton"

@@ -5,7 +5,7 @@
     android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_flare"
+    android:background="@drawable/gradient_sunset"
     android:orientation="horizontal"
     tools:context=".MainActivity">
 
@@ -13,7 +13,7 @@
         android:id="@+id/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
+        android:background="@drawable/gradient_sunset"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:logo="@drawable/calendaricon"
         app:popupTheme="@color/colorPrimary"
@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:weekNumberColor="@color/colorPrimaryDark" />
 
         <Button
             android:id="@+id/AddEvent"
@@ -46,9 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:alpha="0.45"
             android:background="@drawable/custom_buttons"
-            android:text="@string/btnAdd_event" />
+            android:text=" Add Event" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/colorPrimary"
+    android:background="@drawable/gradient_sunset"
     android:orientation="vertical"
     tools:context=".eventsPage">
 
@@ -17,7 +17,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorAccent"
+            android:background="@drawable/gradient_sunset"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -31,7 +31,6 @@
             android:id="@+id/listView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
         </ListView>
 
     </LinearLayout>

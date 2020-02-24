@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FC6D00</color>
+    <color name="colorPrimary">#BBBBBB</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FC6D00</color>
-    <color name="textcolor">#FFFFFF</color>
-    <drawable name="colorPrimary">@drawable/gradient_flare</drawable>
-
 </resources>
