@@ -2,10 +2,12 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:orientation="vertical"
     tools:context=".MainActivity">
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -16,34 +18,28 @@
             android:id="@+id/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:touchscreenBlocksFocus="false"
+            android:transitionGroup="false"
+            android:visibility="visible"
             app:logo="@drawable/calendaricon"
-            app:popupTheme="@color/colorPrimary"
-            app:title="Study Now"
-            app:titleMarginStart="30dp"
-            tools:ignore="MissingConstraints" />
+            app:title="@string/app_name"
+            app:titleMarginStart="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Toolbar">
+            android:text="@string/app_name">
 
             <CalendarView
                 android:id="@+id/calendarView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:dateTextAppearance="@style/CalenderViewDateCustomText"
                 android:theme="@style/CalenderViewCustom"
-                android:weekDayTextAppearance="@style/CalenderViewWeekCustomText"
-                 />
+                android:weekDayTextAppearance="@style/CalenderViewWeekCustomText" />
 
             <Button
                 android:id="@+id/AddEvent"
@@ -54,6 +50,7 @@
                 android:alpha="0.45"
                 android:background="@drawable/custom_buttons"
                 android:text=" Add Event" />
+
         </LinearLayout>
-    </android.support.design.widget.AppBarLayout>
+</android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>
