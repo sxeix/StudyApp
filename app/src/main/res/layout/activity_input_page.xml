@@ -34,11 +34,11 @@
                 android:hint="Title"
                 android:inputType="textUri|textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display2"
+                android:backgroundTint="#000000"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
                 android:textSize="14sp"
-                android:textStyle="italic"
-                android:backgroundTint="#000000"/>
+                android:textStyle="italic" />
 
             <Switch
                 android:id="@+id/dayEventSwitch"
@@ -46,11 +46,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|end"
                 android:checked="false"
-                android:textSize="14dp"
                 android:padding="@dimen/cardview_default_radius"
                 android:text="All Day Event"
                 android:textColor="#000000"
-                android:textColorHighlight="@color/colorAccent" />
+                android:textColorHighlight="@color/colorAccent"
+                android:textSize="14dp" />
 
             <Switch
                 android:id="@+id/routineEventSwitch"
@@ -58,18 +58,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:checked="false"
-                android:textSize="14dp"
                 android:padding="@dimen/cardview_default_radius"
                 android:text="Routine Event"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                android:textSize="14dp" />
 
             <Spinner
                 android:id="@+id/routine"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:textAlignment="center"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textAlignment="center" />
 
             <EditText
                 android:id="@+id/eventLocationInput"
@@ -77,13 +77,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
+                android:backgroundTint="#000000"
                 android:ems="10"
                 android:hint="Location"
                 android:inputType="textPersonName"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 android:textColor="#000000"
                 android:textColorHint="#000000"
-                android:backgroundTint="#000000"
                 android:textStyle="italic" />
 
             <MultiAutoCompleteTextView
@@ -123,7 +123,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="50"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
@@ -138,6 +138,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginEnd="8dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="50"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center_horizontal"
@@ -166,6 +167,7 @@
                     android:id="@+id/dateTVend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
                     android:layout_weight="50"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
@@ -178,7 +180,8 @@
                     android:id="@+id/timeTVend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="70"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="50"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
                     android:text="End Time    "

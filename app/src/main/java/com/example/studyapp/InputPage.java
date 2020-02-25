@@ -33,7 +33,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener {
-
+    SharedPrefs sharedPrefs;
     // These variables are for selecting the Date and Time for start time and end time
     Button b_pick;
     TextView tv_result, tv_result2;
@@ -62,6 +62,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**Imports theme mode user preferences*/
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -231,7 +239,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     // This method is used for displaying date and time values correctly
     // If the value is less than 10 then it adds a '0' to the start of a string with the number
-    public String formatCharacter(int a) {
+    public static String formatCharacter(int a) {
         if (a<10) {
             return "0" + a;
         }
