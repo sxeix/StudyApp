@@ -17,8 +17,8 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.CalendarView;
-import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
+import studynowbackend.Timetable;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,14 +45,6 @@ public class MainActivity extends AppCompatActivity {
         /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
-
-
-        /** Creating the animation for the background *//*
-        ConstraintLayout constraintLayout = findViewById(R.id.layout);
-        AnimationDrawable animationDrawable = (AnimationDrawable)constraintLayout.getBackground();
-        animationDrawable.setEnterFadeDuration(2000);
-        animationDrawable.setExitFadeDuration(4000);
-        animationDrawable.start();*/
 
         calendar = (CalendarView)findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
