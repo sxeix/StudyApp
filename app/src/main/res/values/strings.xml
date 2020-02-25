@@ -4,6 +4,13 @@
     <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
-    <string name="title_activity_input_page">Create Event</string>
+    <string name="title_activity_input_page">Add Event</string>
 
+    <string-array name="Repeat">
+        <item>Once a day</item>
+        <item>Once a week</item>
+        <item>Once every 2 weeks</item>
+        <item>Once a month</item>
+        <item>Once a year</item>
+    </string-array>
 </resources>

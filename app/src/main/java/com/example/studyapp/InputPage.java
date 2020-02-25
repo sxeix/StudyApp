@@ -13,10 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -74,6 +76,13 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+//        Spinner code
+        Spinner mySpinner = (Spinner)findViewById(R.id.routine);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputPage.this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Repeat));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        mySpinner.setAdapter(myAdapter);
+
         // Following code initializes two buttons that are used to indicate all day and routine events#
         // Each switch shares the same function to update the variable holding the boolean
         Switch allSwitch = (Switch) findViewById(R.id.dayEventSwitch);
@@ -130,7 +139,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                         Toast.makeText(InputPage.this, "Custom event added", Toast.LENGTH_SHORT).show();
                         TimetableEvent x = new TimetableEvent(t, d, l, start, end, 0);
                         Timetable.getInstance().AddEventUnchecked(x);
-                        sortList(x);
                     } else if (allDayEventBool && !routineEventBool){
                         Toast.makeText(InputPage.this, "All Day Event Selected", Toast.LENGTH_SHORT).show();
                         TimetableEvent x = new TimetableEvent(t, d, l, start, end, 1);
@@ -241,23 +249,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             return "0" + a;
         }
         return Integer.toString(a);
-    }
-
-    @TargetApi(26)
-    public void sortList(TimetableEvent a){
-        if (Timetable.getInstance().getEvents().size() > 1) {
-            int index = Timetable.getInstance().getEvents().indexOf(a);
-            while (index > 0) {
-                if (a.getStart().isBefore(Timetable.getInstance().getEvents().get(index-1).getStart()))index--;
-                else {
-                    Timetable.getInstance().getEvents().remove(a);
-                    Timetable.getInstance().getEvents().add(index, a);
-                    return;
-                }
-            }
-            Timetable.getInstance().getEvents().remove(a);
-            Timetable.getInstance().getEvents().add(0, a);
-        }
     }
 
 }
