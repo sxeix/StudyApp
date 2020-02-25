@@ -51,10 +51,13 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     // Set1 and set2 are used to determine whether a start date and end time have been selected
     boolean set1 = false, set2 = false;
+
     // The two following booleans are for the switches
     boolean allDayEventBool, routineEventBool;
+
     // LocalDateTime variables to hold the start time and end time before being passed to the instance creation of an event
     LocalDateTime start, end;
+
     // Variable, option, is used to indicate whether the start time is being selected or the end time
     int option = 0;
 
