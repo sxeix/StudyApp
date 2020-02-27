@@ -21,7 +21,7 @@ import studynowbackend.TimetableEvent;
 
 
 public class MainActivity extends AppCompatActivity {
-    SharedPrefs sharedPrefs;
+//    SharedPrefs sharedPrefs;
     public static CalendarView calendar;
     public static int sDay, sMonth, sYear;
 
@@ -31,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         /**Imports theme mode user preferences*/
-        sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
-        }else{
-            setTheme(R.style.AppTheme);
-        }
+//        sharedPrefs = new SharedPrefs(this);
+//        if(sharedPrefs.loadNightMode()){
+//            setTheme(R.style.LightMode);
+//        }else{
+//            setTheme(R.style.AppTheme);
+//        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
