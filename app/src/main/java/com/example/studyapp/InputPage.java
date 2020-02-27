@@ -13,6 +13,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -32,7 +33,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener {
+public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
 //    SharedPrefs sharedPrefs;
     // These variables are for selecting the Date and Time for start time and end time
     Button b_pick;
@@ -56,6 +57,9 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     // The two following booleans are for the switches
     boolean allDayEventBool, routineEventBool;
+
+    // Routine type variable
+    String routineType;
 
     // LocalDateTime variables to hold the start time and end time before being passed to the instance creation of an event
     LocalDateTime start, end;
@@ -86,6 +90,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Repeat));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
+        mySpinner.setOnItemSelectedListener(this);
 
         // Following code initializes two buttons that are used to indicate all day and routine events#
         // Each switch shares the same function to update the variable holding the boolean
@@ -273,4 +278,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         }
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        routineType = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), routineType, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }
