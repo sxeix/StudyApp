@@ -158,7 +158,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                         TimetableEvent x = new TimetableEvent(t, d, l, start, end, 2);
                         Timetable.getInstance().AddEventUnchecked(x);
                         sortList(x);
-                    } else Toast.makeText(InputPage.this, "Only select one Switch", Toast.LENGTH_SHORT).show();
+                    } else {
+                        // This needs altering for all day routine events
+                        Toast.makeText(InputPage.this, "All Day Routine Event Selected", Toast.LENGTH_SHORT).show();
+                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 0);
+                        Timetable.getInstance().AddEventUnchecked(x);
+                    }
 
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
