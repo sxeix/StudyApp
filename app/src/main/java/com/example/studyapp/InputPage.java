@@ -261,17 +261,16 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String routineType = parent.getItemAtPosition(position).toString();
-        switch (routineType){
-            case "Do Not Repeat":
+        switch (position){
+            case 0: // Do Not Repeat
                 spinnerOption = RepeatFrequency.NoRepeat; break;
-            case "Daily":
+            case 1: // Daily
                 spinnerOption = RepeatFrequency.Daily; break;
-            case "Weekly":
+            case 2: // Weekly
                 spinnerOption = RepeatFrequency.Weekly; break;
-            case "Monthly":
+            case 3: // Monthly
                 spinnerOption = RepeatFrequency.Monthly; break;
-            case "Yearly":
+            case 4: // Yearly
                 spinnerOption = RepeatFrequency.Yearly; break;
             default:
                 Toast.makeText(InputPage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
