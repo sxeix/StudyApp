@@ -1,5 +1,6 @@
 package com.example.studyapp;
 
+import studynowbackend.RepeatFrequency;
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
 
@@ -58,14 +59,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // The two following booleans are for the switches
     boolean allDayEventBool, routineEventBool;
 
-    // Routine type variable
-    String routineType;
-
     // LocalDateTime variables to hold the start time and end time before being passed to the instance creation of an event
     LocalDateTime start, end;
 
     // Variable, option, is used to indicate whether the start time is being selected or the end time
     int option = 0;
+
+    // Variable to define the repeat frequency selected by the user
+    RepeatFrequency spinnerOption;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,9 +97,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         // Each switch shares the same function to update the variable holding the boolean
         Switch allSwitch = (Switch) findViewById(R.id.dayEventSwitch);
         allSwitch.setOnCheckedChangeListener(this);
-
-        Switch routineSwitch = (Switch) findViewById(R.id.routineEventSwitch);
-        routineSwitch.setOnCheckedChangeListener(this);
 
 
         // Starts the sequence of methods to get the user's start date and time input
@@ -142,32 +140,11 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 t = title.getText().toString();
                 l = location.getText().toString();
                 d = description.getText().toString();
-
-                if (set1 && set2 && t.equals("") == false && l.equals("") == false && d.equals("") == false) {
-                    if (!allDayEventBool && !routineEventBool) {
-                        Toast.makeText(InputPage.this, "Custom event added", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 0);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                        sortList(x);
-                    } else if (allDayEventBool && !routineEventBool){
-                        Toast.makeText(InputPage.this, "All Day Event Selected", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 1);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                    } else if (!allDayEventBool && routineEventBool){
-                        Toast.makeText(InputPage.this, "Routine Event Selected", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 2);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                        sortList(x);
-                    } else {
-                        // This needs altering for all day routine events
-                        Toast.makeText(InputPage.this, "All Day Routine Event Selected", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 0);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                    }
-
+                if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
+                    TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
+                    Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
-                    /**Make a notification asking the user to input more information*/
                 }
             }
         });
@@ -177,7 +154,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(buttonView.getId() == R.id.dayEventSwitch) allDayEventBool = isChecked;
-        else if (buttonView.getId() == R.id.routineEventSwitch) routineEventBool = isChecked;
     }
 
     /** Toolbar dropdown menu*/
@@ -285,8 +261,21 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        routineType = parent.getItemAtPosition(position).toString();
-        Toast.makeText(parent.getContext(), routineType, Toast.LENGTH_SHORT).show();
+        String routineType = parent.getItemAtPosition(position).toString();
+        switch (routineType){
+            case "Do Not Repeat":
+                spinnerOption = RepeatFrequency.NoRepeat; break;
+            case "Daily":
+                spinnerOption = RepeatFrequency.Daily; break;
+            case "Weekly":
+                spinnerOption = RepeatFrequency.Weekly; break;
+            case "Monthly":
+                spinnerOption = RepeatFrequency.Monthly; break;
+            case "Yearly":
+                spinnerOption = RepeatFrequency.Yearly; break;
+            default:
+                Toast.makeText(InputPage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
