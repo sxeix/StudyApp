@@ -28,9 +28,6 @@ import android.text.format.DateFormat;
 import android.widget.Toast;
 
 import java.time.LocalDateTime;
-
-
-// import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
@@ -83,7 +80,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         setContentView(R.layout.activity_input_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // Spinner code
         Spinner mySpinner = (Spinner)findViewById(R.id.routine);
