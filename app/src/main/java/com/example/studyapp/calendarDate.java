@@ -18,18 +18,18 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class calendarDate extends AppCompatActivity {
-//    SharedPrefs sharedPrefs;
+    SharedPrefs sharedPrefs;
     ListView listView;
     TextView title;
     @Override
     @TargetApi(26)
     protected void onCreate(Bundle savedInstanceState) {
-//        sharedPrefs = new SharedPrefs(this);
-//        if(sharedPrefs.loadNightMode()){
-//            setTheme(R.style.LightMode);
-//        }else{
-//            setTheme(R.style.AppTheme);
-//        }
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
         setContentView(R.layout.activity_calendar_date);
         super.onCreate(savedInstanceState);
         Toolbar toolbar = findViewById(R.id.toolbar);
