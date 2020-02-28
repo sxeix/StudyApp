@@ -1,5 +1,6 @@
 package com.example.studyapp;
 
+import studynowbackend.RepeatFrequency;
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
 
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -26,14 +28,11 @@ import android.text.format.DateFormat;
 import android.widget.Toast;
 
 import java.time.LocalDateTime;
-
-
-// import java.text.DateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
-public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener {
-    SharedPrefs sharedPrefs;
+public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
+//    SharedPrefs sharedPrefs;
     // These variables are for selecting the Date and Time for start time and end time
     Button b_pick;
     TextView tv_result, tv_result2;
@@ -63,15 +62,19 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // Variable, option, is used to indicate whether the start time is being selected or the end time
     int option = 0;
 
+    // Variable to define the repeat frequency selected by the user
+    RepeatFrequency spinnerOption;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
-        sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
-        }else{
-            setTheme(R.style.AppTheme);
-        }
+
+//        sharedPrefs = new SharedPrefs(this);
+//        if(sharedPrefs.loadNightMode()){
+//            setTheme(R.style.LightMode);
+//        }else{
+//            setTheme(R.style.AppTheme);
+//        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
@@ -85,14 +88,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Repeat));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
+        mySpinner.setOnItemSelectedListener(this);
 
         // Following code initializes two buttons that are used to indicate all day and routine events#
         // Each switch shares the same function to update the variable holding the boolean
         Switch allSwitch = (Switch) findViewById(R.id.dayEventSwitch);
         allSwitch.setOnCheckedChangeListener(this);
-
-        Switch routineSwitch = (Switch) findViewById(R.id.routineEventSwitch);
-        routineSwitch.setOnCheckedChangeListener(this);
 
 
         // Starts the sequence of methods to get the user's start date and time input
@@ -136,27 +137,11 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 t = title.getText().toString();
                 l = location.getText().toString();
                 d = description.getText().toString();
-
-                if (set1 && set2 && t.equals("") == false && l.equals("") == false && d.equals("") == false) {
-                    if (!allDayEventBool && !routineEventBool) {
-                        Toast.makeText(InputPage.this, "Custom event added", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 0);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                        sortList(x);
-                    } else if (allDayEventBool && !routineEventBool){
-                        Toast.makeText(InputPage.this, "All Day Event Selected", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 1);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                    } else if (!allDayEventBool && routineEventBool){
-                        Toast.makeText(InputPage.this, "Routine Event Selected", Toast.LENGTH_SHORT).show();
-                        TimetableEvent x = new TimetableEvent(t, d, l, start, end, 2);
-                        Timetable.getInstance().AddEventUnchecked(x);
-                        sortList(x);
-                    } else Toast.makeText(InputPage.this, "Only select one Switch", Toast.LENGTH_SHORT).show();
-
+                if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
+                    TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
+                    Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
-                    /**Make a notification asking the user to input more information*/
                 }
             }
         });
@@ -166,7 +151,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if(buttonView.getId() == R.id.dayEventSwitch) allDayEventBool = isChecked;
-        else if (buttonView.getId() == R.id.routineEventSwitch) routineEventBool = isChecked;
     }
 
     /** Toolbar dropdown menu*/
@@ -272,4 +256,26 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         }
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (position){
+            case 0: // Do Not Repeat
+                spinnerOption = RepeatFrequency.NoRepeat; break;
+            case 1: // Daily
+                spinnerOption = RepeatFrequency.Daily; break;
+            case 2: // Weekly
+                spinnerOption = RepeatFrequency.Weekly; break;
+            case 3: // Monthly
+                spinnerOption = RepeatFrequency.Monthly; break;
+            case 4: // Yearly
+                spinnerOption = RepeatFrequency.Yearly; break;
+            default:
+                Toast.makeText(InputPage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

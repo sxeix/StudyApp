@@ -53,16 +53,6 @@
                 android:textColorHighlight="@color/colorAccent"
                 android:textSize="14dp" />
 
-            <Switch
-                android:id="@+id/routineEventSwitch"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:checked="false"
-                android:padding="@dimen/cardview_default_radius"
-                android:text="Routine Event"
-                android:textColor="#000000"
-                android:textSize="14dp" />
 
             <Spinner
                 android:id="@+id/routine"
@@ -126,6 +116,7 @@
                     android:layout_gravity="left"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="50"
+                    android:background="#00FFFFFF"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
                     android:text="Start Date:"
@@ -141,6 +132,7 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="10dp"
                     android:layout_weight="50"
+                    android:background="#00FFFFFF"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center_horizontal"
                     android:text="Start Time"
@@ -170,6 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_weight="50"
+                    android:background="#00FFFFFF"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
                     android:text="End Date:      "
@@ -183,6 +176,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:layout_weight="50"
+                    android:background="#00FFFFFF"
                     android:fontFamily="sans-serif-thin"
                     android:gravity="center"
                     android:text="End Time    "

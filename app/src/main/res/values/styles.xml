@@ -1,4 +1,50 @@
+<!--<resources>-->
+<!--    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/invisible</item>-->
+<!--        <item name="colorPrimaryDark">@color/invisible</item>-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="android:background">@drawable/gradient_50sog</item>-->
+<!--        <item name="android:windowAnimationStyle">@style/WindowTransition</item>-->
+<!--    </style>-->
+
+<!--    <style name="AppTheme.NoActionBar">-->
+<!--        <item name="windowActionBar">false</item>-->
+<!--        <item name="windowNoTitle">true</item>-->
+<!--    </style>-->
+
+<!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>-->
+<!--    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark"/>-->
+
+<!--    <style name="LightMode" parent="Theme.AppCompat.Light.NoActionBar">-->
+<!--        <item name="colorPrimary">@color/invisible</item>-->
+<!--        <item name="colorPrimaryDark">@color/invisible</item>-->
+<!--        <item name="colorAccent">#FC6D00</item>-->
+<!--        <item name="android:background">@drawable/gradient_sunset</item>-->
+<!--        <item name="android:windowAnimationStyle">@style/WindowTransition</item>-->
+<!--    </style>-->
+
+<!--    &lt;!&ndash;How the the transitions look like between pages&ndash;&gt;-->
+<!--    <style name="WindowTransition">-->
+<!--        <item name="android:windowEnterAnimation">@android:anim/fade_in</item>-->
+<!--        <item name="android:windowExitAnimation">@android:anim/fade_out</item>-->
+<!--    </style>-->
+
+<!--    <style name="CalenderViewCustom" parent="Theme.AppCompat">-->
+<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <item name="colorPrimary">@android:color/primary_text_light</item>-->
+<!--        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>-->
+<!--    </style>-->
+<!--    <style name="CalenderViewDateCustomText" parent="android:TextAppearance.DeviceDefault.Small">-->
+<!--        <item name="android:textColor">@android:color/primary_text_light</item>-->
+<!--    </style>-->
+<!--    <style name="CalenderViewWeekCustomText" parent="android:TextAppearance.DeviceDefault.Small">-->
+<!--        <item name="android:textColor">@android:color/primary_text_light</item>-->
+<!--    </style>-->
+<!--</resources>-->
+
 <resources>
+
+    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/invisible</item>
         <item name="colorPrimaryDark">@color/invisible</item>
@@ -13,8 +59,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
     <style name="LightMode" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/invisible</item>
