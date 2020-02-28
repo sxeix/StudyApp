@@ -34,7 +34,7 @@
                 android:checked="false"
                 android:gravity="center_horizontal|fill_horizontal|center_vertical"
                 android:padding="2dp"
-                android:text="Light Mode / Dark Mode"
+                android:text="Change colour"
                 android:textColor="#000000" />
 
         </LinearLayout>
