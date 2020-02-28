@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     public static int sDay, sMonth, sYear, dayOfWeek;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -66,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, calendarDate.class));
             }
         });
-
-
-
     }
 
     /** Toolbar dropdown menu*/

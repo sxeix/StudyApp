@@ -37,31 +37,31 @@ public class settingsPage extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         colorMode = (Switch) findViewById(R.id.light_mode_switch);
-//        if(sharedPrefs.loadNightMode()){
-//            colorMode.setChecked(true);
-//        }
-//        colorMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton view, boolean isChecked) {
-//                if(isChecked){
-//                    sharedPrefs.setNightMode(true);
-//                    restartApp();
-//                }else{
-//                    sharedPrefs.setNightMode(false);
-//                    restartApp();
-//                }
-//            }
-//        });
-    }
+        if(sharedPrefs.loadNightMode()){
+            colorMode.setChecked(true);
+        }
+        colorMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton view, boolean isChecked) {
+                if(isChecked){
+                    sharedPrefs.setNightMode(true);
+                    restartApp();
+                }else{
+                    sharedPrefs.setNightMode(false);
+                    restartApp();
+                }
+            }
+        });
+}
 
-//    public void restartApp(){
-//        Intent setgs =  new Intent(getApplicationContext(), settingsPage.class);
-//        Intent setgs2 = new Intent(getApplicationContext(), MainActivity.class);
-//        setgs2.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//        startActivity(setgs2);
-//        startActivity(setgs);
-//        finish();
-//    }
+    public void restartApp(){
+        Intent setgs =  new Intent(getApplicationContext(), settingsPage.class);
+        Intent setgs2 = new Intent(getApplicationContext(), MainActivity.class);
+        setgs2.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+        startActivity(setgs2);
+        startActivity(setgs);
+        finish();
+    }
 
 
 

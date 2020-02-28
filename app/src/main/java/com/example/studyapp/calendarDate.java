@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 
 public class calendarDate extends AppCompatActivity {
-    private SimpleAdapter sa;
+
     SharedPrefs sharedPrefs;
     ListView listView;
     TextView title;
