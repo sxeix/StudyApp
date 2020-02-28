@@ -24,7 +24,7 @@
             app:logo="@drawable/calendaricon"
             app:title="@string/app_name"
             app:titleMarginStart="30dp"
-            app:titleTextColor="#000000"/>
+            app:titleTextColor="#000000" />
 
         <LinearLayout
             android:layout_width="match_parent"
