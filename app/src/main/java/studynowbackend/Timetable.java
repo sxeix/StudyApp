@@ -19,6 +19,10 @@ public class Timetable {
 
     private Timetable() {
         this.events = new ArrayList<>();
+        this.dailyEvents = new ArrayList<>();
+        this.weeklyEvents = new ArrayList<>();
+        this.monthlyEvents = new ArrayList<>();
+        this.yearlyEvents = new ArrayList<>();
     }
 
     public static Timetable getInstance() {

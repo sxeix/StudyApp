@@ -18,16 +18,16 @@ import android.widget.Toast;
 
 public class settingsPage extends AppCompatActivity {
     public Switch colorMode;
-//    SharedPrefs sharedPrefs;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-//        sharedPrefs = new SharedPrefs(this);
-//        if(sharedPrefs.loadNightMode()){
-//            setTheme(R.style.LightMode);
-//        }else{
-//            setTheme(R.style.AppTheme);
-//        }
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);

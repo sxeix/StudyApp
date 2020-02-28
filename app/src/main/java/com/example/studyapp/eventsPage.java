@@ -23,17 +23,17 @@ import studynowbackend.TimetableEvent;
 
 public class eventsPage extends AppCompatActivity {
     ListView listView;
-//    SharedPrefs sharedPrefs;
+    SharedPrefs sharedPrefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
-//        sharedPrefs = new SharedPrefs(this);
-//        if(sharedPrefs.loadNightMode()){
-//            setTheme(R.style.LightMode);
-//        }else{
-//            setTheme(R.style.AppTheme);
-//        }
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_page);
@@ -55,7 +55,6 @@ public class eventsPage extends AppCompatActivity {
 
         ArrayAdapter arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList);
         listView.setAdapter(arrayAdapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {

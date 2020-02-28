@@ -32,7 +32,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
-//    SharedPrefs sharedPrefs;
+    SharedPrefs sharedPrefs;
     // These variables are for selecting the Date and Time for start time and end time
     Button b_pick;
     TextView tv_result, tv_result2;
@@ -69,12 +69,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
 
-//        sharedPrefs = new SharedPrefs(this);
-//        if(sharedPrefs.loadNightMode()){
-//            setTheme(R.style.LightMode);
-//        }else{
-//            setTheme(R.style.AppTheme);
-//        }
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
@@ -139,6 +139,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 d = description.getText().toString();
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
+                    Timetable.getInstance().getEvents().add(x);
+                    sortList(x);
                     Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();

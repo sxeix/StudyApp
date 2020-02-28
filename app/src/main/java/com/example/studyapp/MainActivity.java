@@ -16,14 +16,16 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.CalendarView;
+import java.util.Calendar;
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
+import java.util.GregorianCalendar;
 
 
 public class MainActivity extends AppCompatActivity {
-//    SharedPrefs sharedPrefs;
+    SharedPrefs sharedPrefs;
     public static CalendarView calendar;
-    public static int sDay, sMonth, sYear;
+    public static int sDay, sMonth, sYear, dayOfWeek;
 
 
 
@@ -31,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         /**Imports theme mode user preferences*/
-//        sharedPrefs = new SharedPrefs(this);
-//        if(sharedPrefs.loadNightMode()){
-//            setTheme(R.style.LightMode);
-//        }else{
-//            setTheme(R.style.AppTheme);
-//        }
+        sharedPrefs = new SharedPrefs(this);
+        if(sharedPrefs.loadNightMode()){
+            setTheme(R.style.LightMode);
+        }else{
+            setTheme(R.style.AppTheme);
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -59,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 sYear = year; sMonth = month +1; sDay = dayOfMonth;
+                Calendar calendar = new GregorianCalendar(year, month, dayOfMonth);
+                dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
                 startActivity(new Intent(MainActivity.this, calendarDate.class));
             }
         });

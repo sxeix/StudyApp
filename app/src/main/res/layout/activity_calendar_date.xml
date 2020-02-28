@@ -18,11 +18,6 @@
             android:layout_height="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:theme="@style/AppTheme.AppBarOverlay">
 
             <TextView
                 android:id="@+id/eventsForDay"
@@ -32,14 +27,20 @@
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="24sp" />
-
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
             <ListView
                 android:id="@+id/listView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-            </ListView>
-
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:scrollbarSize="3dp"
+                android:scrollbarStyle="outsideOverlay"
+                android:scrollbars="vertical"
+                android:scrollingCache="true"
+                android:smoothScrollbar="true" />
         </LinearLayout>
+
     </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>
