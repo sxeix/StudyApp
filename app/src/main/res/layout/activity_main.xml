@@ -37,10 +37,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="10dp" />
-<!--                android:dateTextAppearance="@style/CalenderViewDateCustomText"-->
-<!--                android:theme="@style/CalenderViewCustom"-->
-<!--                android:weekDayTextAppearance="@style/CalenderViewWeekCustomText" />-->
+                android:layout_marginBottom="10dp"
+                android:dateTextAppearance="@style/CalenderViewDateCustomText"
+                android:theme="@style/CalenderViewCustom"
+                android:weekDayTextAppearance="@style/CalenderViewWeekCustomText" />
 
             <Button
                 android:id="@+id/AddEvent"
