@@ -31,7 +31,7 @@
     <string name="application_version">Application Version: 2.0.3</string>
     <string name="participants">Created by: Segmentation Fault\n\nMembers:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
     <string name="eng">English</string>
-    <string name="jap">Japanese</string>
+    <string name="jap">日本語</string>
 
 
     <string-array name="Repeat">

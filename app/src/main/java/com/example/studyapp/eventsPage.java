@@ -173,7 +173,6 @@ public class eventsPage extends AppCompatActivity {
     }
 
     /** creates HashMap of event and then adds to array*/
-    @TargetApi(26)
     public void addToArrayList(TimetableEvent e){
         HashMap<String, String> item = new HashMap<String, String>();
         item.put("line1", "Event: " + e.getName());
