@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import studynowbackend.RepeatFrequency;
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
@@ -14,6 +13,7 @@ import android.annotation.TargetApi;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,7 +42,7 @@ public class calendarDate extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
+        final ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
         ArrayList<TimetableEvent> todayEvent = Timetable.getInstance().getEventsOnDay(MainActivity.localDate);
         HashMap<String,String> item;
         for(TimetableEvent e: todayEvent){
@@ -66,7 +66,33 @@ public class calendarDate extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
+        /** Ignore all bellow for now. Still working on popup window or page*/
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final PopupMenu popup = new PopupMenu(calendarDate.this, view);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.description:
+                                Intent description = new Intent(calendarDate.this, infoPage.class);
+                                for(TimetableEvent e: Timetable.getInstance().getEvents()) {
+                                    description.putExtra("Description", e.getDescription().toString());
+                                }
+                                startActivity(description);
+                                return true;
+                            case R.id.delete:
+                                list.remove(position);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
+            }
+        });
     }
 
     /** Toolbar dropdown menu*/

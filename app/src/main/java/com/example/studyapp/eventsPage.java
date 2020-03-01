@@ -15,13 +15,10 @@ import android.widget.ListView;
 import android.support.v7.widget.RecyclerView;
 import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
-
 import android.widget.ListAdapter;
 import android.view.View.MeasureSpec;
 
@@ -143,6 +140,113 @@ public class eventsPage extends AppCompatActivity {
             }
         });
 
+        vDaily.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final PopupMenu popup = new PopupMenu(eventsPage.this, view);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.description:
+                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                for(TimetableEvent e: Timetable.getInstance().getEvents()) {
+                                    description.putExtra("Description", e.getDescription().toString());
+                                }
+                                startActivity(description);
+                                return true;
+                            case R.id.delete:
+                                lDaily.remove(position);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
+            }
+        });
+
+        vWeekly.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final PopupMenu popup = new PopupMenu(eventsPage.this, view);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.description:
+                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                for(TimetableEvent e: Timetable.getInstance().getEvents()) {
+                                    description.putExtra("Description", e.getDescription().toString());
+                                }
+                                startActivity(description);
+                                return true;
+                            case R.id.delete:
+                                lWeekly.remove(position);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
+            }
+        });
+
+        vMonthly.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final PopupMenu popup = new PopupMenu(eventsPage.this, view);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.description:
+                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                for(TimetableEvent e: Timetable.getInstance().getEvents()) {
+                                    description.putExtra("Description", e.getDescription().toString());
+                                }
+                                startActivity(description);
+                                return true;
+                            case R.id.delete:
+                                lMonthly.remove(position);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
+            }
+        });
+
+        vYearly.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                final PopupMenu popup = new PopupMenu(eventsPage.this, view);
+                popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.description:
+                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                for(TimetableEvent e: Timetable.getInstance().getEvents()) {
+                                    description.putExtra("Description", e.getDescription().toString());
+                                }
+                                startActivity(description);
+                                return true;
+                            case R.id.delete:
+                                lYearly.remove(position);
+                                return true;
+                        }
+                        return false;
+                    }
+                });
+                popup.show();
+            }
+        });
     }
 
     /**
