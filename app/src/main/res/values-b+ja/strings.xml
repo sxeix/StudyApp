@@ -1,0 +1,49 @@
+<resources>
+    <!--    Page Titles     -->
+    <string name="app_name">勉強アプリ</string>
+    <string name="title_activity_info_page">詳細</string>
+    <string name="title_activity_events_page">イベント</string>
+    <string name="title_activity_calendar_date">日のイベント</string>
+
+    <!--    Universal Strings   -->
+    <string name="title_activity_input_page">イベントを追加</string>
+    <string name="title_activity_settings_page">設定</string>
+
+    <!--    Page elements   -->
+    <string name="change_colour">色を変更</string>
+    <string name="events_custom">特殊なイベント</string>
+    <string name="daily_custom">毎日のイベント</string>
+    <string name="weekly_custom">毎週のイベント</string>
+    <string name="monthly_custom">毎月のイベント</string>
+    <string name="yearly_custom">毎年のイベント</string>
+    <string name="events_for">Events for </string>
+    <string name="title_input">件名</string>
+    <string name="all_day_event_switch">終日イベント</string>
+    <string name="location_input">場所</string>
+    <string name="description_input">詳細</string>
+    <string name="pick_start">開始の日付や時間を選択</string>
+    <string name="pick_end">終了の日付や時間を選択</string>
+    <string name="start_date">開始日付:</string>
+    <string name="start_time">開始時間</string>
+    <string name="end_date">終了日付:</string>
+    <string name="end_time">終了時間</string>
+    <string name="info">Study Nowは、学生の日程の管理のために開発した単純なカレンダーアプリであり、それでイベントや勉強時間や休憩時間などの企画がしやすくなる。</string>
+    <string name="application_version">アプリバージョン: 2.0.3</string>
+    <string name="participants">開発会社: Segmentation Fault\n\nメンバー:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="eng">English</string>
+    <string name="jap">日本語</string>
+
+
+    <string-array name="Repeat">
+        <item>繰り返しなし</item>
+        <item>日毎</item>
+        <item>週毎</item>
+        <item>月毎</item>
+        <item>年毎</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>日本語</item>
+    </string-array>
+</resources>

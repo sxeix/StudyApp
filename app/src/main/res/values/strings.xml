@@ -1,20 +1,54 @@
 <resources>
+    <!--    Page Titles     -->
     <string name="app_name">StudyApp</string>
     <string name="title_activity_info_page">Information</string>
-    <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
+
+    <!--    Universal Strings   -->
     <string name="title_activity_input_page">Add Event</string>
     <string name="title_activity_description_page">Description</string>
     <string name="delete">Delete</string>
     <string name="description">Description</string>
     <string name="event_settings">Event Settings</string>
+    <string name="title_activity_settings_page">Settings</string>
+
+    <!--    Page elements   -->
+    <string name="change_colour">Change Colour</string>
+    <string name="events_custom">Custom Events</string>
+    <string name="daily_custom">Daily Events</string>
+    <string name="weekly_custom">Weekly Events</string>
+    <string name="monthly_custom">Monthly Events</string>
+    <string name="yearly_custom">Yearly Events</string>
+    <string name="events_for">Events for </string>
+    <string name="title_input">Title</string>
+    <string name="all_day_event_switch">All Day Event</string>
+    <string name="location_input">Location</string>
+    <string name="description_input">Description</string>
+    <string name="pick_start">PICK START DATE AND TIME</string>
+    <string name="pick_end">PICK END DATE AND TIME</string>
+    <string name="start_date">Start Date:</string>
+    <string name="start_time">Start Time</string>
+    <string name="end_date">End Date:</string>
+    <string name="end_time">End Time</string>
+    <string name="info">Study Now is a simple calendar application developed to facilitate student schedule management; making it easier to plan events, times to study, possible breaks and more.</string>
+    <string name="application_version">Application Version: 2.0.3</string>
+    <string name="participants">Created by: Segmentation Fault\n\nMembers:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="eng">English</string>
+    <string name="jap">日本語</string>
+
 
     <string-array name="Repeat">
-        <item>Do Not Repeat</item>
-        <item>Daily</item>
-        <item>Weekly</item>
-        <item>Monthly</item>
-        <item>Yearly</item>
+    <item>Do Not Repeat</item>
+    <item>Daily</item>
+    <item>Weekly</item>
+    <item>Monthly</item>
+    <item>Yearly</item>
     </string-array>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Japanese</item>
+    </string-array>
+
 </resources>

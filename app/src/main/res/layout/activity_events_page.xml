@@ -110,6 +110,87 @@
                 android:layout_height="fill_parent"
                 android:layout_below="@+id/l5"
                 android:layout_weight="0" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/customEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/events_custom" />
+
+        <ListView
+            android:id="@+id/customEventsListView"
+            android:layout_below="@+id/customEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="800px"/>
+
+        <TextView
+            android:id="@+id/dailyEventsText"
+            android:layout_below="@+id/customEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/daily_custom" />
+
+        <ListView
+            android:id="@+id/dailyEventsListView"
+            android:layout_below="@+id/dailyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="800px" />
+
+        <TextView
+            android:id="@+id/weeklyEventsText"
+            android:layout_below="@+id/dailyEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/weekly_custom" />
+
+        <ListView
+            android:id="@+id/weeklyEventsListView"
+            android:layout_below="@+id/weeklyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="800px"/>
+
+        <TextView
+            android:id="@+id/monthlyEventsText"
+            android:layout_below="@+id/weeklyEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/monthly_custom" />
+
+        <ListView
+            android:id="@+id/monthlyEventsListView"
+            android:layout_below="@+id/monthlyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="800px"
+            android:layout_weight="0" />
+
+        <TextView
+            android:id="@+id/yearlyEventsText"
+            android:layout_below="@+id/monthlyEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/yearly_custom" />
+
+        <ListView
+            android:id="@+id/yearlyEventsListView"
+            android:layout_below="@+id/yearlyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0" />
 
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
