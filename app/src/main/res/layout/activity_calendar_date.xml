@@ -9,7 +9,7 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -19,29 +19,28 @@
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:titleTextColor="#000000"/>
 
+    </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/eventsForDay"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="TextView"
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="24sp" />
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_weight="1"
-                android:scrollbarSize="3dp"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical"
-                android:scrollingCache="true"
-                android:smoothScrollbar="true" />
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            </ListView>
         </LinearLayout>
-
-    </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>

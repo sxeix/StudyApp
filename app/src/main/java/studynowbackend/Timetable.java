@@ -32,6 +32,18 @@ public class Timetable {
     public ArrayList<TimetableEvent> getEvents() {
         return events;
     }
+    public ArrayList<TimetableEvent> getDailyEvents() {
+        return dailyEvents;
+    }
+    public ArrayList<TimetableEvent> getWeeklyEvents() {
+        return weeklyEvents;
+    }
+    public ArrayList<TimetableEvent> getMonthlyEvents() {
+        return monthlyEvents;
+    }
+    public ArrayList<TimetableEvent> getYearlyEvents() {
+        return yearlyEvents;
+    }
 
     /**
      * @deprecated use {@link #AddEvent(TimetableEvent)} ()} instead

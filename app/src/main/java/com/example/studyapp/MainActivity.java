@@ -20,15 +20,18 @@ import java.util.Calendar;
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
 import java.util.GregorianCalendar;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import android.annotation.TargetApi;
 
 public class MainActivity extends AppCompatActivity {
     SharedPrefs sharedPrefs;
     public static CalendarView calendar;
     public static int sDay, sMonth, sYear, dayOfWeek;
-
+    public static LocalDate localDate;
 
     @Override
+    @TargetApi(26)
     protected void onCreate(Bundle savedInstanceState) {
 
         /**Imports theme mode user preferences*/
@@ -62,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 sYear = year; sMonth = month +1; sDay = dayOfMonth;
                 Calendar calendar = new GregorianCalendar(year, month, dayOfMonth);
                 dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+                localDate = LocalDateTime.ofInstant(calendar.toInstant(), calendar.getTimeZone().toZoneId()).toLocalDate();
                 startActivity(new Intent(MainActivity.this, calendarDate.class));
             }
         });

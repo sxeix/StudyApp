@@ -139,7 +139,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 d = description.getText().toString();
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
-                    Timetable.getInstance().getEvents().add(x);
+                    Timetable.getInstance().AddEvent(x);
+//                    Timetable.getInstance().getEvents().add(x);
                     sortList(x);
                     Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
                 } else {
@@ -220,15 +221,15 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             start = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
-            tv_result.setText("Start Date: " + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
-            tv_result2.setText("Start Time: " + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
+            tv_result.setText("Start Date:" + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
+            tv_result2.setText("Start Time:" + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
         } else if (option == 2) {
             set2 = true;
             end = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
-            endDateResult.setText("End Date: " + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
-            endTimeResult.setText("End Time: " + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
+            endDateResult.setText("  End Date:\n   " + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
+            endTimeResult.setText("  End Time:\n   " + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
         }
     }
 
