@@ -16,97 +16,101 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:popupTheme="@style/PopupMenu"
             app:titleTextColor="#000000"/>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/l1"
-            android:layout_width="fill_parent"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="Custom Events" />
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <ListView
-            android:layout_below="@+id/l1"
-            android:id="@+id/listViewEPage"
-            android:layout_width="fill_parent"
-            android:layout_height="800px"/>
+            <TextView
+                android:id="@+id/l1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Custom Events"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_below="@+id/listViewEPage"
-            android:id="@+id/l2"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="Daily Events" />
+            <ListView
+                android:id="@+id/listViewEPage"
+                android:layout_width="fill_parent"
+                android:layout_height="800px"
+                android:layout_below="@+id/l1" />
 
-        <ListView
-            android:layout_below="@+id/l2"
-            android:id="@+id/ListView2"
-            android:layout_width="fill_parent"
-            android:layout_height="800px" />
+            <TextView
+                android:id="@+id/l2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/listViewEPage"
+                android:text="Daily Events"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_below="@+id/ListView2"
-            android:id="@+id/l3"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="Weekly Events" />
+            <ListView
+                android:id="@+id/ListView2"
+                android:layout_width="fill_parent"
+                android:layout_height="800px"
+                android:layout_below="@+id/l2" />
 
-        <ListView
-            android:layout_below="@+id/l3"
-            android:id="@+id/ListView3"
-            android:layout_width="fill_parent"
-            android:layout_height="800px"/>
+            <TextView
+                android:id="@+id/l3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ListView2"
+                android:text="Weekly Events"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_below="@+id/ListView3"
-            android:id="@+id/l4"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
-        android:text="Monthly Events" />
+            <ListView
+                android:id="@+id/ListView3"
+                android:layout_width="fill_parent"
+                android:layout_height="800px"
+                android:layout_below="@+id/l3" />
 
-        <ListView
-            android:layout_below="@+id/l4"
-            android:id="@+id/ListView4"
-            android:layout_width="fill_parent"
-            android:layout_height="800px"
-            android:layout_weight="0" />
+            <TextView
+                android:id="@+id/l4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ListView3"
+                android:text="Monthly Events"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-        <TextView
-            android:layout_below="@+id/ListView4"
-            android:id="@+id/l5"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
-            android:text="Yearly Events" />
+            <ListView
+                android:id="@+id/ListView4"
+                android:layout_width="fill_parent"
+                android:layout_height="800px"
+                android:layout_below="@+id/l4"
+                android:layout_weight="0" />
 
-        <ListView
-            android:layout_below="@+id/l5"
-            android:id="@+id/ListView5"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="0" />
+            <TextView
+                android:id="@+id/l5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ListView4"
+                android:text="Yearly Events"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
-    </RelativeLayout>
+            <ListView
+                android:id="@+id/ListView5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/l5"
+                android:layout_weight="0" />
+
+        </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

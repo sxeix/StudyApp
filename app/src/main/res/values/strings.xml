@@ -5,6 +5,10 @@
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
     <string name="title_activity_input_page">Add Event</string>
+    <string name="title_activity_description_page">Description</string>
+    <string name="delete">Delete</string>
+    <string name="description">Description</string>
+    <string name="event_settings">Event Settings</string>
 
     <string-array name="Repeat">
         <item>Do Not Repeat</item>

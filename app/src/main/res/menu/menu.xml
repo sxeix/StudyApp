@@ -9,8 +9,7 @@
     <item
         android:title="@string/title_activity_info_page"
         android:id="@+id/about"
-        android:icon="@drawable/ic_info"
-        app:showAsAction="ifRoom"/>
+        android:icon="@drawable/ic_info" />
     <item
         android:id="@+id/settings"
         android:title="@string/title_activity_settings_page" />
