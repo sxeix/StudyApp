@@ -110,6 +110,7 @@
                 android:layout_height="fill_parent"
                 android:layout_below="@+id/l5"
                 android:layout_weight="0" />
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -191,7 +192,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="0" />
-
+        </RelativeLayout>
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
