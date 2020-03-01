@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
@@ -140,8 +141,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
                     Timetable.getInstance().AddEvent(x);
-//                    Timetable.getInstance().getEvents().add(x);
-                    sortList(x);
+                    sortListByType(x);
                     Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
@@ -243,19 +243,25 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     }
 
     @TargetApi(26)
-    public void sortList(TimetableEvent a){
-        if (Timetable.getInstance().getEvents().size() > 1) {
-            int index = Timetable.getInstance().getEvents().indexOf(a);
+    public void sortList(TimetableEvent a, ArrayList<TimetableEvent> list){
+        System.out.println(list.size());
+        if (list.size() > 1) {
+            if(a.getAllDay()){
+                list.remove(a);
+                list.add(0, a);
+                return;
+            }
+            int index = list.indexOf(a);
             while (index > 0) {
-                if (a.getStart().isBefore(Timetable.getInstance().getEvents().get(index-1).getStart()))index--;
+                if (a.getStart().isBefore(list.get(index-1).getStart()))index--;
                 else {
-                    Timetable.getInstance().getEvents().remove(a);
-                    Timetable.getInstance().getEvents().add(index, a);
+                    list.remove(a);
+                    list.add(index, a);
                     return;
                 }
             }
-            Timetable.getInstance().getEvents().remove(a);
-            Timetable.getInstance().getEvents().add(0, a);
+            list.remove(a);
+            list.add(0, a);
         }
     }
 
@@ -280,5 +286,22 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void sortListByType(TimetableEvent x){
+        switch(x.getRepeatFrequency()){
+            case NoRepeat:
+                sortList(x, Timetable.getInstance().getEvents()); break;
+            case Daily:
+                sortList(x, Timetable.getInstance().getDailyEvents()); break;
+            case Weekly:
+                sortList(x, Timetable.getInstance().getWeeklyEvents()); break;
+            case Monthly:
+                sortList(x, Timetable.getInstance().getMonthlyEvents()); break;
+            case Yearly:
+                sortList(x, Timetable.getInstance().getYearlyEvents()); break;
+            default:
+                return;
+        }
     }
 }

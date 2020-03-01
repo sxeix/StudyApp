@@ -180,8 +180,6 @@ public class eventsPage extends AppCompatActivity {
                 lMonthly.add(item); break;
             case Yearly:
                 lYearly.add(item); break;
-            default:
-                return;
         }
     }
 
@@ -190,9 +188,35 @@ public class eventsPage extends AppCompatActivity {
     public void addToArrayList(TimetableEvent e){
         HashMap<String, String> item = new HashMap<String, String>();
         item.put("line1", "Event: " + e.getName());
-        item.put("line2", "Start Date: " + InputPage.formatCharacter(e.getStart().getDayOfMonth()) + "/" + InputPage.formatCharacter(e.getStart().getMonthValue()) + "/" + InputPage.formatCharacter(e.getStart().getYear()));
-        item.put("line3", "Start Time: " + InputPage.formatCharacter(e.getStart().getHour()) + ":" + InputPage.formatCharacter(e.getStart().getMinute()));
+        item.put("line2", "Start Date: " + routineCheck(e));
+        item.put("line3", "Start Time: " + dailyCheck(e));
         item.put("line4", "Location: " + e.getLocation());
         addByFreq(item, e);
+    }
+    @TargetApi(26)
+    public String routineCheck(TimetableEvent e){
+        switch(e.getRepeatFrequency()){
+            case NoRepeat:
+                return InputPage.formatCharacter(e.getStart().getDayOfMonth()) + "/" + InputPage.formatCharacter(e.getStart().getMonthValue()) + "/" + InputPage.formatCharacter(e.getStart().getYear());
+            case Daily:
+                return "Daily";
+            case Weekly:
+                return e.getStart().getDayOfWeek().name();
+            case Monthly:
+                int i = e.getStart().getDayOfMonth()%10;
+                if(i == 1 && e.getStart().getDayOfMonth()!=11){return e.getStart().getDayOfMonth() + "st";}
+                else if (i == 2 && e.getStart().getDayOfMonth()!=12){return e.getStart().getDayOfMonth() + "nd";}
+                else if (i == 3 && e.getStart().getDayOfMonth()!=13){return e.getStart().getDayOfMonth() + "rd";}
+                return InputPage.formatCharacter(e.getStart().getDayOfMonth()) + "th";
+            case Yearly:
+                return InputPage.formatCharacter(e.getStart().getDayOfMonth()) + "/" + InputPage.formatCharacter(e.getStart().getMonthValue());
+            default:
+                return "oops";
+        }
+    }
+    @TargetApi(26)
+    public String dailyCheck(TimetableEvent e){
+        if (e.getAllDay()){ return "All Day"; }
+        return InputPage.formatCharacter(e.getStart().getHour()) + ":" + InputPage.formatCharacter(e.getStart().getMinute());
     }
 }
