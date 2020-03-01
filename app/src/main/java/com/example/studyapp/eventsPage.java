@@ -115,6 +115,7 @@ public class eventsPage extends AppCompatActivity {
         final ArrayAdapter arrayAdapter4 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lWeekly);
         final ArrayAdapter arrayAdapter5 = new ArrayAdapter(this, android.R.layout.simple_list_item_1, lDaily);
 
+        /** Ignore all bellow for now. Still working on popup window or page*/
         vCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {

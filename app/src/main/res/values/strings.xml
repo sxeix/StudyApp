@@ -7,11 +7,12 @@
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Add Event</string>
-    <string name="title_activity_description_page">Description</string>
+    <string name="title_activity_settings_page">Settings</string>
+<!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Delete</string>
     <string name="description">Description</string>
     <string name="event_settings">Event Settings</string>
-    <string name="title_activity_settings_page">Settings</string>
+
 
     <!--    Page elements   -->
     <string name="change_colour">Change Colour</string>
