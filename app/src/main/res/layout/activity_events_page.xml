@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center"
-            android:text="Custom Events" />
+            android:text="@string/events_custom" />
 
         <ListView
             android:id="@+id/customEventsListView"
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center"
-            android:text="Daily Events" />
+            android:text="@string/daily_custom" />
 
         <ListView
             android:id="@+id/dailyEventsListView"
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center"
-            android:text="Weekly Events" />
+            android:text="@string/weekly_custom" />
 
         <ListView
             android:id="@+id/weeklyEventsListView"
@@ -82,7 +82,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center"
-            android:text="Monthly Events" />
+            android:text="@string/monthly_custom" />
 
         <ListView
             android:id="@+id/monthlyEventsListView"
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center"
-            android:text="Yearly Events" />
+            android:text="@string/yearly_custom" />
 
         <ListView
             android:id="@+id/yearlyEventsListView"

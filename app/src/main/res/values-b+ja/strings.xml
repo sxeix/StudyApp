@@ -1,6 +1,6 @@
 <resources>
     <!--    Page Titles     -->
-    <string name="app_name">StudyApp</string>
+    <string name="app_name">StudyAppu</string>
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
@@ -35,16 +35,15 @@
 
 
     <string-array name="Repeat">
-    <item>Do Not Repeat</item>
-    <item>Daily</item>
-    <item>Weekly</item>
-    <item>Monthly</item>
-    <item>Yearly</item>
+        <item>Do Not Repeat</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
     </string-array>
 
     <string-array name="languages">
         <item>English</item>
         <item>Japanese</item>
     </string-array>
-
 </resources>
