@@ -32,7 +32,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/l1"
+            android:id="@+id/customEventsText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -40,14 +40,14 @@
             android:text="Custom Events" />
 
         <ListView
-            android:layout_below="@+id/l1"
-            android:id="@+id/listViewEPage"
+            android:id="@+id/customEventsListView"
+            android:layout_below="@+id/customEventsText"
             android:layout_width="fill_parent"
             android:layout_height="800px"/>
 
         <TextView
-            android:layout_below="@+id/listViewEPage"
-            android:id="@+id/l2"
+            android:id="@+id/dailyEventsText"
+            android:layout_below="@+id/customEventsListView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -55,14 +55,14 @@
             android:text="Daily Events" />
 
         <ListView
-            android:layout_below="@+id/l2"
-            android:id="@+id/ListView2"
+            android:id="@+id/dailyEventsListView"
+            android:layout_below="@+id/dailyEventsText"
             android:layout_width="fill_parent"
             android:layout_height="800px" />
 
         <TextView
-            android:layout_below="@+id/ListView2"
-            android:id="@+id/l3"
+            android:id="@+id/weeklyEventsText"
+            android:layout_below="@+id/dailyEventsListView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -70,30 +70,30 @@
             android:text="Weekly Events" />
 
         <ListView
-            android:layout_below="@+id/l3"
-            android:id="@+id/ListView3"
+            android:id="@+id/weeklyEventsListView"
+            android:layout_below="@+id/weeklyEventsText"
             android:layout_width="fill_parent"
             android:layout_height="800px"/>
 
         <TextView
-            android:layout_below="@+id/ListView3"
-            android:id="@+id/l4"
+            android:id="@+id/monthlyEventsText"
+            android:layout_below="@+id/weeklyEventsListView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:textAlignment="center"
-        android:text="Monthly Events" />
+            android:text="Monthly Events" />
 
         <ListView
-            android:layout_below="@+id/l4"
-            android:id="@+id/ListView4"
+            android:id="@+id/monthlyEventsListView"
+            android:layout_below="@+id/monthlyEventsText"
             android:layout_width="fill_parent"
             android:layout_height="800px"
             android:layout_weight="0" />
 
         <TextView
-            android:layout_below="@+id/ListView4"
-            android:id="@+id/l5"
+            android:id="@+id/yearlyEventsText"
+            android:layout_below="@+id/monthlyEventsListView"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
@@ -101,8 +101,8 @@
             android:text="Yearly Events" />
 
         <ListView
-            android:layout_below="@+id/l5"
-            android:id="@+id/ListView5"
+            android:id="@+id/yearlyEventsListView"
+            android:layout_below="@+id/yearlyEventsText"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="0" />

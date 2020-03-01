@@ -49,7 +49,7 @@ public class calendarDate extends AppCompatActivity {
             item = new HashMap<String, String>();
             item.put("line1", "Event: " + e.getName());
             item.put("line2", "Location: " + e.getLocation());
-            item.put("line3", "Start Time: " + InputPage.formatCharacter(e.getStart().getHour()) + ":" + InputPage.formatCharacter(e.getStart().getMinute()));
+            item.put("line3", "Start Time: " + eventsPage.dailyCheck(e));
             item.put("line4", "Event Type: " + returnFreqString(e));
             list.add(item);
         }

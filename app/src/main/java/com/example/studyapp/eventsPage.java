@@ -3,32 +3,22 @@ package com.example.studyapp;
 import android.annotation.TargetApi;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-import android.support.v7.widget.RecyclerView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import studynowbackend.RepeatFrequency;
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
-import android.support.v4.view.ViewCompat;
+
 import android.widget.ListAdapter;
-import android.widget.RelativeLayout;
 import android.view.View.MeasureSpec;
 
 public class eventsPage extends AppCompatActivity {
@@ -97,19 +87,19 @@ public class eventsPage extends AppCompatActivity {
                 R.layout.activity_event_list,
                 new String[]{"line1", "line2", "line3", "line4"},
                 new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d});
-        vCustom = (ListView) findViewById(R.id.listViewEPage);
+        vCustom = (ListView) findViewById(R.id.customEventsListView);
         vCustom.setAdapter(aCustom);
         setListViewHeightBasedOnChildren(vCustom);
-        vDaily = (ListView) findViewById(R.id.ListView2);
+        vDaily = (ListView) findViewById(R.id.dailyEventsListView);
         vDaily.setAdapter(aDaily);
         setListViewHeightBasedOnChildren(vDaily);
-        vWeekly = (ListView) findViewById(R.id.ListView3);
+        vWeekly = (ListView) findViewById(R.id.weeklyEventsListView);
         vWeekly.setAdapter(aWeekly);
         setListViewHeightBasedOnChildren(vWeekly);
-        vMonthly = (ListView) findViewById(R.id.ListView4);
+        vMonthly = (ListView) findViewById(R.id.monthlyEventsListView);
         vMonthly.setAdapter(aMonthly);
         setListViewHeightBasedOnChildren(vMonthly);
-        vYearly = (ListView) findViewById(R.id.ListView5);
+        vYearly = (ListView) findViewById(R.id.yearlyEventsListView);
         vYearly.setAdapter(aYearly);
         setListViewHeightBasedOnChildren(vYearly);
 
@@ -133,8 +123,7 @@ public class eventsPage extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.events) {
-            Intent eventspage = new Intent(eventsPage.this, eventsPage.class);
-            startActivity(eventspage);
+            return true;
         } else if (id == R.id.about) {
             Intent infopage = new Intent(eventsPage.this, infoPage.class);
             startActivity(infopage);
@@ -207,7 +196,7 @@ public class eventsPage extends AppCompatActivity {
                 if(i == 1 && e.getStart().getDayOfMonth()!=11){return e.getStart().getDayOfMonth() + "st";}
                 else if (i == 2 && e.getStart().getDayOfMonth()!=12){return e.getStart().getDayOfMonth() + "nd";}
                 else if (i == 3 && e.getStart().getDayOfMonth()!=13){return e.getStart().getDayOfMonth() + "rd";}
-                return InputPage.formatCharacter(e.getStart().getDayOfMonth()) + "th";
+                return e.getStart().getDayOfMonth() + "th";
             case Yearly:
                 return InputPage.formatCharacter(e.getStart().getDayOfMonth()) + "/" + InputPage.formatCharacter(e.getStart().getMonthValue());
             default:
@@ -215,7 +204,7 @@ public class eventsPage extends AppCompatActivity {
         }
     }
     @TargetApi(26)
-    public String dailyCheck(TimetableEvent e){
+    public static String dailyCheck(TimetableEvent e){
         if (e.getAllDay()){ return "All Day"; }
         return InputPage.formatCharacter(e.getStart().getHour()) + ":" + InputPage.formatCharacter(e.getStart().getMinute());
     }
