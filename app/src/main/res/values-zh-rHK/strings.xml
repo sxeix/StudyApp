@@ -1,18 +1,13 @@
 <resources>
     <!--    Page Titles     -->
-    <string name="app_name">StudyApp</string>
+    <string name="app_name">StudyAppuuuuuu</string>
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
 
     <!--    Universal Strings   -->
-    <string name="title_activity_input_page">Add Event</string>
+    <string name="title_activity_input_page">坿活動</string>
     <string name="title_activity_settings_page">Settings</string>
-<!--    <string name="title_activity_description_page">Description</string>-->
-    <string name="delete">Delete</string>
-    <string name="description">Description</string>
-    <string name="event_settings">Event Settings</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Change Colour</string>
@@ -38,7 +33,6 @@
     <string name="eng">English</string>
     <string name="jap">日本語</string>
     <string name="can">廣東話</string>
-
 
     <string-array name="Repeat">
     <item>Do Not Repeat</item>

@@ -59,6 +59,7 @@
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
+                android:theme="@style/AppTheme"
                 android:gravity="center"
                 android:textAlignment="center" />
 

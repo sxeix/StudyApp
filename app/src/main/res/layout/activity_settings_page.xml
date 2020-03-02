@@ -48,6 +48,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/jap"
                     android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/radio_can"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/can"
+                    android:onClick="onRadioButtonClicked"
+                    android:textColor="#000000"/>
             </RadioGroup>
 
         </LinearLayout>

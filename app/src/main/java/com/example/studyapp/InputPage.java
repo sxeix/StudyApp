@@ -144,10 +144,48 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                     sortListByType(x);
                     Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
                 } else {
+                    // TODO Remove this method in the future after testing is complete
+                    testEvents();
                     Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    @TargetApi(26)
+    public void testEvents() {
+        String d1 = "2020-03-01 12:30";
+        String d2 = "2020-03-01 13:30";
+        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        TimetableEvent a = new TimetableEvent("Test1", "Desc1", "Location1",
+                LocalDateTime.parse(d1, f), LocalDateTime.parse(d2, f), false, RepeatFrequency.NoRepeat);
+
+        Timetable.getInstance().AddEvent(a);
+        sortListByType(a);
+
+        String d3 = "2020-03-01 14:30";
+        String d4 = "2020-03-01 15:30";
+        TimetableEvent b = new TimetableEvent("Test2", "Desc2", "Location3",
+                LocalDateTime.parse(d3, f), LocalDateTime.parse(d4, f), false, RepeatFrequency.Daily);
+
+        Timetable.getInstance().AddEvent(b);
+        sortListByType(b);
+
+        String d5 = "2020-03-01 09:30";
+        String d6 = "2020-03-01 11:30";
+        TimetableEvent c = new TimetableEvent("Test3", "Desc3", "Location3",
+                LocalDateTime.parse(d5, f), LocalDateTime.parse(d6, f), true, RepeatFrequency.NoRepeat);
+
+        Timetable.getInstance().AddEvent(c);
+        sortListByType(c);
+
+        String d7 = "2020-03-01 16:30";
+        String d8 = "2020-03-01 17:30";
+        TimetableEvent d = new TimetableEvent("Test4", "Desc4", "Location4",
+                LocalDateTime.parse(d7, f), LocalDateTime.parse(d8, f), true, RepeatFrequency.Weekly);
+
+        Timetable.getInstance().AddEvent(d);
+        sortListByType(d);
     }
 
     // This method is used for updating the switches and changing them from true to false
