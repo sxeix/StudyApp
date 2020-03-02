@@ -17,7 +17,7 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
     <style name="LightMode" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#B9EEF5</item>
