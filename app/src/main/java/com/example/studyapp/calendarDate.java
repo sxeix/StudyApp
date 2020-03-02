@@ -1,6 +1,8 @@
 package com.example.studyapp;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -41,6 +43,13 @@ public class calendarDate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (sharedPrefs.loadNightMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
+        } else {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
+        }
 
         final ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
         ArrayList<TimetableEvent> todayEvent = Timetable.getInstance().getEventsOnDay(MainActivity.localDate);

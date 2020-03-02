@@ -2,7 +2,9 @@ package com.example.studyapp;
 
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -55,6 +57,13 @@ public class eventsPage extends AppCompatActivity {
         setContentView(R.layout.activity_events_page);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if (sharedPrefs.loadNightMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
+            lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
+        } else {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
+            lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
+        }
 
         /** This clump basically does everything. don't worry about it
          * only relevant things are the 5 ListView objects for each event type */
