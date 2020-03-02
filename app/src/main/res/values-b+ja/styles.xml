@@ -35,7 +35,7 @@
     </style>
 
     <style name="CalenderViewCustom" parent="Theme.AppCompat">
-        <item name="colorAccent">#404040</item>
+        <item name="colorAccent">#BBBBBB</item>
         <item name="colorPrimary">@android:color/primary_text_light</item>
         <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
     </style>
