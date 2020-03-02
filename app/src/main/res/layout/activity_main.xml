@@ -21,6 +21,7 @@
             android:touchscreenBlocksFocus="false"
             android:transitionGroup="false"
             android:visibility="visible"
+            app:popupTheme="@style/AppTheme"
             app:logo="@drawable/calendaricon"
             app:title="@string/app_name"
             app:titleMarginStart="30dp"
