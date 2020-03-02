@@ -111,15 +111,20 @@ public class settingsPage extends AppCompatActivity {
     public void onRadioButtonClicked(View view) {
         switch (view.getId()) {
             case R.id.radio_eng:
-                setLocale("en-GB");
-                break;
+                setLocale("en-GB");break;
             case R.id.radio_ja:
                 setLocale("ja"); break;
+            case R.id.radio_can:
+                setLocale("zh-rHK"); break;
         }
     }
 
     private void setLocale(String lang) {
-        myLocale = new Locale(lang);
+        if(lang.equals("zh-rHK")){
+            myLocale = new Locale("zh", "HK");
+        } else {
+            myLocale = new Locale(lang);
+        }
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
@@ -128,4 +133,5 @@ public class settingsPage extends AppCompatActivity {
         Intent refresh = new Intent(this, MainActivity.class);
         startActivity(refresh);
     }
+
 }

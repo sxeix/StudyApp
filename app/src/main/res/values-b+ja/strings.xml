@@ -32,7 +32,7 @@
     <string name="participants">開発会社: Segmentation Fault\n\nメンバー:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
     <string name="eng">English</string>
     <string name="jap">日本語</string>
-
+    <string name="can">廣東話</string>
 
     <string-array name="Repeat">
         <item>繰り返しなし</item>
