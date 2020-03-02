@@ -37,7 +37,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_26" />
-    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-01T23:46:19.772Z" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-03-02T00:12:51.245Z" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -125,5 +125,11 @@
       <updated>1583102427758</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="616" y="240" key="run.anything.popup" timestamp="1583107128944">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583107128944" />
   </component>
 </project>
