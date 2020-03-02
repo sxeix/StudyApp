@@ -19,7 +19,7 @@
             app:popupTheme="@style/AppTheme"
             app:titleTextColor="#000000"/>
 
-
+    </android.support.design.widget.AppBarLayout>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,87 +29,7 @@
         android:layout_marginBottom="20dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <TextView
-                android:id="@+id/l1"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Custom Events"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <ListView
-                android:id="@+id/listViewEPage"
-                android:layout_width="fill_parent"
-                android:layout_height="800px"
-                android:layout_below="@+id/l1" />
-
-            <TextView
-                android:id="@+id/l2"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/listViewEPage"
-                android:text="Daily Events"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <ListView
-                android:id="@+id/ListView2"
-                android:layout_width="fill_parent"
-                android:layout_height="800px"
-                android:layout_below="@+id/l2" />
-
-            <TextView
-                android:id="@+id/l3"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ListView2"
-                android:text="Weekly Events"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <ListView
-                android:id="@+id/ListView3"
-                android:layout_width="fill_parent"
-                android:layout_height="800px"
-                android:layout_below="@+id/l3" />
-
-            <TextView
-                android:id="@+id/l4"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ListView3"
-                android:text="Monthly Events"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <ListView
-                android:id="@+id/ListView4"
-                android:layout_width="fill_parent"
-                android:layout_height="800px"
-                android:layout_below="@+id/l4"
-                android:layout_weight="0" />
-
-            <TextView
-                android:id="@+id/l5"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/ListView4"
-                android:text="Yearly Events"
-                android:textAlignment="center"
-                android:textSize="20sp" />
-
-            <ListView
-                android:id="@+id/ListView5"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_below="@+id/l5"
-                android:layout_weight="0" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -191,8 +111,8 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="0" />
-        </RelativeLayout>
+
         </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
-    </android.support.design.widget.AppBarLayout>
+
 </android.support.design.widget.CoordinatorLayout>
