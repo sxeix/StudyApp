@@ -11,30 +11,6 @@ public class TimetableEvent {
     private boolean allDay;
     private RepeatFrequency repeatFrequency;
 
-    @Deprecated
-    public TimetableEvent(String name, String description, String location, LocalDateTime start, LocalDateTime end, int type) {
-        this.name = name;
-        this.description = description;
-        this.location = location;
-        this.start = start;
-        this.end = end;
-
-        switch (type) {
-            case 1:
-                this.allDay = true;
-                this.repeatFrequency = RepeatFrequency.NoRepeat;
-                break;
-            case 2:
-                this.allDay = false;
-                this.repeatFrequency = RepeatFrequency.Weekly;
-                break;
-            default:
-                this.allDay = false;
-                this.repeatFrequency = RepeatFrequency.NoRepeat;
-                break;
-        }
-    }
-
     public TimetableEvent(String name, String description, String location, LocalDateTime start, LocalDateTime end, boolean allDay, RepeatFrequency repeatFrequency) {
         this.name = name;
         this.description = description;
@@ -99,19 +75,6 @@ public class TimetableEvent {
 
     public void setRepeatFrequency(RepeatFrequency repeatFrequency) {
         this.repeatFrequency = repeatFrequency;
-    }
-
-    @Deprecated
-    public int getType() {
-        if (!allDay && repeatFrequency == RepeatFrequency.NoRepeat) {
-            return 0;
-        } else if (allDay && repeatFrequency == RepeatFrequency.NoRepeat) {
-            return 1;
-        } else if (!allDay) {
-            return 2;
-        } else {
-            return -1;
-        }
     }
 }
 

@@ -42,14 +42,6 @@ public class Timetable {
         return yearlyEvents;
     }
 
-    /**
-     * @deprecated use {@link #AddEvent(TimetableEvent)} ()} instead
-     */
-    @Deprecated
-    public void AddEventUnchecked(TimetableEvent event) {
-        AddEvent(event);
-    }
-
     public void AddEvent(TimetableEvent event) {
         switch (event.getRepeatFrequency()) {
             case NoRepeat:
