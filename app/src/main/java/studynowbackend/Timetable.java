@@ -68,7 +68,6 @@ public class Timetable {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void addEventsOnDayOfWeek(ArrayList<TimetableEvent> events, DayOfWeek dayOfWeek) {
         for (TimetableEvent event : this.weeklyEvents) {
             DayOfWeek day = event.getStart().getDayOfWeek();
@@ -91,7 +90,6 @@ public class Timetable {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void addEventsOnDayOfMonth(ArrayList<TimetableEvent> events, int dayOfMonth) {
         for (TimetableEvent event : this.monthlyEvents) {
             int day = event.getStart().getDayOfMonth();
@@ -119,7 +117,6 @@ public class Timetable {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void addEventsOnDayOfYear(ArrayList<TimetableEvent> events, int dayOfYear) {
         for (TimetableEvent event : this.yearlyEvents) {
             int day = event.getStart().getDayOfYear();
@@ -147,7 +144,6 @@ public class Timetable {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void addNormalEvents(ArrayList<TimetableEvent> events, LocalDate date) {
         int targetYear = date.getYear();
         int dayOfYear = date.getDayOfYear();
@@ -180,7 +176,6 @@ public class Timetable {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public ArrayList<TimetableEvent> getEventsOnDay(LocalDate date) {
         // Add add all daily events as they happen on all days
         ArrayList<TimetableEvent> events = new ArrayList<>(this.dailyEvents);

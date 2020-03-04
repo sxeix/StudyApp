@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     public static LocalDate localDate;
 
     @Override
-    @TargetApi(26)
     protected void onCreate(Bundle savedInstanceState) {
 
         /**Imports theme mode user preferences*/
