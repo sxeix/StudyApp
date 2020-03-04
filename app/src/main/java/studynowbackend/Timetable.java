@@ -179,4 +179,19 @@ public class Timetable {
 
         return events;
     }
+
+    public void removeEvent(TimetableEvent event) {
+        switch (event.getRepeatFrequency()) {
+            case NoRepeat:
+                this.events.remove(event); break;
+            case Daily:
+                this.dailyEvents.remove(event); break;
+            case Weekly:
+                this.weeklyEvents.remove(event); break;
+            case Monthly:
+                this.monthlyEvents.remove(event); break;
+            case Yearly:
+                this.yearlyEvents.remove(event); break;
+        }
+    }
 }
