@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.support.v7.widget.RecyclerView;
 import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import java.util.ArrayList;
@@ -135,7 +134,7 @@ public class eventsPage extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.description:
-                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
                                 for(TimetableEvent e: Timetable.getInstance().getEvents()) {
                                     description.putExtra("Description", e.getDescription().toString());
                                 }
@@ -143,6 +142,10 @@ public class eventsPage extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 lCustom.remove(position);
+                                return true;
+                            case R.id.edit_event:
+                                Intent edit = new Intent(eventsPage.this, editPage.class);
+                                startActivity(edit);
                                 return true;
                         }
                         return false;
@@ -162,7 +165,7 @@ public class eventsPage extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.description:
-                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
                                 for(TimetableEvent e: Timetable.getInstance().getEvents()) {
                                     description.putExtra("Description", e.getDescription().toString());
                                 }
@@ -170,6 +173,10 @@ public class eventsPage extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 lDaily.remove(position);
+                                return true;
+                            case R.id.edit_event:
+                                Intent edit = new Intent(eventsPage.this, editPage.class);
+                                startActivity(edit);
                                 return true;
                         }
                         return false;
@@ -189,7 +196,7 @@ public class eventsPage extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.description:
-                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
                                 for(TimetableEvent e: Timetable.getInstance().getEvents()) {
                                     description.putExtra("Description", e.getDescription().toString());
                                 }
@@ -197,6 +204,10 @@ public class eventsPage extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 lWeekly.remove(position);
+                                return true;
+                            case R.id.edit_event:
+                                Intent edit = new Intent(eventsPage.this, editPage.class);
+                                startActivity(edit);
                                 return true;
                         }
                         return false;
@@ -216,7 +227,7 @@ public class eventsPage extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.description:
-                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
                                 for(TimetableEvent e: Timetable.getInstance().getEvents()) {
                                     description.putExtra("Description", e.getDescription().toString());
                                 }
@@ -224,6 +235,10 @@ public class eventsPage extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 lMonthly.remove(position);
+                                return true;
+                            case R.id.edit_event:
+                                Intent edit = new Intent(eventsPage.this, editPage.class);
+                                startActivity(edit);
                                 return true;
                         }
                         return false;
@@ -243,7 +258,7 @@ public class eventsPage extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.description:
-                                Intent description = new Intent(eventsPage.this, infoPage.class);
+                                Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
                                 for(TimetableEvent e: Timetable.getInstance().getEvents()) {
                                     description.putExtra("Description", e.getDescription().toString());
                                 }
@@ -251,6 +266,10 @@ public class eventsPage extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 lYearly.remove(position);
+                                return true;
+                            case R.id.edit_event:
+                                Intent edit = new Intent(eventsPage.this, editPage.class);
+                                startActivity(edit);
                                 return true;
                         }
                         return false;

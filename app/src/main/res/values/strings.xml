@@ -8,10 +8,14 @@
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Add Event</string>
     <string name="title_activity_settings_page">Settings</string>
+    <string name="title_activity_edit_page">Edit Event</string>
+
 <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Delete</string>
     <string name="description">Description</string>
+    <string name="event_edit">Edit Event</string>
     <string name="event_settings">Event Settings</string>
+
 
 
     <!--    Page elements   -->

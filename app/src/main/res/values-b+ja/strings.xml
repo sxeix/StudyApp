@@ -8,6 +8,11 @@
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">イベントを追加</string>
     <string name="title_activity_settings_page">設定</string>
+    <string name="title_activity_edit_page">Edit Event</string>
+    <string name="delete">Delete</string>
+    <string name="description">Description</string>
+    <string name="event_edit">Edit Event</string>
+    <string name="event_settings">Event Settings</string>
 
     <!--    Page elements   -->
     <string name="change_colour">色を変更</string>

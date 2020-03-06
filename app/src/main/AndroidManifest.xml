@@ -41,6 +41,14 @@
             android:label="@string/title_activity_input_page"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
+        <activity android:name=".popupWindowDesc"
+            android:theme="@style/AppTheme.popWindow"
+            />
+        <activity android:name=".editPage"
+            android:label="@string/title_activity_edit_page"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            />
 
         <meta-data
             android:name="preloaded_fonts"

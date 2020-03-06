@@ -8,17 +8,15 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import studynowbackend.RepeatFrequency;
+
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
 import android.annotation.TargetApi;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -86,7 +84,7 @@ public class calendarDate extends AppCompatActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         switch (item.getItemId()){
                             case R.id.description:
-                                Intent description = new Intent(calendarDate.this, infoPage.class);
+                                Intent description = new Intent(calendarDate.this, popupWindowDesc.class);
                                 for(TimetableEvent e: Timetable.getInstance().getEvents()) {
                                     description.putExtra("Description", e.getDescription().toString());
                                 }
@@ -94,6 +92,10 @@ public class calendarDate extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 list.remove(position);
+                                return true;
+                            case R.id.edit_event:
+                                Intent edit = new Intent(calendarDate.this, editPage.class);
+                                startActivity(edit);
                                 return true;
                         }
                         return false;

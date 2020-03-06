@@ -11,6 +11,10 @@
                 android:icon="@drawable/description_icons"
                 android:title="@string/description" />
             <item
+                android:id="@+id/edit_event"
+                android:icon="@drawable/edit_icons"
+                android:title="@string/event_edit" />
+            <item
                 android:title="@string/delete"
                 android:id="@+id/delete"
                 android:icon="@drawable/delete_icons" />
