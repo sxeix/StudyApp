@@ -95,6 +95,7 @@ public class calendarDate extends AppCompatActivity {
                                 return true;
                             case R.id.delete:
                                 Timetable.getInstance().removeEvent(todayEvent.get(position));
+                                todayEvent.remove(position);
                                 lCalendarDate.remove(position);
                                 sa.notifyDataSetChanged();
                                 return true;
