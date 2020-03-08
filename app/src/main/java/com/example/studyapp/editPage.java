@@ -77,10 +77,10 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_page);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_edit_page));
         // Spinner code
         Spinner mySpinner = (Spinner)findViewById(R.id.editroutine);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(editPage.this,

@@ -79,9 +79,10 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_input_page));
 
         // Spinner code
         Spinner mySpinner = (Spinner)findViewById(R.id.routine);

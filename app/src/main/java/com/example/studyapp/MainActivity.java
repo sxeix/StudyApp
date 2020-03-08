@@ -1,11 +1,14 @@
 package com.example.studyapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
+import android.os.Build;
 import android.renderscript.ScriptGroup;
+import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,6 +31,7 @@ import studynowbackend.TimetableEvent;
 import java.util.GregorianCalendar;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 import android.annotation.TargetApi;
 
@@ -36,12 +40,30 @@ public class MainActivity extends AppCompatActivity {
     public static CalendarView calendar;
     public static int sDay, sMonth, sYear, dayOfWeek;
     public static LocalDate localDate;
+    public Locale myLocale;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPrefs = new SharedPrefs(this);
+        
+        // This section of code is used to check the current language off the application and if it is incorrect then
+        // it reloads the app with the user's preferred language
+        String lang = sharedPrefs.getLangPref();
+        if (!lang.equals("en-GB") && !lang.equals("ja")) lang = "zh_HK";
+//        Toast.makeText(this, "lang " + lang, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "current " + getResources().getConfiguration().locale.toString(), Toast.LENGTH_SHORT).show();
+        if(!lang.toLowerCase().equals(getResources().getConfiguration().locale.toString().toLowerCase())) {
+            myLocale = new Locale(lang);
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+        }
 
         /**Imports theme mode user preferences*/
-        sharedPrefs = new SharedPrefs(this);
         if (sharedPrefs.loadNightMode()) {
             setTheme(R.style.LightMode);
         } else {
@@ -57,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         calendar = (CalendarView) findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 sYear = year;
@@ -107,5 +130,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 }

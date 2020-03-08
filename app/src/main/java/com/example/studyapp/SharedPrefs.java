@@ -19,4 +19,13 @@ public class SharedPrefs {
         Boolean state = myShared.getBoolean("NightMode", false);
         return state;
     }
+    public void setLangPref(String lang) {
+        SharedPreferences.Editor editor = myShared.edit();
+        editor.putString("language", lang);
+        editor.commit();
+    }
+    public String getLangPref() {
+        String lang = myShared.getString("language", "en-GB");
+        return lang;
+    }
 }

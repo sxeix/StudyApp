@@ -39,8 +39,9 @@ public class calendarDate extends AppCompatActivity {
         }
         setContentView(R.layout.activity_calendar_date);
         super.onCreate(savedInstanceState);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_calendar_date));
         if (sharedPrefs.loadNightMode()) {
             CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));

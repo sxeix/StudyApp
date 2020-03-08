@@ -54,8 +54,9 @@ public class eventsPage extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events_page);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_events_page));
         if (sharedPrefs.loadNightMode()) {
             CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));

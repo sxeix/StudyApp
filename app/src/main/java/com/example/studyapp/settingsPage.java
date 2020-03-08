@@ -1,5 +1,6 @@
 package com.example.studyapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -44,10 +45,11 @@ public class settingsPage extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_settings_page));
 
         colorMode = (Switch) findViewById(R.id.light_mode_switch);
         if (sharedPrefs.loadNightMode()) {
@@ -119,9 +121,10 @@ public class settingsPage extends AppCompatActivity {
         }
     }
 
-    private void setLocale(String lang) {
+    public void setLocale(String lang) {
         if(lang.equals("zh-rHK")){
             myLocale = new Locale("zh", "HK");
+            lang = "zh-HK";
         } else {
             myLocale = new Locale(lang);
         }
@@ -131,7 +134,7 @@ public class settingsPage extends AppCompatActivity {
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
         Intent refresh = new Intent(this, MainActivity.class);
+        sharedPrefs.setLangPref(lang);
         startActivity(refresh);
     }
-
 }
