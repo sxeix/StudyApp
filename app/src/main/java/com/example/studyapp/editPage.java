@@ -280,7 +280,6 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
 
     @TargetApi(26)
     public void sortList(TimetableEvent a, ArrayList<TimetableEvent> list){
-        System.out.println(list.size());
         if (list.size() > 1) {
             if(a.getAllDay()){
                 list.remove(a);

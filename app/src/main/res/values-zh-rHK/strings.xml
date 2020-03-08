@@ -21,7 +21,7 @@
     <string name="weekly_custom">Weekly Events</string>
     <string name="monthly_custom">Monthly Events</string>
     <string name="yearly_custom">Yearly Events</string>
-    <string name="events_for">Events for </string>
+    <string name="events_for">Events for %1$d/%2$d/%3$d</string>
     <string name="title_input">Title</string>
     <string name="all_day_event_switch">All Day Event</string>
     <string name="location_input">Location</string>
@@ -51,5 +51,24 @@
         <item>English</item>
         <item>Japanese</item>
     </string-array>
+    <string name="type_custom">Custom</string>
+    <string name="type_daily">Daily</string>
+    <string name="type_monthly">Monthly</string>
+    <string name="type_weekly">Weekly</string>
+    <string name="type_yearly">Yearly</string>
+    <string name="type_allday">All Day</string>
+    <string name="event_type">Event Type</string>
+    <string name="day_friday">Friday</string>
+    <string name="day_monday">Monday</string>
+    <string name="day_saturday">Saturday</string>
+    <string name="day_sunday">Sunday</string>
+    <string name="day_thursday">Thursday</string>
+    <string name="day_tuesday">Tuesday</string>
+    <string name="day_wednesday">Wednesday</string>
+    <string name="formatted_character">0</string>
+    <string name="full_date">%1$s/%2$s/%3$d</string>
+    <string name="month_date">%1$d%2$s</string>
+    <string name="short_date">%1$s/%2$s</string>
+    <string name="time">%1$s:%2$s</string>
 
 </resources>

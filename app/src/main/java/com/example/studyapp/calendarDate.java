@@ -1,5 +1,6 @@
 package com.example.studyapp;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.design.widget.CoordinatorLayout;
@@ -23,13 +24,14 @@ import java.util.HashMap;
 
 
 public class calendarDate extends AppCompatActivity {
-
     private SimpleAdapter sa;
     SharedPrefs sharedPrefs;
     ListView listView;
     TextView title;
+    ArrayList<TimetableEvent> todayEvent;
+    ArrayList<HashMap<String, String>> lCalendarDate;
     @Override
-    @TargetApi(26)
+    @SuppressLint("StringFormatInvalid")
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
         if(sharedPrefs.loadNightMode()){
@@ -50,24 +52,25 @@ public class calendarDate extends AppCompatActivity {
             lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
         }
 
-        final ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String,String>>();
-        ArrayList<TimetableEvent> todayEvent = Timetable.getInstance().getEventsOnDay(MainActivity.localDate);
+        lCalendarDate = new ArrayList<HashMap<String,String>>();
+        todayEvent = Timetable.getInstance().getEventsOnDay(MainActivity.localDate);
+
         HashMap<String,String> item;
         for(TimetableEvent e: todayEvent){
             item = new HashMap<String, String>();
-            item.put("line1", "Event: " + e.getName());
-            item.put("line2", "Location: " + e.getLocation());
-            item.put("line3", "Start Time: " + eventsPage.dailyCheck(e));
-            item.put("line4", "Event Type: " + returnFreqString(e));
-            list.add(item);
+            item.put("line1", getResources().getString(R.string.title_input) + ": " + e.getName());
+            item.put("line2", getResources().getString(R.string.location_input) + ": " + e.getLocation());
+            item.put("line3", getResources().getString(R.string.start_time) + ": " + dailyCheck(e));
+            item.put("line4", getResources().getString(R.string.event_type) + ": " + returnFreqString(e));
+            lCalendarDate.add(item);
         }
-        sa = new SimpleAdapter(this, list,
+        sa = new SimpleAdapter(this, lCalendarDate,
                 R.layout.activity_event_list,
                 new String[] { "line1","line2","line3","line4" },
                 new int[] {R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d});
 
         title = findViewById(R.id.eventsForDay);
-        title.setText("Events for " + MainActivity.sDay + "/" + MainActivity.sMonth + "/" + MainActivity.sYear);
+        title.setText(String.format(getResources().getString(R.string.events_for), MainActivity.sDay, MainActivity.sMonth, MainActivity.sYear));
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(sa);
         listView.setNestedScrollingEnabled(true);
@@ -78,6 +81,7 @@ public class calendarDate extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
+                eventsPage.selectedEvent = todayEvent.get(position);
                 final PopupMenu popup = new PopupMenu(calendarDate.this, view);
                 popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -92,7 +96,9 @@ public class calendarDate extends AppCompatActivity {
                                 startActivity(description);
                                 return true;
                             case R.id.delete:
-                                list.remove(position);
+                                Timetable.getInstance().removeEvent(todayEvent.get(position));
+                                lCalendarDate.remove(position);
+                                sa.notifyDataSetChanged();
                                 return true;
                             case R.id.edit_event:
                                 Intent edit = new Intent(calendarDate.this, editPage.class);
@@ -132,21 +138,30 @@ public class calendarDate extends AppCompatActivity {
         return true;
     }
 
-    public static String returnFreqString(TimetableEvent x){
+    public String returnFreqString(TimetableEvent x){
         switch (x.getRepeatFrequency()){
             case NoRepeat:
-                return "Custom";
+                return getResources().getString(R.string.type_custom);
             case Daily:
-                return "Daily";
+                return getResources().getString(R.string.type_daily);
             case Weekly:
-                return "Weekly";
+                return getResources().getString(R.string.type_weekly);
             case Monthly:
-                return "Monthly";
+                return getResources().getString(R.string.type_monthly);
             case Yearly:
-                return "Yearly";
+                return getResources().getString(R.string.type_yearly);
             default:
                 return "oops";
         }
     }
-
+    public String dailyCheck(TimetableEvent e){
+        if (e.getAllDay()){ return getResources().getString(R.string.type_allday); }
+        return String.format(getResources().getString(R.string.time), requiresFormat(e.getStart().getHour()) + e.getStart().getHour(), requiresFormat(e.getStart().getMinute()) + e.getStart().getMinute());
+    }
+    public String requiresFormat(int a){
+        if(a<10){
+            return getResources().getString(R.string.formatted_character);
+        }
+        return "";
+    }
 }

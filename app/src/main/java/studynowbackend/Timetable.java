@@ -1,6 +1,8 @@
 
 package studynowbackend;
 
+import com.example.studyapp.InputPage;
+
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -64,6 +66,7 @@ public class Timetable {
 
             if (day == dayOfWeek) {
                 events.add(event);
+                InputPage.sortList(event, events);
                 continue;
             }
 
@@ -73,6 +76,7 @@ public class Timetable {
 
                 if (day == dayOfWeek) {
                     events.add(event);
+                    InputPage.sortList(event, events);
                     break;
                 }
             }
@@ -86,6 +90,7 @@ public class Timetable {
 
             if (day == dayOfMonth) {
                 events.add(event);
+                InputPage.sortList(event, events);
                 continue;
             }
 
@@ -99,6 +104,7 @@ public class Timetable {
 
                 if (day == dayOfMonth) {
                     events.add(event);
+                    InputPage.sortList(event, events);
                     break;
                 }
             }
@@ -112,6 +118,7 @@ public class Timetable {
 
             if (day == dayOfYear) {
                 events.add(event);
+                InputPage.sortList(event, events);
                 continue;
             }
 
@@ -125,6 +132,7 @@ public class Timetable {
 
                 if (day == dayOfYear) {
                     events.add(event);
+                    InputPage.sortList(event, events);
                     break;
                 }
             }
@@ -139,15 +147,17 @@ public class Timetable {
 
                 if (!(date.isBefore(start) || date.isAfter(end))) {
                     events.add(event);
+                    InputPage.sortList(event, events);
                 }
             });
         } else {
-            for (TimetableEvent event : events) {
+            for (TimetableEvent event : this.events) {
                 LocalDate start = event.getStart().toLocalDate();
                 LocalDate end = event.getEnd().toLocalDate();
 
                 if (!(date.isBefore(start) || date.isAfter(end))) {
                     events.add(event);
+                    InputPage.sortList(event, events);
                 }
             }
         }

@@ -260,15 +260,15 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             start = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
-            tv_result.setText("Start Date:" + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
-            tv_result2.setText("Start Time:" + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
+            tv_result.setText(getResources().getString(R.string.start_date) + "\n" + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
+            tv_result2.setText(getResources().getString(R.string.start_time) + ":\n " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         } else if (option == 2) {
             set2 = true;
             end = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
-            endDateResult.setText("  End Date:\n   " + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
-            endTimeResult.setText("  End Time:\n   " + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
+            endDateResult.setText("  " + getResources().getString(R.string.end_date) + "\n   " + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
+            endTimeResult.setText("  " + getResources().getString(R.string.end_time) + ":\n   " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         }
     }
 
@@ -281,9 +281,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         return Integer.toString(a);
     }
 
-    @TargetApi(26)
-    public void sortList(TimetableEvent a, ArrayList<TimetableEvent> list){
-        System.out.println(list.size());
+    public static void sortList(TimetableEvent a, ArrayList<TimetableEvent> list){
         if (list.size() > 1) {
             if(a.getAllDay()){
                 list.remove(a);
@@ -292,7 +290,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             }
             int index = list.indexOf(a);
             while (index > 0) {
-                if (a.getStart().isBefore(list.get(index-1).getStart()))index--;
+                if(list.get(index-1).getAllDay()){
+                    list.remove(a);
+                    list.add(index, a);
+                    return;
+                }
+                else if (a.getStart().isBefore(list.get(index-1).getStart()))index--;
                 else {
                     list.remove(a);
                     list.add(index, a);
@@ -327,7 +330,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     }
 
-    public void sortListByType(TimetableEvent x){
+    public static void sortListByType(TimetableEvent x){
         switch(x.getRepeatFrequency()){
             case NoRepeat:
                 sortList(x, Timetable.getInstance().getEvents()); break;
@@ -339,8 +342,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 sortList(x, Timetable.getInstance().getMonthlyEvents()); break;
             case Yearly:
                 sortList(x, Timetable.getInstance().getYearlyEvents()); break;
-            default:
-                return;
         }
+    }
+    public String requiresFormat(int a){
+        if(a<10){
+            return getResources().getString(R.string.formatted_character);
+        }
+        return "";
     }
 }

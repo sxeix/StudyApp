@@ -8,11 +8,11 @@
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">イベントを追加</string>
     <string name="title_activity_settings_page">設定</string>
-    <string name="title_activity_edit_page">Edit Event</string>
-    <string name="delete">Delete</string>
-    <string name="description">Description</string>
-    <string name="event_edit">Edit Event</string>
-    <string name="event_settings">Event Settings</string>
+    <string name="title_activity_edit_page">イベント変更</string>
+    <string name="delete">削除</string>
+    <string name="description">詳細</string>
+    <string name="event_edit">イベントを変更</string>
+    <string name="event_settings">イベント設定</string>
 
     <!--    Page elements   -->
     <string name="change_colour">色を変更</string>
@@ -21,7 +21,7 @@
     <string name="weekly_custom">毎週のイベント</string>
     <string name="monthly_custom">毎月のイベント</string>
     <string name="yearly_custom">毎年のイベント</string>
-    <string name="events_for">Events for </string>
+    <string name="events_for">%3$d年%2$d月%1$d日のイベント</string>
     <string name="title_input">件名</string>
     <string name="all_day_event_switch">終日イベント</string>
     <string name="location_input">場所</string>
@@ -38,6 +38,25 @@
     <string name="eng">English</string>
     <string name="jap">日本語</string>
     <string name="can">廣東話</string>
+    <string name="type_custom">特殊</string>
+    <string name="type_daily">日毎</string>
+    <string name="type_monthly">月毎</string>
+    <string name="type_weekly">週毎</string>
+    <string name="type_yearly">年毎</string>
+    <string name="type_allday">終日</string>
+    <string name="event_type">イベント種類</string>
+    <string name="day_friday">金曜日</string>
+    <string name="day_monday">月曜日</string>
+    <string name="day_saturday">土曜日</string>
+    <string name="day_sunday">日曜日</string>
+    <string name="day_thursday">木曜日</string>
+    <string name="day_tuesday">火曜日</string>
+    <string name="day_wednesday">水曜日</string>
+    <string name="formatted_character"></string>
+    <string name="full_date">%3$d年%2$s月%1$s日</string>
+    <string name="month_date">%1$d日</string>
+    <string name="short_date">%2$s月%1$s日</string>
+    <string name="time">%1$s時%2$s分</string>
 
     <string-array name="Repeat">
         <item>繰り返しなし</item>
