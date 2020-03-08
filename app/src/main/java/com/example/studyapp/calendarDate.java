@@ -90,9 +90,7 @@ public class calendarDate extends AppCompatActivity {
                         switch (item.getItemId()){
                             case R.id.description:
                                 Intent description = new Intent(calendarDate.this, popupWindowDesc.class);
-                                for(TimetableEvent e: Timetable.getInstance().getEvents()) {
-                                    description.putExtra("Description", e.getDescription().toString());
-                                }
+                                description.putExtra("Description", todayEvent.get(position).getDescription().toString());
                                 startActivity(description);
                                 return true;
                             case R.id.delete:
