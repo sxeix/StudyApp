@@ -66,7 +66,7 @@ public class Timetable {
 
             if (day == dayOfWeek) {
                 events.add(event);
-                InputPage.sortList(event, events);
+                InputPage.sortList(event, events, 2);
                 continue;
             }
 
@@ -76,7 +76,7 @@ public class Timetable {
 
                 if (day == dayOfWeek) {
                     events.add(event);
-                    InputPage.sortList(event, events);
+                    InputPage.sortList(event, events, 2);
                     break;
                 }
             }
@@ -90,7 +90,7 @@ public class Timetable {
 
             if (day == dayOfMonth) {
                 events.add(event);
-                InputPage.sortList(event, events);
+                InputPage.sortList(event, events, 2);
                 continue;
             }
 
@@ -104,7 +104,7 @@ public class Timetable {
 
                 if (day == dayOfMonth) {
                     events.add(event);
-                    InputPage.sortList(event, events);
+                    InputPage.sortList(event, events, 2);
                     break;
                 }
             }
@@ -118,7 +118,7 @@ public class Timetable {
 
             if (day == dayOfYear) {
                 events.add(event);
-                InputPage.sortList(event, events);
+                InputPage.sortList(event, events, 2);
                 continue;
             }
 
@@ -132,7 +132,7 @@ public class Timetable {
 
                 if (day == dayOfYear) {
                     events.add(event);
-                    InputPage.sortList(event, events);
+                    InputPage.sortList(event, events, 2);
                     break;
                 }
             }
@@ -147,7 +147,7 @@ public class Timetable {
 
                 if (!(date.isBefore(start) || date.isAfter(end))) {
                     events.add(event);
-                    InputPage.sortList(event, events);
+                    InputPage.sortList(event, events, 2);
                 }
             });
         } else {
@@ -157,7 +157,7 @@ public class Timetable {
 
                 if (!(date.isBefore(start) || date.isAfter(end))) {
                     events.add(event);
-                    InputPage.sortList(event, events);
+                    InputPage.sortList(event, events, 2);
                 }
             }
         }
