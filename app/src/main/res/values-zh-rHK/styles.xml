@@ -10,6 +10,7 @@
         <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
         <item name="android:statusBarColor">#F5E2E1</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="popupBackground">@drawable/custom_popup1</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -28,6 +29,7 @@
         <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
         <item name="android:statusBarColor">#B9EEF5</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="popupBackground">@drawable/custom_popup</item>
     </style>
 
     <!--How the the transitions look like between pages-->

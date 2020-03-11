@@ -67,6 +67,11 @@ public class settingsPage extends AppCompatActivity {
                 }
             }
         });
+        Spinner LanSpinner = (Spinner) findViewById(R.id.langSpinner);
+        ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.lang));
+        myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        LanSpinner.setAdapter(myAdapter);
 
     }
 
@@ -113,16 +118,19 @@ public class settingsPage extends AppCompatActivity {
     public void onRadioButtonClicked(View view) {
         switch (view.getId()) {
             case R.id.radio_eng:
-                setLocale("en-GB");break;
+                setLocale("en-GB");
+                break;
             case R.id.radio_ja:
-                setLocale("ja"); break;
+                setLocale("ja");
+                break;
             case R.id.radio_can:
-                setLocale("zh-rHK"); break;
+                setLocale("zh-rHK");
+                break;
         }
     }
 
     public void setLocale(String lang) {
-        if(lang.equals("zh-rHK")){
+        if (lang.equals("zh-rHK")) {
             myLocale = new Locale("zh", "HK");
             lang = "zh-HK";
         } else {
