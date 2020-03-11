@@ -72,6 +72,7 @@ public class settingsPage extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.lang));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         LanSpinner.setAdapter(myAdapter);
+//        LanSpinner.setDropDownVerticalOffset(100);
 
     }
 
