@@ -10,12 +10,11 @@
     <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_edit_page">Edit Event</string>
 
-<!--    <string name="title_activity_description_page">Description</string>-->
+    <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Delete</string>
     <string name="description">Description</string>
     <string name="event_edit">Edit Event</string>
     <string name="event_settings">Event Settings</string>
-
 
 
     <!--    Page elements   -->
@@ -63,11 +62,11 @@
     <string name="time">%1$s:%2$s</string><!--time of day. 1 = hour, 2 = minutes-->
 
     <string-array name="Repeat">
-    <item>Do Not Repeat</item>
-    <item>Daily</item>
-    <item>Weekly</item>
-    <item>Monthly</item>
-    <item>Yearly</item>
+        <item>Do Not Repeat</item>
+        <item>Daily</item>
+        <item>Weekly</item>
+        <item>Monthly</item>
+        <item>Yearly</item>
     </string-array>
 
     <string-array name="languages">

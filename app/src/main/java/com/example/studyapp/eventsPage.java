@@ -14,15 +14,23 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
+
 import android.widget.ListAdapter;
 import android.view.View.MeasureSpec;
 import android.widget.TextView;
+
+import static com.example.studyapp.R.attr.popupBackground;
+import static com.example.studyapp.R.styleable.ds_popupBackground;
 
 public class eventsPage extends AppCompatActivity {
     public static TimetableEvent selectedEvent;
@@ -61,11 +69,11 @@ public class eventsPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_events_page));
+        CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
         if (sharedPrefs.loadNightMode()) {
-            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
+
         } else {
-            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
             lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
         }
 
@@ -76,11 +84,21 @@ public class eventsPage extends AppCompatActivity {
         lWeekly = new ArrayList<HashMap<String, String>>();
         lMonthly = new ArrayList<HashMap<String, String>>();
         lYearly = new ArrayList<HashMap<String, String>>();
-        for (TimetableEvent e : Timetable.getInstance().getEvents()) { addToArrayList(e); }
-        for (TimetableEvent e : Timetable.getInstance().getDailyEvents()) { addToArrayList(e); }
-        for (TimetableEvent e : Timetable.getInstance().getWeeklyEvents()) { addToArrayList(e); }
-        for (TimetableEvent e : Timetable.getInstance().getMonthlyEvents()) { addToArrayList(e); }
-        for (TimetableEvent e : Timetable.getInstance().getYearlyEvents()) { addToArrayList(e); }
+        for (TimetableEvent e : Timetable.getInstance().getEvents()) {
+            addToArrayList(e);
+        }
+        for (TimetableEvent e : Timetable.getInstance().getDailyEvents()) {
+            addToArrayList(e);
+        }
+        for (TimetableEvent e : Timetable.getInstance().getWeeklyEvents()) {
+            addToArrayList(e);
+        }
+        for (TimetableEvent e : Timetable.getInstance().getMonthlyEvents()) {
+            addToArrayList(e);
+        }
+        for (TimetableEvent e : Timetable.getInstance().getYearlyEvents()) {
+            addToArrayList(e);
+        }
         aCustom = new SimpleAdapter(this, lCustom,
                 R.layout.activity_event_list,
                 new String[]{"line1", "line2", "line3", "line4"},
@@ -185,7 +203,9 @@ public class eventsPage extends AppCompatActivity {
         return true;
     }
 
-    /** changes list view height depending on the number of items it has*/
+    /**
+     * changes list view height depending on the number of items it has
+     */
     public static void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
         if (listAdapter == null) {
@@ -205,24 +225,33 @@ public class eventsPage extends AppCompatActivity {
         listView.requestLayout();
     }
 
-    /** Adds events to correct list depending on event type*/
-    public void addByFreq(HashMap<String, String> item, TimetableEvent x){
-        switch (x.getRepeatFrequency()){
+    /**
+     * Adds events to correct list depending on event type
+     */
+    public void addByFreq(HashMap<String, String> item, TimetableEvent x) {
+        switch (x.getRepeatFrequency()) {
             case NoRepeat:
-                lCustom.add(item); break;
+                lCustom.add(item);
+                break;
             case Daily:
-                lDaily.add(item); break;
+                lDaily.add(item);
+                break;
             case Weekly:
-                lWeekly.add(item); break;
+                lWeekly.add(item);
+                break;
             case Monthly:
-                lMonthly.add(item); break;
+                lMonthly.add(item);
+                break;
             case Yearly:
-                lYearly.add(item); break;
+                lYearly.add(item);
+                break;
         }
     }
 
-    /** creates HashMap of event and then adds to array*/
-    public void addToArrayList(TimetableEvent e){
+    /**
+     * creates HashMap of event and then adds to array
+     */
+    public void addToArrayList(TimetableEvent e) {
         HashMap<String, String> item = new HashMap<String, String>();
         item.put("line1", getResources().getString(R.string.title_input) + ": " + e.getName());
         item.put("line2", getResources().getString(R.string.start_date) + " " + routineCheck(e));
@@ -232,8 +261,8 @@ public class eventsPage extends AppCompatActivity {
     }
 
     @SuppressLint("StringFormatMatches")
-    public String routineCheck(TimetableEvent e){
-        switch(e.getRepeatFrequency()){
+    public String routineCheck(TimetableEvent e) {
+        switch (e.getRepeatFrequency()) {
             case NoRepeat:
                 return String.format(getResources().getString(R.string.full_date), requiresFormat(e.getStart().getDayOfMonth()) + e.getStart().getDayOfMonth(), requiresFormat(e.getStart().getMonthValue()) + e.getStart().getMonthValue(), e.getStart().getYear());
             case Daily:
@@ -249,16 +278,20 @@ public class eventsPage extends AppCompatActivity {
         }
     }
 
-    public String monthEnd(TimetableEvent e){
-        int i = e.getStart().getDayOfMonth()%10;
-        if(i == 1 && e.getStart().getDayOfMonth()!=11){return  "st";}
-        else if (i == 2 && e.getStart().getDayOfMonth()!=12){return "nd";}
-        else if (i == 3 && e.getStart().getDayOfMonth()!=13){return "rd";}
+    public String monthEnd(TimetableEvent e) {
+        int i = e.getStart().getDayOfMonth() % 10;
+        if (i == 1 && e.getStart().getDayOfMonth() != 11) {
+            return "st";
+        } else if (i == 2 && e.getStart().getDayOfMonth() != 12) {
+            return "nd";
+        } else if (i == 3 && e.getStart().getDayOfMonth() != 13) {
+            return "rd";
+        }
         return "th";
     }
 
-    public String dayOfWeek(TimetableEvent e){
-        switch(e.getStart().getDayOfWeek().name()){
+    public String dayOfWeek(TimetableEvent e) {
+        switch (e.getStart().getDayOfWeek().name()) {
             case "MONDAY":
                 return getResources().getString(R.string.day_monday);
             case "TUESDAY":
@@ -277,19 +310,22 @@ public class eventsPage extends AppCompatActivity {
                 return "oops";
         }
     }
-    public String dailyCheck(TimetableEvent e){
-        if (e.getAllDay()){ return getResources().getString(R.string.type_allday); }
+
+    public String dailyCheck(TimetableEvent e) {
+        if (e.getAllDay()) {
+            return getResources().getString(R.string.type_allday);
+        }
         return String.format(getResources().getString(R.string.time), requiresFormat(e.getStart().getHour()) + e.getStart().getHour(), requiresFormat(e.getStart().getMinute()) + e.getStart().getMinute());
     }
 
-    public void listViewClick(AdapterView<?> parent, View view, final int position, long id, int type){
+    public void listViewClick(AdapterView<?> parent, View view, final int position, long id, int type) {
         selectedEvent = getTypeListByIndex(type).get(position);
         final PopupMenu popup = new PopupMenu(eventsPage.this, view);
         popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.description:
                         Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
                         description.putExtra("Description", getTypeListByIndex(type).get(position).getDescription().toString());
@@ -311,8 +347,9 @@ public class eventsPage extends AppCompatActivity {
         });
         popup.show();
     }
-    public ArrayList<TimetableEvent> getTypeListByIndex(int x){
-        switch(x){
+
+    public ArrayList<TimetableEvent> getTypeListByIndex(int x) {
+        switch (x) {
             case 0:
                 return Timetable.getInstance().getEvents();
             case 1:
@@ -327,8 +364,9 @@ public class eventsPage extends AppCompatActivity {
                 return null;
         }
     }
-    public String requiresFormat(int a){
-        if(a<10){
+
+    public String requiresFormat(int a) {
+        if (a < 10) {
             return getResources().getString(R.string.formatted_character);
         }
         return "";

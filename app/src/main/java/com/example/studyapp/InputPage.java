@@ -47,7 +47,9 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     EditText title, location, description;
     String t, l, d;
 
-    /** These integers can be used to be passed into the event class*/
+    /**
+     * These integers can be used to be passed into the event class
+     */
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
 
@@ -71,9 +73,9 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         /**Imports theme mode user preferences*/
 
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
+        if (sharedPrefs.loadNightMode()) {
             setTheme(R.style.LightMode);
-        }else{
+        } else {
             setTheme(R.style.AppTheme);
         }
 
@@ -85,7 +87,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_input_page));
 
         // Spinner code
-        Spinner mySpinner = (Spinner)findViewById(R.id.routine);
+        Spinner mySpinner = (Spinner) findViewById(R.id.routine);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputPage.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.Repeat));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -192,29 +194,34 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // This method is used for updating the switches and changing them from true to false
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        if(buttonView.getId() == R.id.dayEventSwitch) allDayEventBool = isChecked;
+        if (buttonView.getId() == R.id.dayEventSwitch) allDayEventBool = isChecked;
     }
 
-    /** Toolbar dropdown menu*/
+    /**
+     * Toolbar dropdown menu
+     */
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
-    /** Toolbar icons implementations*/
+
+    /**
+     * Toolbar icons implementations
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if(id == R.id.events){
+        if (id == R.id.events) {
             Intent eventspage = new Intent(InputPage.this, eventsPage.class);
             startActivity(eventspage);
-        }else if(id == R.id.about){
+        } else if (id == R.id.about) {
             Intent infopage = new Intent(InputPage.this, infoPage.class);
             startActivity(infopage);
-        }else if(id == R.id.settings){
+        } else if (id == R.id.settings) {
             Intent settings = new Intent(InputPage.this, settingsPage.class);
             startActivity(settings);
-        }else if(id == android.R.id.home){
+        } else if (id == android.R.id.home) {
             this.finish();
         }
         return true;
@@ -275,7 +282,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // This method is used for displaying date and time values correctly
     // If the value is less than 10 then it adds a '0' to the start of a string with the number
     public static String formatCharacter(int a) {
-        if (a<10) {
+        if (a < 10) {
             return "0" + a;
         }
         return Integer.toString(a);
@@ -283,17 +290,22 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch (position){
+        switch (position) {
             case 0: // Do Not Repeat
-                spinnerOption = RepeatFrequency.NoRepeat; break;
+                spinnerOption = RepeatFrequency.NoRepeat;
+                break;
             case 1: // Daily
-                spinnerOption = RepeatFrequency.Daily; break;
+                spinnerOption = RepeatFrequency.Daily;
+                break;
             case 2: // Weekly
-                spinnerOption = RepeatFrequency.Weekly; break;
+                spinnerOption = RepeatFrequency.Weekly;
+                break;
             case 3: // Monthly
-                spinnerOption = RepeatFrequency.Monthly; break;
+                spinnerOption = RepeatFrequency.Monthly;
+                break;
             case 4: // Yearly
-                spinnerOption = RepeatFrequency.Yearly; break;
+                spinnerOption = RepeatFrequency.Yearly;
+                break;
             default:
                 Toast.makeText(InputPage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
         }
@@ -304,96 +316,138 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
 
     }
 
-    public static void sortList(TimetableEvent a, ArrayList<TimetableEvent> list, int type){
+    public static void sortList(TimetableEvent a, ArrayList<TimetableEvent> list, int type) {
         if (list.size() > 1) {
             int index = list.indexOf(a);
-            switch(type){
+            switch (type) {
                 case 1:
                     while (index > 0) {
-                        if(a.getAllDay()) {
-                            if (a.getStart().toLocalDate().isAfter(list.get(index-1).getStart().toLocalDate())) {
-                                list.remove(a); list.add(index, a); return;
-                            }index--;
-                        }
-                        else if (a.getStart().toLocalDate().isBefore(list.get(index-1).getStart().toLocalDate()) || (a.getStart().toLocalDate().isEqual(list.get(index-1).getStart().toLocalDate()) && (a.getStart().toLocalTime().isBefore(list.get(index-1).getStart().toLocalTime()) && !list.get(index-1).getAllDay())))index--;
+                        if (a.getAllDay()) {
+                            if (a.getStart().toLocalDate().isAfter(list.get(index - 1).getStart().toLocalDate())) {
+                                list.remove(a);
+                                list.add(index, a);
+                                return;
+                            }
+                            index--;
+                        } else if (a.getStart().toLocalDate().isBefore(list.get(index - 1).getStart().toLocalDate()) || (a.getStart().toLocalDate().isEqual(list.get(index - 1).getStart().toLocalDate()) && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay())))
+                            index--;
                         else {
-                            list.remove(a); list.add(index, a); return;
+                            list.remove(a);
+                            list.add(index, a);
+                            return;
                         }
                     }
-                    list.remove(a); list.add(0, a); break;
+                    list.remove(a);
+                    list.add(0, a);
+                    break;
                 case 2:
                     if (a.getAllDay()) {
-                        list.remove(a); list.add(0, a); return;
+                        list.remove(a);
+                        list.add(0, a);
+                        return;
                     }
                     while (index > 0) {
                         if (list.get(index - 1).getAllDay()) {
-                            list.remove(a); list.add(index, a); return;
-                        }
-                        else if(a.getStart().toLocalTime().isBefore(list.get(index-1).getStart().toLocalTime())){index--;}
-                        else {
-                            list.remove(a); list.add(index, a); return;
+                            list.remove(a);
+                            list.add(index, a);
+                            return;
+                        } else if (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime())) {
+                            index--;
+                        } else {
+                            list.remove(a);
+                            list.add(index, a);
+                            return;
                         }
                     }
-                    list.remove(a); list.add(index, a); break;
+                    list.remove(a);
+                    list.add(index, a);
+                    break;
                 case 3:
                     while (index > 0) {
-                        if (a.getAllDay()){
-                            if (a.getStart().getDayOfWeek().getValue()>list.get(index-1).getStart().getDayOfWeek().getValue()) {
-                                list.remove(a); list.add(index, a); return;
-                            }index--;
-                        }
-                        else if(a.getStart().getDayOfWeek().getValue()<list.get(index-1).getStart().getDayOfWeek().getValue() || (a.getStart().getDayOfWeek().getValue()==list.get(index-1).getStart().getDayOfWeek().getValue() && (a.getStart().toLocalTime().isBefore(list.get(index-1).getStart().toLocalTime()) && !list.get(index-1).getAllDay())))index--;
+                        if (a.getAllDay()) {
+                            if (a.getStart().getDayOfWeek().getValue() > list.get(index - 1).getStart().getDayOfWeek().getValue()) {
+                                list.remove(a);
+                                list.add(index, a);
+                                return;
+                            }
+                            index--;
+                        } else if (a.getStart().getDayOfWeek().getValue() < list.get(index - 1).getStart().getDayOfWeek().getValue() || (a.getStart().getDayOfWeek().getValue() == list.get(index - 1).getStart().getDayOfWeek().getValue() && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay())))
+                            index--;
                         else {
-                            list.remove(a); list.add(index, a); return;
+                            list.remove(a);
+                            list.add(index, a);
+                            return;
                         }
                     }
-                    list.remove(a); list.add(index, a); break;
+                    list.remove(a);
+                    list.add(index, a);
+                    break;
                 case 4:
                     while (index > 0) {
-                        if (a.getAllDay()){
-                            if (a.getStart().getDayOfMonth()>list.get(index-1).getStart().getDayOfMonth()) {
-                                list.remove(a); list.add(index, a); return;
-                            }index--;
-                        }
-                        else if(a.getStart().getDayOfMonth()<list.get(index-1).getStart().getDayOfMonth() || (a.getStart().getDayOfMonth()==list.get(index-1).getStart().getDayOfMonth() && (a.getStart().toLocalTime().isBefore(list.get(index-1).getStart().toLocalTime()) && !list.get(index-1).getAllDay()))){index--;}
-                        else {
-                            list.remove(a); list.add(index, a); return;
+                        if (a.getAllDay()) {
+                            if (a.getStart().getDayOfMonth() > list.get(index - 1).getStart().getDayOfMonth()) {
+                                list.remove(a);
+                                list.add(index, a);
+                                return;
+                            }
+                            index--;
+                        } else if (a.getStart().getDayOfMonth() < list.get(index - 1).getStart().getDayOfMonth() || (a.getStart().getDayOfMonth() == list.get(index - 1).getStart().getDayOfMonth() && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay()))) {
+                            index--;
+                        } else {
+                            list.remove(a);
+                            list.add(index, a);
+                            return;
                         }
                     }
-                    list.remove(a); list.add(index, a); break;
+                    list.remove(a);
+                    list.add(index, a);
+                    break;
                 case 5:
                     while (index > 0) {
-                        if (a.getAllDay()){
-                            if (a.getStart().getDayOfYear()>list.get(index-1).getStart().getDayOfYear()) {
-                                list.remove(a); list.add(index, a); return;
-                            }index--;
-                        }
-                        else if(a.getStart().getDayOfYear()<list.get(index-1).getStart().getDayOfYear() || (a.getStart().getDayOfYear()==list.get(index-1).getStart().getDayOfYear() && (a.getStart().toLocalTime().isBefore(list.get(index-1).getStart().toLocalTime()) && !list.get(index-1).getAllDay()))){index--;}
-                        else {
-                            list.remove(a); list.add(index, a); return;
+                        if (a.getAllDay()) {
+                            if (a.getStart().getDayOfYear() > list.get(index - 1).getStart().getDayOfYear()) {
+                                list.remove(a);
+                                list.add(index, a);
+                                return;
+                            }
+                            index--;
+                        } else if (a.getStart().getDayOfYear() < list.get(index - 1).getStart().getDayOfYear() || (a.getStart().getDayOfYear() == list.get(index - 1).getStart().getDayOfYear() && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay()))) {
+                            index--;
+                        } else {
+                            list.remove(a);
+                            list.add(index, a);
+                            return;
                         }
                     }
-                    list.remove(a); list.add(index, a); break;
+                    list.remove(a);
+                    list.add(index, a);
+                    break;
             }
         }
     }
 
-    public static void sortListByType(TimetableEvent x){
-        switch(x.getRepeatFrequency()){
+    public static void sortListByType(TimetableEvent x) {
+        switch (x.getRepeatFrequency()) {
             case NoRepeat:
-                sortList(x, Timetable.getInstance().getEvents(), 1); break;
+                sortList(x, Timetable.getInstance().getEvents(), 1);
+                break;
             case Daily:
-                sortList(x, Timetable.getInstance().getDailyEvents(), 2); break;
+                sortList(x, Timetable.getInstance().getDailyEvents(), 2);
+                break;
             case Weekly:
-                sortList(x, Timetable.getInstance().getWeeklyEvents(), 3); break;
+                sortList(x, Timetable.getInstance().getWeeklyEvents(), 3);
+                break;
             case Monthly:
-                sortList(x, Timetable.getInstance().getMonthlyEvents(), 4); break;
+                sortList(x, Timetable.getInstance().getMonthlyEvents(), 4);
+                break;
             case Yearly:
-                sortList(x, Timetable.getInstance().getYearlyEvents(), 5); break;
+                sortList(x, Timetable.getInstance().getYearlyEvents(), 5);
+                break;
         }
     }
-    public String requiresFormat(int a){
-        if(a<10){
+
+    public String requiresFormat(int a) {
+        if (a < 10) {
             return getResources().getString(R.string.formatted_character);
         }
         return "";
