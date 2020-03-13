@@ -45,23 +45,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
-        
-        // This section of code is used to check the current language off the application and if it is incorrect then
-        // it reloads the app with the user's preferred language
-        String lang = sharedPrefs.getLangPref();
-        if (!lang.equals("en-GB") && !lang.equals("ja")) lang = "zh_HK";
-//        Toast.makeText(this, "lang " + lang, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, "current " + getResources().getConfiguration().locale.toString(), Toast.LENGTH_SHORT).show();
-        if(!lang.toLowerCase().equals(getResources().getConfiguration().locale.toString().toLowerCase())) {
-            myLocale = new Locale(lang);
-            Resources res = getResources();
-            DisplayMetrics dm = res.getDisplayMetrics();
-            Configuration conf = res.getConfiguration();
-            conf.locale = myLocale;
-            res.updateConfiguration(conf, dm);
-            Intent refresh = new Intent(this, MainActivity.class);
-            startActivity(refresh);
-        }
+
 
         /**Imports theme mode user preferences*/
         if (sharedPrefs.loadNightMode()) {
@@ -92,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     /**
      * Toolbar dropdown menu

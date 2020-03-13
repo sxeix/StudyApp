@@ -34,28 +34,6 @@
                 android:text="@string/change_colour"
                 android:textColor="#000000" />
 
-            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <RadioButton android:id="@+id/radio_eng"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/eng"
-                    android:onClick="onRadioButtonClicked"/>
-                <RadioButton android:id="@+id/radio_ja"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/jap"
-                    android:onClick="onRadioButtonClicked"/>
-                <RadioButton android:id="@+id/radio_can"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/can"
-                    android:onClick="onRadioButtonClicked"
-                    android:textColor="#000000"/>
-            </RadioGroup>
-
             <Spinner
                 android:id="@+id/langSpinner"
                 android:layout_width="match_parent"

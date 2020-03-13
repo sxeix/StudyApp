@@ -1,15 +1,10 @@
 package com.example.studyapp;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -17,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -25,7 +19,7 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class settingsPage extends AppCompatActivity {
+public class settingsPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     public Switch colorMode;
     SharedPrefs sharedPrefs;
     Locale myLocale;
@@ -72,6 +66,7 @@ public class settingsPage extends AppCompatActivity {
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.lang));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         LanSpinner.setAdapter(myAdapter);
+        LanSpinner.setOnItemSelectedListener(this);
 //        LanSpinner.setDropDownVerticalOffset(100);
 
     }
@@ -116,27 +111,15 @@ public class settingsPage extends AppCompatActivity {
         return true;
     }
 
-    public void onRadioButtonClicked(View view) {
-        switch (view.getId()) {
-            case R.id.radio_eng:
-                setLocale("en-GB");
-                break;
-            case R.id.radio_ja:
-                setLocale("ja");
-                break;
-            case R.id.radio_can:
-                setLocale("zh-rHK");
-                break;
-        }
-    }
-
     public void setLocale(String lang) {
-        if (lang.equals("zh-rHK")) {
-            myLocale = new Locale("zh", "HK");
-            lang = "zh-HK";
-        } else {
-            myLocale = new Locale(lang);
-        }
+        if (lang.equals("zh-rHK")) { myLocale = new Locale("zh", "HK"); lang = "zh-HK";}
+        if (lang.equals("ru-rRU")) { myLocale = new Locale("ru"); lang = "ru";}
+        if (lang.equals("fr-rFR")) { myLocale = new Locale("fr"); lang = "fr";}
+        if (lang.equals("bg-rBG")) { myLocale = new Locale("bg"); lang = "bg";}
+        if (lang.equals("tr-rTR")) { myLocale = new Locale("tr"); lang = "tr";}
+        if (lang.equals("es-rES")) { myLocale = new Locale("es", "ES"); lang = "es-ES";}
+        if (lang.equals("ts-rTS")) { myLocale = new Locale("ts"); lang = "ts";}
+        if (lang.equals("pt-rPT")) { myLocale = new Locale("pt", "PT"); lang = "pt-PT";}
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
@@ -145,5 +128,51 @@ public class settingsPage extends AppCompatActivity {
         Intent refresh = new Intent(this, MainActivity.class);
         sharedPrefs.setLangPref(lang);
         startActivity(refresh);
+    }
+
+    public boolean checkLocaleDifferent(String cur, String select) {
+        return !cur.equals(select.toLowerCase());
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String langSame = sharedPrefs.getLangPref().toLowerCase();
+            switch (position) {
+                case 0: break;
+                case 1:
+                    if (checkLocaleDifferent(langSame, "en-gb")) setLocale("en-GB");
+                    break;
+                case 2:
+                    if (checkLocaleDifferent(langSame, "ja")) setLocale("ja");
+                    break;
+                case 3:
+                    if (checkLocaleDifferent(langSame, "zh-rHK")) setLocale("zh-rHK");
+                    break;
+                case 4:
+                    if (checkLocaleDifferent(langSame, "ru-rRU")) setLocale("ru-rRU");
+                    break;
+                case 5:
+                    if (checkLocaleDifferent(langSame, "fr-rFR")) setLocale("fr-rFR");
+                    break;
+                case 6:
+                    if (checkLocaleDifferent(langSame, "bg-rBG")) setLocale("bg-rBG");
+                    break;
+                case 7:
+                    if (checkLocaleDifferent(langSame, "tr-rTR")) setLocale("tr-rTR");
+                    break;
+                case 8:
+                    if (checkLocaleDifferent(langSame, "es-rES")) setLocale("es-rES");
+                    break;
+                case 9:
+                    if (checkLocaleDifferent(langSame, "pt-rPT")) setLocale("pt-rPT");
+                    break;
+                default:
+                    Toast.makeText(settingsPage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

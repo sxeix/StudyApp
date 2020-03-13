@@ -51,6 +51,20 @@
         <item>English</item>
         <item>Japanese</item>
     </string-array>
+
+    <string-array name="lang">
+        <item>Choose language</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>Cantonese</item>
+        <item>Russian</item>
+        <item>French</item>
+        <item>Bulgarian</item>
+        <item>Turkish</item>
+        <item>Spanish</item>
+        <item>Portuguese</item>
+    </string-array>
+
     <string name="type_custom">Custom</string>
     <string name="type_daily">Daily</string>
     <string name="type_monthly">Monthly</string>

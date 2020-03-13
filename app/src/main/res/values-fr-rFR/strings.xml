@@ -1,6 +1,6 @@
 <resources>
     <!--    Page Titles     -->
-    <string name="app_name">StudyApp</string>
+    <string name="app_name">StudyAppFrench</string>
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
