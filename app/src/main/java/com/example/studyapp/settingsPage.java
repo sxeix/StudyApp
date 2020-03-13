@@ -112,6 +112,7 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public void setLocale(String lang) {
+        myLocale = new Locale(lang);
         if (lang.equals("zh-rHK")) { myLocale = new Locale("zh", "HK"); lang = "zh-HK";}
         if (lang.equals("ru-rRU")) { myLocale = new Locale("ru"); lang = "ru";}
         if (lang.equals("fr-rFR")) { myLocale = new Locale("fr"); lang = "fr";}
@@ -131,13 +132,13 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public boolean checkLocaleDifferent(String cur, String select) {
-        return !cur.equals(select.toLowerCase());
+        return true;
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String langSame = sharedPrefs.getLangPref().toLowerCase();
-            switch (position) {
+        switch (position) {
                 case 0: break;
                 case 1:
                     if (checkLocaleDifferent(langSame, "en-gb")) setLocale("en-GB");
