@@ -76,15 +76,15 @@
 
     <string-array name="lang">
         <item>Избери език</item>
-        <item>Английски</item>
-        <item>Японски</item>
-        <item>Кантонски</item>
-        <item>Руски</item>
-        <item>Френски</item>
-        <item>Български</item>
-        <item>Турски</item>
-        <item>Испански</item>
-        <item>Португалски</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>廣東話</item>
+        <item>Pусский</item>
+        <item>Français</item>
+        <item>български</item>
+        <item>Türk</item>
+        <item>Espanol</item>
+        <item>Português</item>
     </string-array>
 
 </resources>

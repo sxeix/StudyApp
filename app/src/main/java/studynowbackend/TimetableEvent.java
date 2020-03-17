@@ -1,8 +1,9 @@
 package studynowbackend;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class TimetableEvent {
+public class TimetableEvent implements Serializable {
     private String name;
     private String description;
     private String location;

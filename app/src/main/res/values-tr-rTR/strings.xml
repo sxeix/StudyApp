@@ -76,15 +76,15 @@
 
     <string-array name="lang">
         <item>Dil Seçiniz</item>
-        <item>Ingilizce</item>
-        <item>Japonca</item>
-        <item>Kanton Lehçesi</item>
-        <item>Rusça</item>
-        <item>Fransızca</item>
-        <item>Bulgar</item>
+        <item>English</item>
+        <item>日本語</item>
+        <item>廣東話</item>
+        <item>Pусский</item>
+        <item>Français</item>
+        <item>български</item>
         <item>Türk</item>
-        <item>İspanyol</item>
-        <item>Portekizce</item>
+        <item>Espanol</item>
+        <item>Português</item>
     </string-array>
 
 </resources>
