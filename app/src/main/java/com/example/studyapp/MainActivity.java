@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
 
-
+        loadLanguage();
         /**Imports theme mode user preferences*/
         if (sharedPrefs.loadNightMode()) {
             setTheme(R.style.LightMode);
@@ -115,5 +115,28 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, InputPage.class));
             }
         });
+    }
+
+    // This section of code is used to check the current language off the application and if it is incorrect then
+    // it reloads the app with the user's preferred language
+    private void loadLanguage() {
+        String lang = sharedPrefs.getLangPref();
+        String displayLang = getResources().getConfiguration().locale.toString().toLowerCase();
+        if (displayLang.length() != 2) displayLang= displayLang.substring(0,2) + "-" + displayLang.substring(3,5);
+        if (!lang.toLowerCase().equals(displayLang)) {
+            if (lang.equals("zh-HK") || lang.equals("es-ES") || lang.equals("pt-PT")) { String[] tmp = localeStringConverter(lang); myLocale = new Locale(tmp[0], tmp[1]);}
+            else { myLocale = new Locale(lang);}
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+        }
+    }
+
+    public String[] localeStringConverter(String l) {
+        return l.split("-");
     }
 }

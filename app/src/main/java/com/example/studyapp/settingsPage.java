@@ -132,7 +132,7 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     }
 
     public boolean checkLocaleDifferent(String cur, String select) {
-        return true;
+        return !cur.equals(select.toLowerCase());
     }
 
     @Override
