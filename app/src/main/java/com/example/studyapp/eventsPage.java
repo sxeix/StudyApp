@@ -14,10 +14,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.SimpleAdapter;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,26 +28,21 @@ import android.widget.ListAdapter;
 import android.view.View.MeasureSpec;
 import android.widget.TextView;
 
-import static com.example.studyapp.R.attr.popupBackground;
-import static com.example.studyapp.R.styleable.ds_popupBackground;
-
 public class eventsPage extends AppCompatActivity {
     public static TimetableEvent selectedEvent;
-    ListView vCustom;
-    ListView vDaily;
-    ListView vWeekly;
-    ListView vMonthly;
-    ListView vYearly;
+    LocalDateTime currentDateTime = LocalDateTime.now();
+    ListView vCustom; ListView vDaily; ListView vWeekly; ListView vMonthly; ListView vYearly;
+    ArrayList<TimetableEvent> customEvents = new ArrayList<>(Timetable.getInstance().getEvents());
+    ArrayList<TimetableEvent> dailyEvents = new ArrayList<>(Timetable.getInstance().getDailyEvents());
+    ArrayList<TimetableEvent> weeklyEvents = new ArrayList<>(Timetable.getInstance().getWeeklyEvents());
+    ArrayList<TimetableEvent> monthlyEvents = new ArrayList<>(Timetable.getInstance().getMonthlyEvents());
+    ArrayList<TimetableEvent> yearlyEvents = new ArrayList<>(Timetable.getInstance().getYearlyEvents());
     ArrayList<HashMap<String, String>> lCustom;
     ArrayList<HashMap<String, String>> lDaily;
     ArrayList<HashMap<String, String>> lWeekly;
     ArrayList<HashMap<String, String>> lMonthly;
     ArrayList<HashMap<String, String>> lYearly;
-    SimpleAdapter aCustom;
-    SimpleAdapter aDaily;
-    SimpleAdapter aWeekly;
-    SimpleAdapter aMonthly;
-    SimpleAdapter aYearly;
+    SimpleAdapter aCustom; SimpleAdapter aDaily; SimpleAdapter aWeekly; SimpleAdapter aMonthly; SimpleAdapter aYearly;
     SharedPrefs sharedPrefs;
     ArrayList<ListView> listViews = new ArrayList<ListView>();
     ArrayList<SimpleAdapter> adapters = new ArrayList<SimpleAdapter>();
@@ -76,7 +70,11 @@ public class eventsPage extends AppCompatActivity {
         } else {
             lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
         }
-
+        sortListRelativeCustom(customEvents);
+        sortListRelativeDaily(dailyEvents);
+        sortListRelativeWeekly(weeklyEvents);
+        sortListRelativeMonthly(monthlyEvents);
+        sortListRelativeYearly(yearlyEvents);
         /** This clump basically does everything. don't worry about it
          * only relevant things are the 5 ListView objects for each event type */
         lCustom = new ArrayList<HashMap<String, String>>();
@@ -84,19 +82,19 @@ public class eventsPage extends AppCompatActivity {
         lWeekly = new ArrayList<HashMap<String, String>>();
         lMonthly = new ArrayList<HashMap<String, String>>();
         lYearly = new ArrayList<HashMap<String, String>>();
-        for (TimetableEvent e : Timetable.getInstance().getEvents()) {
+        for (TimetableEvent e : customEvents) {
             addToArrayList(e);
         }
-        for (TimetableEvent e : Timetable.getInstance().getDailyEvents()) {
+        for (TimetableEvent e : dailyEvents) {
             addToArrayList(e);
         }
-        for (TimetableEvent e : Timetable.getInstance().getWeeklyEvents()) {
+        for (TimetableEvent e : weeklyEvents) {
             addToArrayList(e);
         }
-        for (TimetableEvent e : Timetable.getInstance().getMonthlyEvents()) {
+        for (TimetableEvent e : monthlyEvents) {
             addToArrayList(e);
         }
-        for (TimetableEvent e : Timetable.getInstance().getYearlyEvents()) {
+        for (TimetableEvent e : yearlyEvents) {
             addToArrayList(e);
         }
         aCustom = new SimpleAdapter(this, lCustom,
@@ -121,19 +119,19 @@ public class eventsPage extends AppCompatActivity {
                 new int[]{R.id.line_a, R.id.line_b, R.id.line_c, R.id.line_d});
         vCustom = (ListView) findViewById(R.id.customEventsListView);
         vCustom.setAdapter(aCustom);
-        setListViewHeightBasedOnChildren(vCustom);
+        setListViewHeightBasedOnChildren(vCustom, 0);
         vDaily = (ListView) findViewById(R.id.dailyEventsListView);
         vDaily.setAdapter(aDaily);
-        setListViewHeightBasedOnChildren(vDaily);
+        setListViewHeightBasedOnChildren(vDaily, 1);
         vWeekly = (ListView) findViewById(R.id.weeklyEventsListView);
         vWeekly.setAdapter(aWeekly);
-        setListViewHeightBasedOnChildren(vWeekly);
+        setListViewHeightBasedOnChildren(vWeekly, 2);
         vMonthly = (ListView) findViewById(R.id.monthlyEventsListView);
         vMonthly.setAdapter(aMonthly);
-        setListViewHeightBasedOnChildren(vMonthly);
+        setListViewHeightBasedOnChildren(vMonthly, 3);
         vYearly = (ListView) findViewById(R.id.yearlyEventsListView);
         vYearly.setAdapter(aYearly);
-        setListViewHeightBasedOnChildren(vYearly);
+        setListViewHeightBasedOnChildren(vYearly, 4);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -206,11 +204,31 @@ public class eventsPage extends AppCompatActivity {
     /**
      * changes list view height depending on the number of items it has
      */
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
+    public void setListViewHeightBasedOnChildren(ListView listView, int type) {
         ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null) {
-            // TODO will deal with when i can be bothered
-            return;
+        if (listAdapter.getCount() == 0) {
+            switch(type){
+                case 0:
+                    TextView noEvCus = findViewById(R.id.noEventsCustom);
+                    noEvCus.setVisibility(View.VISIBLE);
+                    break;
+                case 1:
+                    TextView noEvDa = findViewById(R.id.noEventsDaily);
+                    noEvDa.setVisibility(View.VISIBLE);
+                    break;
+                case 2:
+                    TextView noEvWe = findViewById(R.id.noEventsWeekly);
+                    noEvWe.setVisibility(View.VISIBLE);
+                    break;
+                case 3:
+                    TextView noEvMo = findViewById(R.id.noEventsMonthly);
+                    noEvMo.setVisibility(View.VISIBLE);
+                    break;
+                case 4:
+                    TextView noEvYe = findViewById(R.id.noEventsYearly);
+                    noEvYe.setVisibility(View.VISIBLE);
+                    break;
+            }
         }
         int totalHeight = 0;
         int UNBOUNDED = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
@@ -334,7 +352,7 @@ public class eventsPage extends AppCompatActivity {
                     case R.id.delete:
                         Timetable.getInstance().removeEvent(getTypeListByIndex(type).get(position));
                         hashMapLists.get(type).remove(position);
-                        setListViewHeightBasedOnChildren(listViews.get(type));
+                        setListViewHeightBasedOnChildren(listViews.get(type), type);
                         adapters.get(type).notifyDataSetChanged();
                         return true;
                     case R.id.edit_event:
@@ -351,15 +369,15 @@ public class eventsPage extends AppCompatActivity {
     public ArrayList<TimetableEvent> getTypeListByIndex(int x) {
         switch (x) {
             case 0:
-                return Timetable.getInstance().getEvents();
+                return customEvents;
             case 1:
-                return Timetable.getInstance().getDailyEvents();
+                return dailyEvents;
             case 2:
-                return Timetable.getInstance().getWeeklyEvents();
+                return weeklyEvents;
             case 3:
-                return Timetable.getInstance().getMonthlyEvents();
+                return monthlyEvents;
             case 4:
-                return Timetable.getInstance().getYearlyEvents();
+                return yearlyEvents;
             default:
                 return null;
         }
@@ -370,5 +388,85 @@ public class eventsPage extends AppCompatActivity {
             return getResources().getString(R.string.formatted_character);
         }
         return "";
+    }
+
+    public void sortListRelativeCustom(ArrayList<TimetableEvent> list){
+        int size = list.size();
+        TimetableEvent e; int i = 0; int count = 0;
+        while(i<size && count<size){
+            count++;
+            e = list.get(i);
+            if (e.getEnd().isBefore(currentDateTime)){
+                list.remove(e); list.add(e);
+                // TODO may decide to have custom events be removed permanently if it's past end date
+                continue;
+            }
+            i++;
+        }
+    }
+    public void sortListRelativeDaily(ArrayList<TimetableEvent> list){
+        int size = list.size();
+        TimetableEvent e; int i = 0; int count = 0;
+        while(i<size && count<size){
+            count++;
+            e = list.get(i);
+            if (e.getAllDay())continue;
+            if (e.getEnd().toLocalTime().isBefore(currentDateTime.toLocalTime())){
+                list.remove(e); list.add(e);
+                continue;
+            }
+            i++;
+        }
+    }
+    public void sortListRelativeWeekly(ArrayList<TimetableEvent> list){
+        int size = list.size();
+        TimetableEvent e; int i = 0; int count = 0;
+        while(i<size && count<size){
+            count++;
+            e = list.get(i);
+            if (e.getAllDay()){
+                if(e.getEnd().getDayOfWeek().getValue()< currentDateTime.getDayOfWeek().getValue()){
+                    list.remove(e); list.add(e); continue;
+                }
+            }
+            else if(e.getEnd().getDayOfWeek().getValue()< currentDateTime.getDayOfWeek().getValue() || (e.getEnd().getDayOfWeek().getValue() == currentDateTime.getDayOfWeek().getValue() && e.getEnd().toLocalTime().isBefore(currentDateTime.toLocalTime()))){
+                list.remove(e); list.add(e); continue;
+            }
+            i++;
+        }
+    }
+    public void sortListRelativeMonthly(ArrayList<TimetableEvent> list){
+        int size = list.size();
+        TimetableEvent e; int i = 0; int count = 0;
+        while(i<size && count<size){
+            count++;
+            e = list.get(i);
+            if (e.getAllDay()){
+                if(e.getEnd().getDayOfMonth()< currentDateTime.getDayOfMonth()){
+                    list.remove(e); list.add(e); continue;
+                }
+            }
+            else if(e.getEnd().getDayOfMonth()< currentDateTime.getDayOfMonth() || (e.getEnd().getDayOfMonth() == currentDateTime.getDayOfMonth() && e.getEnd().toLocalTime().isBefore(currentDateTime.toLocalTime()))){
+                list.remove(e); list.add(e); continue;
+            }
+            i++;
+        }
+    }
+    public void sortListRelativeYearly(ArrayList<TimetableEvent> list){
+        int size = list.size();
+        TimetableEvent e; int i = 0; int count = 0;
+        while(i<size && count<size){
+            count++;
+            e = list.get(i);
+            if (e.getAllDay()){
+                if(e.getEnd().getDayOfYear()< currentDateTime.getDayOfYear()){
+                    list.remove(e); list.add(e); continue;
+                }
+            }
+            else if(e.getEnd().getDayOfYear()< currentDateTime.getDayOfYear() || (e.getEnd().getDayOfYear() == currentDateTime.getDayOfYear() && e.getEnd().toLocalTime().isBefore(currentDateTime.toLocalTime()))){
+                list.remove(e); list.add(e); continue;
+            }
+            i++;
+        }
     }
 }

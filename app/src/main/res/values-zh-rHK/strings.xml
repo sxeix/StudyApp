@@ -38,33 +38,6 @@
     <string name="eng">English</string>
     <string name="jap">日本語</string>
     <string name="can">廣東話</string>
-
-    <string-array name="Repeat">
-    <item>Do Not Repeat</item>
-    <item>Daily</item>
-    <item>Weekly</item>
-    <item>Monthly</item>
-    <item>Yearly</item>
-    </string-array>
-
-    <string-array name="languages">
-        <item>English</item>
-        <item>Japanese</item>
-    </string-array>
-
-    <string-array name="lang">
-        <item>Choose language</item>
-        <item>English</item>
-        <item>日本語</item>
-        <item>廣東話</item>
-        <item>Pусский</item>
-        <item>Français</item>
-        <item>български</item>
-        <item>Türk</item>
-        <item>Espanol</item>
-        <item>Português</item>
-    </string-array>
-
     <string name="type_custom">Custom</string>
     <string name="type_daily">Daily</string>
     <string name="type_monthly">Monthly</string>
@@ -84,5 +57,35 @@
     <string name="month_date">%1$d%2$s</string>
     <string name="short_date">%1$s/%2$s</string>
     <string name="time">%1$s:%2$s</string>
+    <string name="language">Language:</string>
+    <string name="no_events">No Events</string>
+    <string name="event_added">Event Added</string>
+    <string name="event_edited">Event Edited</string>
+    <string name="input_needed">Input Needed</string>
+
+    <string-array name="Repeat">
+    <item>Do Not Repeat</item>
+    <item>Daily</item>
+    <item>Weekly</item>
+    <item>Monthly</item>
+    <item>Yearly</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>Japanese</item>
+    </string-array>
+
+    <string-array name="lang">
+        <item>English</item>
+        <item>日本語</item>
+        <item>繁体中文</item>
+        <item>русский</item>
+        <item>Français</item>
+        <item>Български</item>
+        <item>Türk</item>
+        <item>Espanol</item>
+        <item>Português</item>
+    </string-array>
 
 </resources>
