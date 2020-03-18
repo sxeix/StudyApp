@@ -113,14 +113,14 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
 
     public void setLocale(String lang) {
         myLocale = new Locale(lang);
-        if (lang.equals("zh-rHK")) { myLocale = new Locale("zh", "HK"); lang = "zh-HK";}
-        if (lang.equals("ru-rRU")) { myLocale = new Locale("ru"); lang = "ru";}
-        if (lang.equals("fr-rFR")) { myLocale = new Locale("fr"); lang = "fr";}
-        if (lang.equals("bg-rBG")) { myLocale = new Locale("bg"); lang = "bg";}
-        if (lang.equals("tr-rTR")) { myLocale = new Locale("tr"); lang = "tr";}
-        if (lang.equals("es-rES")) { myLocale = new Locale("es", "ES"); lang = "es-ES";}
-        if (lang.equals("ts-rTS")) { myLocale = new Locale("ts"); lang = "ts";}
-        if (lang.equals("pt-rPT")) { myLocale = new Locale("pt", "PT"); lang = "pt-PT";}
+        switch(lang) {
+            case "zh":
+                myLocale = new Locale("zh", "HK"); break;
+            case "es":
+                myLocale = new Locale("es", "ES"); break;
+            case "pt":
+                myLocale = new Locale("pt", "PT"); break;
+        }
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
         Configuration conf = res.getConfiguration();
@@ -137,39 +137,39 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String langSame = sharedPrefs.getLangPref().toLowerCase();
+        String currentPref = sharedPrefs.getLangPref().toLowerCase();
         switch (position) {
-                case 0: break;
-                case 1:
-                    if (checkLocaleDifferent(langSame, "en-gb")) setLocale("en-GB");
-                    break;
-                case 2:
-                    if (checkLocaleDifferent(langSame, "ja")) setLocale("ja");
-                    break;
-                case 3:
-                    if (checkLocaleDifferent(langSame, "zh-rHK")) setLocale("zh-rHK");
-                    break;
-                case 4:
-                    if (checkLocaleDifferent(langSame, "ru-rRU")) setLocale("ru-rRU");
-                    break;
-                case 5:
-                    if (checkLocaleDifferent(langSame, "fr-rFR")) setLocale("fr-rFR");
-                    break;
-                case 6:
-                    if (checkLocaleDifferent(langSame, "bg-rBG")) setLocale("bg-rBG");
-                    break;
-                case 7:
-                    if (checkLocaleDifferent(langSame, "tr-rTR")) setLocale("tr-rTR");
-                    break;
-                case 8:
-                    if (checkLocaleDifferent(langSame, "es-rES")) setLocale("es-rES");
-                    break;
-                case 9:
-                    if (checkLocaleDifferent(langSame, "pt-rPT")) setLocale("pt-rPT");
-                    break;
-                default:
-                    Toast.makeText(settingsPage.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-            }
+            case 0: break;
+            case 1:
+                if (checkLocaleDifferent(currentPref, "en-GB")) setLocale("en-GB");
+                break;
+            case 2:
+                if (checkLocaleDifferent(currentPref, "ja")) setLocale("ja");
+                break;
+            case 3:
+                if (checkLocaleDifferent(currentPref, "zh")) setLocale("zh");
+                break;
+            case 4:
+                if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
+                break;
+            case 5:
+                if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
+                break;
+            case 6:
+                if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
+                break;
+            case 7:
+                if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
+                break;
+            case 8:
+                if (checkLocaleDifferent(currentPref, "es")) setLocale("es");
+                break;
+            case 9:
+                if (checkLocaleDifferent(currentPref, "pt")) setLocale("pt");
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
