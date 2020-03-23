@@ -66,6 +66,7 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.lang));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         LanSpinner.setAdapter(myAdapter);
+        setSpinnerLang(LanSpinner);
         LanSpinner.setOnItemSelectedListener(this);
 //        LanSpinner.setDropDownVerticalOffset(100);
 
@@ -139,32 +140,31 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String currentPref = sharedPrefs.getLangPref().toLowerCase();
         switch (position) {
-            case 0: break;
-            case 1:
+            case 0:
                 if (checkLocaleDifferent(currentPref, "en-GB")) setLocale("en-GB");
                 break;
-            case 2:
+            case 1:
                 if (checkLocaleDifferent(currentPref, "ja")) setLocale("ja");
                 break;
-            case 3:
+            case 2:
                 if (checkLocaleDifferent(currentPref, "zh")) setLocale("zh");
                 break;
-            case 4:
+            case 3:
                 if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
                 break;
-            case 5:
+            case 4:
                 if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
                 break;
-            case 6:
+            case 5:
                 if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
                 break;
-            case 7:
+            case 6:
                 if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
                 break;
-            case 8:
+            case 7:
                 if (checkLocaleDifferent(currentPref, "es")) setLocale("es");
                 break;
-            case 9:
+            case 8:
                 if (checkLocaleDifferent(currentPref, "pt")) setLocale("pt");
                 break;
             default:
@@ -175,5 +175,30 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    public void setSpinnerLang(Spinner spinny){
+        String currentLang = sharedPrefs.getLangPref().toLowerCase();
+        switch(currentLang){
+            case "en-gb":
+                spinny.setSelection(0); break;
+            case "ja":
+                spinny.setSelection(1); break;
+            case "zh":
+                spinny.setSelection(2); break;
+            case "ru":
+                spinny.setSelection(3); break;
+            case "fr":
+                spinny.setSelection(4); break;
+            case "bg":
+                spinny.setSelection(5); break;
+            case "tr":
+                spinny.setSelection(6); break;
+            case "es":
+                spinny.setSelection(7); break;
+            case "pt":
+                spinny.setSelection(8); break;
+
+        }
     }
 }

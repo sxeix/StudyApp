@@ -1,6 +1,6 @@
 <resources>
     <!--    Page Titles     -->
-    <string name="app_name">StudyAppTurkish</string>
+    <string name="app_name">Study Now</string>
     <string name="title_activity_info_page">Bilgi</string>
     <string name="title_activity_events_page">Etkinlikler</string>
     <string name="title_activity_calendar_date">Events on Date</string>
@@ -60,6 +60,11 @@
     <string name="month_date">%1$d%2$s</string><!--day of month and its ending. e.g. 3rd or 2nd. remove the %2$s if there is no unique ending like there is in english-->
     <string name="short_date">%1$s/%2$s</string><!--same as full_date but without year. 1 = day, 2 = month-->
     <string name="time">%1$s:%2$s</string><!--time of day. 1 = hour, 2 = minutes-->
+    <string name="language">Language:</string>
+    <string name="no_events">No Events</string>
+    <string name="event_added">Event Added</string>
+    <string name="event_edited">Event Edited</string>
+    <string name="input_needed">Input Needed</string>
 
     <string-array name="Repeat">
         <item>Tekrarlama</item>
@@ -75,13 +80,12 @@
     </string-array>
 
     <string-array name="lang">
-        <item>Dil Seçiniz</item>
         <item>English</item>
         <item>日本語</item>
-        <item>廣東話</item>
-        <item>Pусский</item>
+        <item>繁体中文</item>
+        <item>русский</item>
         <item>Français</item>
-        <item>български</item>
+        <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>

@@ -57,6 +57,11 @@
     <string name="month_date">%1$d日</string>
     <string name="short_date">%2$s月%1$s日</string>
     <string name="time">%1$s時%2$s分</string>
+    <string name="language">言語:</string>
+    <string name="no_events">イベントなし</string>
+    <string name="event_added">追加完了</string>
+    <string name="event_edited">変更完了</string>
+    <string name="input_needed">入力不足</string>
 
     <string-array name="Repeat">
         <item>繰り返しなし</item>
@@ -68,17 +73,16 @@
 
     <string-array name="languages">
         <item>English</item>
-
+        <item>Japanese</item>
     </string-array>
 
     <string-array name="lang">
-        <item>Choose language</item>
         <item>English</item>
         <item>日本語</item>
-        <item>廣東話</item>
-        <item>Pусский</item>
+        <item>繁体中文</item>
+        <item>русский</item>
         <item>Français</item>
-        <item>български</item>
+        <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>

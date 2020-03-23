@@ -145,11 +145,13 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
                     Timetable.getInstance().AddEvent(x);
                     sortListByType(x);
-                    Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
+                    Intent mainActivity = new Intent(InputPage.this, MainActivity.class);
+                    startActivity(mainActivity);
+                    Toast.makeText(InputPage.this, getResources().getString(R.string.event_added), Toast.LENGTH_SHORT).show();
                 } else {
                     // TODO Remove this method in the future after testing is complete
                     testEvents();
-                    Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InputPage.this, getResources().getString(R.string.input_needed), Toast.LENGTH_SHORT).show();
                 }
             }
         });

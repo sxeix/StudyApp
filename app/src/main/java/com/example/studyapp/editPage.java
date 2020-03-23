@@ -141,11 +141,11 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
                     Timetable.getInstance().removeEvent(eventsPage.selectedEvent);
                     Timetable.getInstance().AddEvent(x);
                     InputPage.sortListByType(x);
-                    Intent eventsPage = new Intent(editPage.this, eventsPage.class);
-                    startActivity(eventsPage);
-                    Toast.makeText(editPage.this, "Event Edited", Toast.LENGTH_SHORT).show();
+                    Intent mainActivity = new Intent(editPage.this, MainActivity.class);
+                    startActivity(mainActivity);
+                    Toast.makeText(editPage.this, getResources().getString(R.string.event_edited), Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(editPage.this, "Input needed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(editPage.this, getResources().getString(R.string.input_needed), Toast.LENGTH_SHORT).show();
                 }
             }
         });
