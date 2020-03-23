@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-
+            
             <Switch
                 android:id="@+id/light_mode_switch"
                 android:layout_width="match_parent"

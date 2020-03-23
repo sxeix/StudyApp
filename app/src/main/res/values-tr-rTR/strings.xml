@@ -3,41 +3,41 @@
     <string name="app_name">Study Now</string>
     <string name="title_activity_info_page">Bilgi</string>
     <string name="title_activity_events_page">Etkinlikler</string>
-    <string name="title_activity_calendar_date">Events on Date</string>
+    <string name="title_activity_calendar_date">Tarihte Olay</string>
 
     <!--    Universal Strings   -->
-    <string name="title_activity_input_page">Add Event</string>
-    <string name="title_activity_settings_page">Settings</string>
-    <string name="title_activity_edit_page">Edit Event</string>
+    <string name="title_activity_input_page">Etkinlik Ekle</string>
+    <string name="title_activity_settings_page">Ayarlar</string>
+    <string name="title_activity_edit_page">Etkinlik Düzenle</string>
 
     <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Sil</string>
     <string name="description">Açıklama</string>
-    <string name="event_edit">Edit Event</string>
-    <string name="event_settings">Event Settings</string>
+    <string name="event_edit">Etkinlik Düzenle</string>
+    <string name="event_settings">Etkinlik Ayarları</string>
 
 
     <!--    Page elements   -->
-    <string name="change_colour">Change Colour</string>
-    <string name="events_custom">Custom Events</string>
-    <string name="daily_custom">Daily Events</string>
-    <string name="weekly_custom">Weekly Events</string>
-    <string name="monthly_custom">Monthly Events</string>
-    <string name="yearly_custom">Yearly Events</string>
-    <string name="events_for">Events for %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date formal is different in another language-->
+    <string name="change_colour">Rengi Değiştir</string>
+    <string name="events_custom">özel Etkinlikler</string>
+    <string name="daily_custom">Günluk Etkinlikler</string>
+    <string name="weekly_custom">Haftalık Etkinlikler</string>
+    <string name="monthly_custom">Aylık Etkinlikler</string>
+    <string name="yearly_custom">Yıllık Etkinlikler</string>
+    <string name="events_for">İçin Etkinlikler %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date formal is different in another language-->
     <string name="title_input">Başlık</string>
-    <string name="all_day_event_switch">All Day Event</string>
+    <string name="all_day_event_switch">Hher Gün Etkinlik</string>
     <string name="location_input">Yer</string>
     <string name="description_input">Açıklama</string>
-    <string name="pick_start">PICK START DATE AND TIME</string>
-    <string name="pick_end">PICK END DATE AND TIME</string>
-    <string name="start_date">Start Date:</string>
-    <string name="start_time">Start Time</string>
-    <string name="end_date">End Date:</string>
-    <string name="end_time">End Time</string>
-    <string name="info">Study Now is a simple calendar application developed to facilitate student schedule management; making it easier to plan events, times to study, possible breaks and more.</string>
-    <string name="application_version">Application Version: 2.0.3</string>
-    <string name="participants">Created by: Segmentation Fault\n\nMembers:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="pick_start">Seçim Baslangıç Tarihi ve Zamanı</string>
+    <string name="pick_end">Seçim Bitiş Tarihi ve Zamanı</string>
+    <string name="start_date">Başlangıç Tarihi:</string>
+    <string name="start_time">Bbaşlangıç Zamanı</string>
+    <string name="end_date">Bitiş Tarihi:</string>
+    <string name="end_time">Bitiş Zamanı</string>
+    <string name="info">Study Now öğrenci zamanlama yönetimini kolaylaştırmak amaciyla geliştirilmiş, etkinlikleri, çalışma zamanlarını, olası molaları ve daha fazlasını planlamayı kolaylaştıran basit bir takvim uygulamasıdır.</string>
+    <string name="application_version">Uygulama Sürümü: 2.0.3</string>
+    <string name="participants">Oluşturan: Segmentation Fault\n\nüyeler:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
     <string name="eng">English</string>
     <string name="jap">日本語</string>
     <string name="can">廣東話</string>
@@ -47,7 +47,7 @@
     <string name="type_monthly">Aylık</string>
     <string name="type_yearly">Yıllık</string>
     <string name="type_allday">Tüm gün</string>
-    <string name="event_type">Event Type</string>
+    <string name="event_type">Etkinlik Tipi</string>
     <string name="day_sunday">Pazar</string>
     <string name="day_monday">Pazartesi</string>
     <string name="day_tuesday">Salı</string>
@@ -60,11 +60,11 @@
     <string name="month_date">%1$d%2$s</string><!--day of month and its ending. e.g. 3rd or 2nd. remove the %2$s if there is no unique ending like there is in english-->
     <string name="short_date">%1$s/%2$s</string><!--same as full_date but without year. 1 = day, 2 = month-->
     <string name="time">%1$s:%2$s</string><!--time of day. 1 = hour, 2 = minutes-->
-    <string name="language">Language:</string>
-    <string name="no_events">No Events</string>
-    <string name="event_added">Event Added</string>
-    <string name="event_edited">Event Edited</string>
-    <string name="input_needed">Input Needed</string>
+    <string name="language">Dil:</string>
+    <string name="no_events">Etkinlik Yok</string>
+    <string name="event_added">Etkinlik Eklendi</string>
+    <string name="event_edited">Etkinlik Düzenlendi</string>
+    <string name="input_needed">Giriş Gerekli</string>
 
     <string-array name="Repeat">
         <item>Tekrarlama</item>
