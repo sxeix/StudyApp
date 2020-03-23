@@ -1,43 +1,43 @@
 <resources>
     <!--    Page Titles     -->
     <string name="app_name">Study Now</string>
-    <string name="title_activity_info_page">L\'information</string>
+    <string name="title_activity_info_page">L’information</string>
     <string name="title_activity_events_page">Les événements</string>
-    <string name="title_activity_calendar_date">Events on Date</string>
+    <string name="title_activity_calendar_date">Événements à la Date</string>
 
     <!--    Universal Strings   -->
-    <string name="title_activity_input_page">Add Event</string>
+    <string name="title_activity_input_page">Ajouter un Événement</string>
     <string name="title_activity_settings_page">Les options</string>
-    <string name="title_activity_edit_page">Edit Event</string>
+    <string name="title_activity_edit_page">Modifier L’événement</string>
 
     <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Effacer</string>
     <string name="description">La description</string>
-    <string name="event_edit">Edit Event</string>
-    <string name="event_settings">Event Settings</string>
+    <string name="event_edit">Modifier L’événement</string>
+    <string name="event_settings">Paramètres de L’événement</string>
 
 
     <!--    Page elements   -->
-    <string name="change_colour">Change Colour</string>
-    <string name="events_custom">Custom Events</string>
-    <string name="daily_custom">Daily Events</string>
-    <string name="weekly_custom">Weekly Events</string>
-    <string name="monthly_custom">Monthly Events</string>
-    <string name="yearly_custom">Yearly Events</string>
-    <string name="events_for">Events for %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date formal is different in another language-->
+    <string name="change_colour">Changer de Couleur</string>
+    <string name="events_custom">Des Événement Spéciaux </string>
+    <string name="daily_custom">Évténements de la Journée </string>
+    <string name="weekly_custom">Événements Hebdomadaire</string>
+    <string name="monthly_custom">Événements Mensuels</string>
+    <string name="yearly_custom">Événements annuelles</string>
+    <string name="events_for">Evènements pour %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date formal is different in another language-->
     <string name="title_input">Le titre</string>
-    <string name="all_day_event_switch">All Day Event</string>
+    <string name="all_day_event_switch">Événements en Journée Entière</string>
     <string name="location_input">Emplacement</string>
     <string name="description_input">La description</string>
-    <string name="pick_start">PICK START DATE AND TIME</string>
-    <string name="pick_end">PICK END DATE AND TIME</string>
-    <string name="start_date">Start Date:</string>
-    <string name="start_time">Start Time</string>
-    <string name="end_date">End Date:</string>
-    <string name="end_time">End Time</string>
-    <string name="info">Study Now is a simple calendar application developed to facilitate student schedule management; making it easier to plan events, times to study, possible breaks and more.</string>
-    <string name="application_version">Application Version: 2.0.3</string>
-    <string name="participants">Created by: Segmentation Fault\n\nMembers:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="pick_start">Choisir la Date et L’heure de Début </string>
+    <string name="pick_end">Choisir la Date et L’heure de Fin</string>
+    <string name="start_date">Date de Début:</string>
+    <string name="start_time">Heure de Début</string>
+    <string name="end_date">Date de Fin:</string>
+    <string name="end_time">Heure de Fin</string>
+    <string name="info">Study Now est une simple application de calendrier conçue pour faciliter la gestion des horaires des étudiants, ce qui facilite la planification des événements, des heures d’étude, des pauses et plus.</string>
+    <string name="application_version">Version de L’application: 2.0.3</string>
+    <string name="participants">Créé par: Segmentation Fault\n\nMembres:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
     <string name="eng">English</string>
     <string name="jap">日本語</string>
     <string name="can">廣東話</string>
@@ -47,7 +47,7 @@
     <string name="type_monthly">Mensuel</string>
     <string name="type_yearly">Annuel</string>
     <string name="type_allday">Toute la Journée</string>
-    <string name="event_type">Event Type</string>
+    <string name="event_type">Type D’événement</string>
     <string name="day_sunday">Dimanche</string>
     <string name="day_monday">Lundi</string>
     <string name="day_tuesday">Mardi</string>
@@ -60,11 +60,11 @@
     <string name="month_date">%1$d%2$s</string><!--day of month and its ending. e.g. 3rd or 2nd. remove the %2$s if there is no unique ending like there is in english-->
     <string name="short_date">%1$s/%2$s</string><!--same as full_date but without year. 1 = day, 2 = month-->
     <string name="time">%1$s:%2$s</string><!--time of day. 1 = hour, 2 = minutes-->
-    <string name="language">Language:</string>
-    <string name="no_events">No Events</string>
-    <string name="event_added">Event Added</string>
-    <string name="event_edited">Event Edited</string>
-    <string name="input_needed">Input Needed</string>
+    <string name="language">Langue:</string>
+    <string name="no_events">Pas D’événements</string>
+    <string name="event_added">Événements Ajoutés</string>
+    <string name="event_edited">Événements Édité</string>
+    <string name="input_needed">Intrants Néssesaires</string>
 
     <string-array name="Repeat">
         <item>Ne répétez pas</item>
