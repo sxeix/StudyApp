@@ -122,8 +122,8 @@ public class MainActivity extends AppCompatActivity {
     private void loadLanguage() {
         String lang = sharedPrefs.getLangPref();
         String displayLang = getResources().getConfiguration().locale.toString().toLowerCase();
-        if (!lang.toLowerCase().substring(0,2).equals(displayLang.substring(0,2))) {
-            if (lang.equals("zh") || lang.equals("es") || lang.equals("pt")) {
+        if (!lang.toLowerCase().equals(displayLang)) {
+            if (lang.equals("zh_hk") || lang.equals("es_es") || lang.equals("pt_pt")|| lang.equals("zh_cn")) {
                 String[] tmp = localeStringConverter(lang);
                 myLocale = new Locale(tmp[0], tmp[1]);
             }
@@ -144,13 +144,16 @@ public class MainActivity extends AppCompatActivity {
         String[] hk = {"zh", "HK"};
         String[] es = {"es", "ES"};
         String[] pt = {"pt", "PT"};
+        String[] cn = {"zh", "CN"};
         switch(l) {
-            case "zh":
+            case "zh_hk":
                 return hk;
-            case "es":
+            case "es_es":
                 return es;
-            case "pt":
+            case "pt_pt":
                 return pt;
+            case "zh_cn":
+                return cn;
             default:
                 throw new IllegalStateException("Unexpected value: " + l);
         }

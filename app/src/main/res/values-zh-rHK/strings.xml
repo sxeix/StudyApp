@@ -29,15 +29,12 @@
     <string name="pick_start">選擇開始日期和時間</string>
     <string name="pick_end">選擇結束日期和時間</string>
     <string name="start_date">開始日期:</string>
-    <string name="start_time">開始時間</string>
+    <string name="start_time">開始時間:</string>
     <string name="end_date">結束日期:</string>
-    <string name="end_time">結束時間</string>
+    <string name="end_time">結束時間:</string>
     <string name="info">Study Now 是一個簡單的日曆應用程序，可幫助學生管理時間; 使計劃活動變得更加容易, 學習時間, 休息等等。</string>
     <string name="application_version">版本: 2.0.3</string>
     <string name="participants">創作者: Segmentation Fault\n\n會員:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="eng">英文</string>
-    <string name="jap">日本語</string>
-    <string name="can">繁體中文</string>
     <string name="type_custom">自訂</string>
     <string name="type_daily">每天</string>
     <string name="type_monthly">每月</string>
@@ -71,22 +68,19 @@
         <item>每年</item>
     </string-array>
 
-    <string-array name="languages">
-        <item>English</item>
-        <item>Japanese</item>
-    </string-array>
-
     <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
         <item>繁體中文</item>
-        <!--<item>简体中文</item>-->
+        <item>简体中文</item>
         <item>русский</item>
         <item>Français</item>
         <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
     </string-array>
 
 </resources>

@@ -1,0 +1,89 @@
+<resources>
+    <!--    Page Titles     -->
+    <string name="app_name">StudyApp</string>
+    <string name="title_activity_info_page">Informasjon</string>
+    <string name="title_activity_events_page">Hendelser</string>
+    <string name="title_activity_calendar_date">Hendelser på Dato</string>
+
+    <!--    Universal Strings   -->
+    <string name="title_activity_input_page">Legg til Hendelse</string>
+    <string name="title_activity_settings_page">Innstillinger</string>
+    <string name="title_activity_edit_page">Rediger Hendelse</string>
+
+    <!--    <string name="title_activity_description_page">Description</string>-->
+    <string name="delete">Slett</string>
+    <string name="description">Beskrivelse</string>
+    <string name="event_edit">Rediger Hendelse</string>
+    <string name="event_settings">Hendelse Innstillinger</string>
+
+
+    <!--    Page elements   -->
+    <string name="change_colour">Forandre Farge</string>
+    <string name="events_custom">Egendefinerte Hendelser</string>
+    <string name="daily_custom">Daglige Hendelser</string>
+    <string name="weekly_custom">Ukentlige Hendelser</string>
+    <string name="monthly_custom">Månedlige Hendelser</string>
+    <string name="yearly_custom">Årlige Hendelser</string>
+    <string name="events_for">Hendelser for %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date format is different in another language-->
+    <string name="title_input">Tittel</string>
+    <string name="all_day_event_switch">Hel-dags Hendelse</string>
+    <string name="location_input">Sted</string>
+    <string name="description_input">Beskrivelse</string>
+    <string name="pick_start">VELG START DATO OG TID</string>
+    <string name="pick_end">VELG SLUTT DATO OG TID</string>
+    <string name="start_date">Start Dato:</string>
+    <string name="start_time">Start Tid:</string>
+    <string name="end_date">Slutt Dato:</string>
+    <string name="end_time">Slutt Tid:</string>
+    <string name="info">Study Now er en enkel kalender applikasjon laget for å tilrettelegge studenters rutiner; som gjør det lettere å planlegge hendelser, tid for å studere, mulige pauser og mer.</string>
+    <string name="application_version">Applikashon Versjon: 2.0.3</string>
+    <string name="participants">Laget av: Segmentation Fault\n\nMedlemmer:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="type_custom">Egendefinert</string>
+    <string name="type_daily">Daglig</string>
+    <string name="type_weekly">Ukentlig</string>
+    <string name="type_monthly">Månedlig</string>
+    <string name="type_yearly">Årlig</string>
+    <string name="type_allday">Hele Dagen</string>
+    <string name="event_type">Type Hendelse</string>
+    <string name="day_sunday">Søndag</string>
+    <string name="day_monday">Mandag</string>
+    <string name="day_tuesday">Tirsdag</string>
+    <string name="day_wednesday">Onsdag</string>
+    <string name="day_thursday">Torsdag</string>
+    <string name="day_friday">Fredag</string>
+    <string name="day_saturday">Lørdag</string>
+    <string name="formatted_character">0</string> <!--08/03/2020 as opposed to 8/3/2020. leave blank if this kind of formatting isn't necessary in the other language-->
+    <string name="full_date">%1$s/%2$s/%3$d</string> <!--ignore-->
+    <string name="month_date">%1$d.</string><!--ignore-->
+    <string name="short_date">%1$s/%2$s</string><!--ignore-->
+    <string name="time">%1$s:%2$s</string><!--ignore-->
+    <string name="language">Språk:</string>
+    <string name="no_events">Ingen Hendelser</string>
+    <string name="event_added">Hendelse Lagt Til</string>
+    <string name="input_needed">Tilførsel Trengs</string>
+    <string name="event_edited">Hendelse Forandret</string>
+
+    <string-array name="Repeat">
+        <item>Ikke Gjenta</item>
+        <item>Daglig</item>
+        <item>Ukentlig</item>
+        <item>Månedlig</item>
+        <item>Årlig</item>
+    </string-array>
+
+    <string-array name="lang"> <!-- ignore this bit i'll add norwegian to the list later -->
+        <item>English</item>
+        <item>日本語</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
+        <item>русский</item>
+        <item>Français</item>
+        <item>Български</item>
+        <item>Türk</item>
+        <item>Espanol</item>
+        <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
+    </string-array>
+
+</resources>

@@ -32,15 +32,12 @@
     <string name="pick_start">Избери Дата и Време на Завършване</string>
     <string name="pick_end">Избери Край на Дата и Време</string>
     <string name="start_date">Дата на Започване:</string>
-    <string name="start_time">Време на Започване</string>
+    <string name="start_time">Време на Започване:</string>
     <string name="end_date">Дата на Завършване:</string>
-    <string name="end_time">Време на Завършване</string>
+    <string name="end_time">Време на Завършване:</string>
     <string name="info">Study Now е лесен календар приложение, който е създаден да улесни студента да управлява схемата като прави лесно планирането на събития, времето за учене, възможните почивки и други.</string>
     <string name="application_version">Версия на Приложението: 2.0.3</string>
     <string name="participants">Създаден чрез: Segmentation Fault\n\nЧленове:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="eng">English</string>
-    <string name="jap">日本語</string>
-    <string name="can">廣東話</string>
     <string name="type_custom">Персонализиран</string>
     <string name="type_daily">Ежедневно</string>
     <string name="type_weekly">Седмично</string>
@@ -74,21 +71,19 @@
         <item>Годишно</item>
     </string-array>
 
-    <string-array name="languages">
-        <item>English</item>
-        <item>Japanese</item>
-    </string-array>
-
     <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
-        <item>繁体中文</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
         <item>русский</item>
         <item>Français</item>
         <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
     </string-array>
 
 </resources>

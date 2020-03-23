@@ -34,13 +34,10 @@
     <string name="start_date">Data de Começo:</string>
     <string name="start_time">Hora de Começo:</string>
     <string name="end_date">Data de Fim:</string>
-    <string name="end_time">Hora de Fim</string>
+    <string name="end_time">Hora de Fim:</string>
     <string name="info">Study Now é uma aplicação de calendário criada para facilitar o controlo de horário de estudantes, tornando o planeamento de eventos, horas de estudo, intervalos e mais.</string>
     <string name="application_version">Versão da aplicação: 2.0.3</string>
     <string name="participants">Criada por: Segmentation Fault\n\nMembros:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="eng">Inglês</string>
-    <string name="jap">日本語</string>
-    <string name="can">廣東話</string>
     <string name="type_custom">Customizado</string>
     <string name="type_daily">Diário</string>
     <string name="type_weekly">Semanal</string>
@@ -74,21 +71,19 @@
         <item>Anual</item>
     </string-array>
 
-    <string-array name="languages">
-        <item>English</item>
-        <item>Japanese</item>
-    </string-array>
-
     <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
-        <item>繁体中文</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
         <item>русский</item>
         <item>Français</item>
         <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
     </string-array>
 
 </resources>

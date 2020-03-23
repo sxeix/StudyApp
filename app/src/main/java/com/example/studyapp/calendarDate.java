@@ -64,7 +64,7 @@ public class calendarDate extends AppCompatActivity {
             item = new HashMap<String, String>();
             item.put("line1", getResources().getString(R.string.title_input) + ": " + e.getName());
             item.put("line2", getResources().getString(R.string.location_input) + ": " + e.getLocation());
-            item.put("line3", getResources().getString(R.string.start_time) + ": " + dailyCheck(e));
+            item.put("line3", getResources().getString(R.string.start_time) + " " + dailyCheck(e));
             item.put("line4", getResources().getString(R.string.event_type) + ": " + returnFreqString(e));
             lCalendarDate.add(item);
         }

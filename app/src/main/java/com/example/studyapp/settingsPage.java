@@ -115,12 +115,14 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     public void setLocale(String lang) {
         myLocale = new Locale(lang);
         switch(lang) {
-            case "zh":
+            case "zh_hk":
                 myLocale = new Locale("zh", "HK"); break;
-            case "es":
+            case "es_es":
                 myLocale = new Locale("es", "ES"); break;
-            case "pt":
+            case "pt_pt":
                 myLocale = new Locale("pt", "PT"); break;
+            case "zh_cn":
+                myLocale = new Locale("zh", "CN"); break;
         }
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
@@ -147,25 +149,34 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
                 if (checkLocaleDifferent(currentPref, "ja")) setLocale("ja");
                 break;
             case 2:
-                if (checkLocaleDifferent(currentPref, "zh")) setLocale("zh");
+                if (checkLocaleDifferent(currentPref, "zh_hk")) setLocale("zh_hk");
                 break;
             case 3:
-                if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
+                if (checkLocaleDifferent(currentPref, "zh_cn")) setLocale("zh_cn");
                 break;
             case 4:
-                if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
+                if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
                 break;
             case 5:
-                if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
+                if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
                 break;
             case 6:
-                if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
+                if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
                 break;
             case 7:
-                if (checkLocaleDifferent(currentPref, "es")) setLocale("es");
+                if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
                 break;
             case 8:
-                if (checkLocaleDifferent(currentPref, "pt")) setLocale("pt");
+                if (checkLocaleDifferent(currentPref, "es_es")) setLocale("es_es");
+                break;
+            case 9:
+                if (checkLocaleDifferent(currentPref, "pt_pt")) setLocale("pt_pt");
+                break;
+            case 10:
+                if (checkLocaleDifferent(currentPref, "de")) setLocale("de");
+                break;
+            case 11:
+                if (checkLocaleDifferent(currentPref, "no")) setLocale("no");
                 break;
             default:
                 break;
@@ -184,20 +195,26 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
                 spinny.setSelection(0); break;
             case "ja":
                 spinny.setSelection(1); break;
-            case "zh":
+            case "zh_hk":
                 spinny.setSelection(2); break;
-            case "ru":
+            case "zh_cn":
                 spinny.setSelection(3); break;
-            case "fr":
+            case "ru":
                 spinny.setSelection(4); break;
-            case "bg":
+            case "fr":
                 spinny.setSelection(5); break;
-            case "tr":
+            case "bg":
                 spinny.setSelection(6); break;
-            case "es":
+            case "tr":
                 spinny.setSelection(7); break;
-            case "pt":
+            case "es_es":
                 spinny.setSelection(8); break;
+            case "pt_pt":
+                spinny.setSelection(9); break;
+            case "de":
+                spinny.setSelection(10); break;
+            case "no":
+                spinny.setSelection(11); break;
 
         }
     }

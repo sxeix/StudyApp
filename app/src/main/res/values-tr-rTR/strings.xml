@@ -32,15 +32,12 @@
     <string name="pick_start">Seçim Baslangıç Tarihi ve Zamanı</string>
     <string name="pick_end">Seçim Bitiş Tarihi ve Zamanı</string>
     <string name="start_date">Başlangıç Tarihi:</string>
-    <string name="start_time">Bbaşlangıç Zamanı</string>
+    <string name="start_time">Bbaşlangıç Zamanı:</string>
     <string name="end_date">Bitiş Tarihi:</string>
-    <string name="end_time">Bitiş Zamanı</string>
+    <string name="end_time">Bitiş Zamanı:</string>
     <string name="info">Study Now öğrenci zamanlama yönetimini kolaylaştırmak amaciyla geliştirilmiş, etkinlikleri, çalışma zamanlarını, olası molaları ve daha fazlasını planlamayı kolaylaştıran basit bir takvim uygulamasıdır.</string>
     <string name="application_version">Uygulama Sürümü: 2.0.3</string>
     <string name="participants">Oluşturan: Segmentation Fault\n\nüyeler:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="eng">English</string>
-    <string name="jap">日本語</string>
-    <string name="can">廣東話</string>
     <string name="type_custom">Görenek</string>
     <string name="type_daily">Günlük</string>
     <string name="type_weekly">Haftalık</string>
@@ -74,21 +71,19 @@
         <item>Yıllık</item>
     </string-array>
 
-    <string-array name="languages">
-        <item>English</item>
-        <item>Japanese</item>
-    </string-array>
-
     <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
-        <item>繁体中文</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
         <item>русский</item>
         <item>Français</item>
         <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
     </string-array>
 
 </resources>

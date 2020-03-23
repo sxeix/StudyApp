@@ -154,9 +154,9 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
         description.setText(eventsPage.selectedEvent.getDescription());
         mySpinner.setSelection(eventsPage.selectedEvent.getRepeatFrequency().ordinal());
         tv_result.setText(getResources().getString(R.string.start_date) + "\n" + String.format(getResources().getString(R.string.full_date), requiresFormat(eventsPage.selectedEvent.getStart().getDayOfMonth()) + eventsPage.selectedEvent.getStart().getDayOfMonth(), requiresFormat(eventsPage.selectedEvent.getStart().getMonthValue()) + eventsPage.selectedEvent.getStart().getMonthValue(), eventsPage.selectedEvent.getStart().getYear()));
-        tv_result2.setText(getResources().getString(R.string.start_time) + ":\n " + String.format(getResources().getString(R.string.time), requiresFormat(eventsPage.selectedEvent.getStart().getHour()) + eventsPage.selectedEvent.getStart().getHour(), requiresFormat(eventsPage.selectedEvent.getStart().getMinute()) + eventsPage.selectedEvent.getStart().getMinute()));
+        tv_result2.setText(getResources().getString(R.string.start_time) + "\n " + String.format(getResources().getString(R.string.time), requiresFormat(eventsPage.selectedEvent.getStart().getHour()) + eventsPage.selectedEvent.getStart().getHour(), requiresFormat(eventsPage.selectedEvent.getStart().getMinute()) + eventsPage.selectedEvent.getStart().getMinute()));
         endDateResult.setText("  " + getResources().getString(R.string.end_date) + "\n   " + String.format(getResources().getString(R.string.full_date), requiresFormat(eventsPage.selectedEvent.getEnd().getDayOfMonth()) + eventsPage.selectedEvent.getEnd().getDayOfMonth(), requiresFormat(eventsPage.selectedEvent.getEnd().getMonthValue()) + eventsPage.selectedEvent.getEnd().getMonthValue(), eventsPage.selectedEvent.getEnd().getYear()));
-        endTimeResult.setText("  " + getResources().getString(R.string.end_time) + ":\n   " + String.format(getResources().getString(R.string.time), requiresFormat(eventsPage.selectedEvent.getEnd().getHour()) + eventsPage.selectedEvent.getEnd().getHour(), requiresFormat(eventsPage.selectedEvent.getEnd().getMinute()) + eventsPage.selectedEvent.getEnd().getMinute()));
+        endTimeResult.setText("  " + getResources().getString(R.string.end_time) + "\n   " + String.format(getResources().getString(R.string.time), requiresFormat(eventsPage.selectedEvent.getEnd().getHour()) + eventsPage.selectedEvent.getEnd().getHour(), requiresFormat(eventsPage.selectedEvent.getEnd().getMinute()) + eventsPage.selectedEvent.getEnd().getMinute()));
         allSwitch.setChecked(eventsPage.selectedEvent.getAllDay());
         set1 = true; set2 = true;
         start = eventsPage.selectedEvent.getStart();
@@ -234,14 +234,14 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
             hourFinal = h;
             minuteFinal = m;
             tv_result.setText(getResources().getString(R.string.start_date) + "\n" + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
-            tv_result2.setText(getResources().getString(R.string.start_time) + ":\n " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
+            tv_result2.setText(getResources().getString(R.string.start_time) + "\n " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         } else if (option == 2) {
             set2 = true;
             end = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
             endDateResult.setText("  " + getResources().getString(R.string.end_date) + "\n   " + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
-            endTimeResult.setText("  " + getResources().getString(R.string.end_time) + ":\n   " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
+            endTimeResult.setText("  " + getResources().getString(R.string.end_time) + "\n   " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         }
     }
 

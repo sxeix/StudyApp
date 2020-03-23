@@ -273,7 +273,7 @@ public class eventsPage extends AppCompatActivity {
         HashMap<String, String> item = new HashMap<String, String>();
         item.put("line1", getResources().getString(R.string.title_input) + ": " + e.getName());
         item.put("line2", getResources().getString(R.string.start_date) + " " + routineCheck(e));
-        item.put("line3", getResources().getString(R.string.start_time) + ": " + dailyCheck(e));
+        item.put("line3", getResources().getString(R.string.start_time) + " " + dailyCheck(e));
         item.put("line4", getResources().getString(R.string.location_input) + ": " + e.getLocation());
         addByFreq(item, e);
     }

@@ -32,15 +32,12 @@
     <string name="pick_start">Choisir la Date et L’heure de Début </string>
     <string name="pick_end">Choisir la Date et L’heure de Fin</string>
     <string name="start_date">Date de Début:</string>
-    <string name="start_time">Heure de Début</string>
+    <string name="start_time">Heure de Début:</string>
     <string name="end_date">Date de Fin:</string>
-    <string name="end_time">Heure de Fin</string>
+    <string name="end_time">Heure de Fin:</string>
     <string name="info">Study Now est une simple application de calendrier conçue pour faciliter la gestion des horaires des étudiants, ce qui facilite la planification des événements, des heures d’étude, des pauses et plus.</string>
     <string name="application_version">Version de L’application: 2.0.3</string>
     <string name="participants">Créé par: Segmentation Fault\n\nMembres:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="eng">English</string>
-    <string name="jap">日本語</string>
-    <string name="can">廣東話</string>
     <string name="type_custom">Personnalisé</string>
     <string name="type_daily">Du Quotidien</string>
     <string name="type_weekly">Hebdomadaire</string>
@@ -74,21 +71,19 @@
         <item>Annuel</item>
     </string-array>
 
-    <string-array name="languages">
-        <item>English</item>
-        <item>Japanese</item>
-    </string-array>
-
     <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
-        <item>繁体中文</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
         <item>русский</item>
         <item>Français</item>
         <item>Български</item>
         <item>Türk</item>
         <item>Espanol</item>
         <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
     </string-array>
 
 </resources>
