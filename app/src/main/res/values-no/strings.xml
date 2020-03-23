@@ -9,13 +9,10 @@
     <string name="title_activity_input_page">Legg til Hendelse</string>
     <string name="title_activity_settings_page">Innstillinger</string>
     <string name="title_activity_edit_page">Rediger Hendelse</string>
-
-    <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Slett</string>
     <string name="description">Beskrivelse</string>
     <string name="event_edit">Rediger Hendelse</string>
     <string name="event_settings">Hendelse Innstillinger</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Forandre Farge</string>
@@ -53,10 +50,10 @@
     <string name="day_friday">Fredag</string>
     <string name="day_saturday">Lørdag</string>
     <string name="formatted_character">0</string> <!--08/03/2020 as opposed to 8/3/2020. leave blank if this kind of formatting isn't necessary in the other language-->
-    <string name="full_date">%1$s/%2$s/%3$d</string> <!--ignore-->
-    <string name="month_date">%1$d.</string><!--ignore-->
-    <string name="short_date">%1$s/%2$s</string><!--ignore-->
-    <string name="time">%1$s:%2$s</string><!--ignore-->
+    <string name="full_date">%1$s/%2$s/%3$d</string>
+    <string name="month_date">%1$d.</string>
+    <string name="short_date">%1$s/%2$s</string>
+    <string name="time">%1$s:%2$s</string>
     <string name="language">Språk:</string>
     <string name="no_events">Ingen Hendelser</string>
     <string name="event_added">Hendelse Lagt Til</string>

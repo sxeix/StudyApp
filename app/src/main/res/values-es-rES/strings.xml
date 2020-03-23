@@ -9,13 +9,10 @@
     <string name="title_activity_input_page">Agregar Evento</string>
     <string name="title_activity_settings_page">Opciones</string>
     <string name="title_activity_edit_page">Editar Evento</string>
-
-    <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Eliminar</string>
     <string name="description">Descripción</string>
     <string name="event_edit">Editar Evento</string>
     <string name="event_settings">Opciones de Evento</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Cambiar de Color</string>

@@ -9,13 +9,10 @@
     <string name="title_activity_input_page">Etkinlik Ekle</string>
     <string name="title_activity_settings_page">Ayarlar</string>
     <string name="title_activity_edit_page">Etkinlik Düzenle</string>
-
-    <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Sil</string>
     <string name="description">Açıklama</string>
     <string name="event_edit">Etkinlik Düzenle</string>
     <string name="event_settings">Etkinlik Ayarları</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Rengi Değiştir</string>

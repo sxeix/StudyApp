@@ -9,13 +9,10 @@
     <string name="title_activity_input_page">Добавить событие</string>
     <string name="title_activity_settings_page">настройки</string>
     <string name="title_activity_edit_page">редактировать Событие</string>
-
-    <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">удалять</string>
     <string name="description">Описание</string>
     <string name="event_edit">редактировать Событие</string>
     <string name="event_settings">Настройки события</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Изменить цвет</string>

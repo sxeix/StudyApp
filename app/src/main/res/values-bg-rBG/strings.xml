@@ -9,13 +9,10 @@
     <string name="title_activity_input_page">Добави Събитие</string>
     <string name="title_activity_settings_page">Настройки</string>
     <string name="title_activity_edit_page">Поправи Събитие</string>
-
-    <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Изтрий</string>
     <string name="description">Описание</string>
     <string name="event_edit">Поправи Събитие</string>
     <string name="event_settings">Събитие Настройки</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Промени Цвета</string>

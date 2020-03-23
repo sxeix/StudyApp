@@ -9,13 +9,10 @@
     <string name="title_activity_input_page">Veranstaltung Hinzufügen</string>
     <string name="title_activity_settings_page">Einstellungen</string>
     <string name="title_activity_edit_page">Veranstaltung Bearbeiten</string>
-
-    <!--    <string name="title_activity_description_page">Beschreibung</string>-->
     <string name="delete">Löschen</string>
     <string name="description">Beschreibung</string>
     <string name="event_edit">Veranstaltung Bearbeiten</string>
     <string name="event_settings">Einstellung der Veranstaltung</string>
-
 
     <!--    Page elements   -->
     <string name="change_colour">Farbe ändern</string>
