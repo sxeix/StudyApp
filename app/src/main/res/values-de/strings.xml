@@ -16,7 +16,7 @@
 
     <!--    Page elements   -->
     <string name="change_colour">Farbe ändern</string>
-    <string name="events_custom">Benutzerdefinierte Veranstaltungen</string>
+    <string name="events_custom">Einmalige Veranstaltungen</string>
     <string name="daily_custom">Tägliche Veranstaltungen</string>
     <string name="weekly_custom">Wöchentliche Veranstaltungen</string>
     <string name="monthly_custom">Monatliche Veranstaltungen</string>
@@ -35,7 +35,7 @@
     <string name="info">Study Now ist eine einfache Kalenderapp, entwickelt, um die Terminplanung des Studenten zu vereinfachen; macht es einfacher, Veranstaltungen, Lernzeiten, mögliche Pausen und weiteres zu Planen.</string>
     <string name="application_version">Version der Applikation: 2.0.3</string>
     <string name="participants">Erschaffen von: Segmentation Fault\n\nMitglieder:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="type_custom">Benutzerdefiniert</string>
+    <string name="type_custom">Einmalig</string>
     <string name="type_daily">Täglich</string>
     <string name="type_weekly">Wöchentlich</string>
     <string name="type_monthly">Monatlich</string>
