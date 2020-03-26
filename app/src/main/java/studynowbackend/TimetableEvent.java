@@ -22,6 +22,16 @@ public class TimetableEvent implements Serializable {
         this.repeatFrequency = repeatFrequency;
     }
 
+    public TimetableEvent(TimetableEvent event) {
+        this.name = event.name;
+        this.description = event.description;
+        this.location = event.location;
+        this.start = event.start;
+        this.end = event.end;
+        this.allDay = event.allDay;
+        this.repeatFrequency = event.repeatFrequency;
+    }
+
     public String getName() {
         return name;
     }
@@ -76,6 +86,10 @@ public class TimetableEvent implements Serializable {
 
     public void setRepeatFrequency(RepeatFrequency repeatFrequency) {
         this.repeatFrequency = repeatFrequency;
+    }
+
+    public int compareTo(TimetableEvent other) {
+        return start.compareTo(other.start);
     }
 }
 
