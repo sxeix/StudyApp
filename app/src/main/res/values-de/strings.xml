@@ -84,6 +84,7 @@
     </string-array>
     <string name="reset">Zurücksetzen</string>
     <string name="OK">Bestätigen</string>
-    <string name="cancel">Stornieren</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="resetConfirmation">Sind Sie sich sicher, dass sie die App zurücksetzen wollen? Alle in der App gespeicherten Informationen gehen verloren und die Applikation wird auf Werkseinstellung zurückgesetzt.</string>
 
 </resources>
