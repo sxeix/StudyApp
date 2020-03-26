@@ -82,5 +82,8 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
+    <string name="reset">Nullstille</string>
+    <string name="OK">Bekrefte</string>
+    <string name="cancel">Avbryt</string>
 
 </resources>

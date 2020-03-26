@@ -59,6 +59,7 @@
     <string name="event_added">Event Added</string>
     <string name="input_needed">Input Needed</string>
     <string name="event_edited">Event Edited</string>
+    <string name="reset">Reset</string>
 
     <string-array name="Repeat">
         <item>Do Not Repeat</item>
@@ -82,5 +83,8 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
+    <string name="resetConfirmation">Are you sure that you would like to reset the application? You will lose all information stored on the app and the application will revert to default.</string>
+    <string name="cancel">Cancel</string>
+    <string name="OK">Confirm</string>
 
 </resources>

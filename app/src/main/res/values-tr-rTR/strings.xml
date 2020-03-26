@@ -82,5 +82,8 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
+    <string name="reset">Sıfırla</string>
+    <string name="OK">Onaylamak</string>
+    <string name="cancel">" Iptal etmek"</string>
 
 </resources>

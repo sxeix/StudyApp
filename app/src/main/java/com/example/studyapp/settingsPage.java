@@ -1,9 +1,11 @@
 package com.example.studyapp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -12,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -23,6 +26,7 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     public Switch colorMode;
     SharedPrefs sharedPrefs;
     Locale myLocale;
+    private Button alertButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,8 +72,35 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         LanSpinner.setAdapter(myAdapter);
         setSpinnerLang(LanSpinner);
         LanSpinner.setOnItemSelectedListener(this);
-//        LanSpinner.setDropDownVerticalOffset(100);
 
+        alertButton = (Button) findViewById(R.id.resetButton);
+
+        alertButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(settingsPage.this);
+
+                builder.setCancelable(true);
+                builder.setTitle(getResources().getString(R.string.reset));
+                builder.setMessage(getResources().getString(R.string.resetConfirmation));
+
+                builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // This is intentional to display that the option is functional and is ready to have functionality implemented
+                        startActivity(new Intent(settingsPage.this, MainActivity.class));
+                    }
+                });
+                builder.show();
+            }
+        });
     }
 
     public void restartApp() {

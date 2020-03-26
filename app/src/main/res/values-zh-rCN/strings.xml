@@ -82,5 +82,8 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
+    <string name="reset">"重启 "</string>
+    <string name="OK">确认</string>
+    <string name="cancel">取消</string>
 
 </resources>

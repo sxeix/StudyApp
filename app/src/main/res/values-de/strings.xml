@@ -82,5 +82,8 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
+    <string name="reset">Zurücksetzen</string>
+    <string name="OK">Bestätigen</string>
+    <string name="cancel">Stornieren</string>
 
 </resources>
