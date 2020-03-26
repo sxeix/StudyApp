@@ -83,7 +83,8 @@
         <item>Norsk</item>
     </string-array>
     <string name="reset">Nullstille</string>
-    <string name="OK">Bekrefte</string>
-    <string name="cancel">Avbryt</string>
+    <string name="OK">Fortsett</string>
+    <string name="cancel">Nullstill</string>
+    <string name="resetConfirmation">Er du sikker på at du vil nullstille applikasjonen? Du vil miste alt av informasjon lagret på appen og applikasjonen vil tilbakestilles til grunntilstanden.</string>
 
 </resources>

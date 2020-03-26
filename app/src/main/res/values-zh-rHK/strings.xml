@@ -85,5 +85,6 @@
     <string name="reset">重設</string>
     <string name="OK">確認</string>
     <string name="cancel">"取消 "</string>
+    <string name="resetConfirmation">你確定想重置您的應用程式嗎？ 您將丟儲存在應用程式所有的資訊。 應用程式會恢復所有設置</string>
 
 </resources>

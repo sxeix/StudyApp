@@ -85,5 +85,6 @@
     <string name="reset">"重启 "</string>
     <string name="OK">确认</string>
     <string name="cancel">取消</string>
+    <string name="resetConfirmation">你确定想重置您的应用程式吗？ 您将丢储存在应用程式所有的资讯。 应用程式会恢复所有设置。</string>
 
 </resources>
