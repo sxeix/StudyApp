@@ -18,6 +18,7 @@ import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Timetable {
@@ -522,5 +523,48 @@ public class Timetable {
         }
 
         return revisionSlots;
+    }
+
+    public ArrayList<CourseTimeSlot> GetCourseTimeSlots(LocalDate date) {
+
+        ArrayList<TimeSlot>[] days = new ArrayList[7];
+        for (int i = 0; i < 7; i++) {
+            days[i] = new ArrayList<>();
+        }
+
+
+        for (TimeSlot timeSlot : getSlotsAvailableForRevision(date)) {
+            for (int i = 0; i < 7; i++) {
+                if (timeSlot.getStart().toLocalDate().equals(date.plusDays(i))) {
+                    days[i].add(timeSlot);
+                    break;
+                }
+            }
+        }
+
+        ArrayList<CourseTimeSlot> revisionTimeSlots = new ArrayList<>();
+
+        for (Course course : courses) {
+            int weeksLeft = (int) date.until(course.getEndDate(), ChronoUnit.WEEKS);
+
+            int hoursToDoThisWeek = course.getRemainingStudyHours() / weeksLeft;
+            int hoursToDoPerDay = hoursToDoThisWeek / 7;
+
+            for (ArrayList<TimeSlot> day : days) {
+                int minutesToGo = hoursToDoPerDay * 60;
+                for (int i = 0; i < day.size(); i++) {
+                    TimeSlot timeSlot = day.get(i);
+                    if (timeSlot == null)
+                        continue;
+                    if (minutesToGo <= 0)
+                        break;
+                    revisionTimeSlots.add(new CourseTimeSlot(timeSlot.getStart(), timeSlot.getEnd(), course));
+                    minutesToGo -= timeSlot.getDuration().getMinutes();
+                    day.set(i, null);
+                }
+            }
+        }
+
+        return revisionTimeSlots;
     }
 }
