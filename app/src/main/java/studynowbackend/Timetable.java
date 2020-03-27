@@ -79,12 +79,12 @@ public class Timetable {
             FileOutputStream fileOut = context.openFileOutput(SAVE_FILE_NAME, Activity.MODE_PRIVATE);
             objOut = new ObjectOutputStream(fileOut);
 
-            objOut.writeObject(instance.courses);
             objOut.writeObject(instance.events);
             objOut.writeObject(instance.dailyEvents);
             objOut.writeObject(instance.weeklyEvents);
             objOut.writeObject(instance.monthlyEvents);
             objOut.writeObject(instance.yearlyEvents);
+            objOut.writeObject(instance.courses);
 
             fileOut.getFD().sync();
             saved = true;

@@ -85,5 +85,6 @@
     <string name="reset">リセット</string>
     <string name="OK">確認</string>
     <string name="cancel">キャンセル</string>
+    <string name="resetConfirmation">アプリを初期化しますか？アプリに保存しているデータが削除されて元の設定に戻ります。</string>
 
 </resources>
