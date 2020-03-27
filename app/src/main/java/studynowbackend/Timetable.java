@@ -3,9 +3,7 @@ package studynowbackend;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 
-import com.example.studyapp.BuildConfig;
 import com.example.studyapp.InputPage;
 
 import java.io.FileInputStream;
