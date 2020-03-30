@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- <item
+        android:drawable="@drawable/gradient_50sog"
+        android:duration="4000" /> -->
+    <item
+        android:drawable="@drawable/gradient_flare"
+        android:duration="4000" />
+     <!-- <item
+        android:drawable="@drawable/gradient_forest"
+        android:duration="4000" />
+    <item
+        android:drawable="@drawable/gradient_kingyna"
+        android:duration="4000" />
+    <item
+        android:drawable="@drawable/gradient_manofsteel"
+        android:duration="4000" />
+    <item
+        android:drawable="@drawable/gradient_moonlit"
+        android:duration="4000" />
+    <item
+        android:drawable="@drawable/gradient_rastafari"
+        android:duration="4000" /> -->
+    <!-- <item
+        android:drawable="@drawable/gradient_soundcloud"
+        android:duration="4000" />
+-->
+    <item
+        android:drawable="@drawable/gradient_sunset"
+        android:duration="4000" />
+
+</animation-list>

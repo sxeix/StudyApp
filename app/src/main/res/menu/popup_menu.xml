@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".eventsPage">
+    <item android:title="@string/event_settings"
+        app:showAsAction="collapseActionView">
+        <menu>
+            <item
+                android:id="@+id/description"
+                android:icon="@drawable/description_icons"
+                android:title="@string/description" />
+            <item
+                android:id="@+id/edit_event"
+                android:icon="@drawable/edit_icons"
+                android:title="@string/event_edit" />
+            <item
+                android:title="@string/delete"
+                android:id="@+id/delete"
+                android:icon="@drawable/delete_icons" />
+        </menu>
+    </item>
+</menu>

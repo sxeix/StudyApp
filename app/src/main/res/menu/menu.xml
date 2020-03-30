@@ -2,16 +2,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:title="Events"
         android:id="@+id/events"
         android:icon="@drawable/ic_event"
-        app:showAsAction="always" />
+        android:title="@string/title_activity_events_page"
+        app:showAsAction="ifRoom" />
     <item
-        android:title="About App"
+        android:title="@string/title_activity_info_page"
         android:id="@+id/about"
-        android:icon="@drawable/ic_info"
-        app:showAsAction="always"/>
+        android:icon="@drawable/ic_info" />
     <item
-        android:title="Settings"
-        android:id="@+id/settings" />
+        android:id="@+id/settings"
+        android:title="@string/title_activity_settings_page" />
 </menu>

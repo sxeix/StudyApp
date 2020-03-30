@@ -1,39 +1,171 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/eventpagecoord"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".eventsPage"
-    android:background="@color/colorPrimary">
+    tools:context=".eventsPage">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorAccent"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme"
+            app:titleTextColor="#000000"/>
 
     </android.support.design.widget.AppBarLayout>
 
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="564dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/customEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/events_custom" />
+
+        <TextView
+            android:id="@+id/noEventsCustom"
+            android:layout_below="@+id/customEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:textColor="#464E51"
+            android:textStyle="italic"
+            android:text="@string/no_events" />
+
         <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/customEventsListView"
+            android:layout_below="@+id/noEventsCustom"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
 
-        </ListView>
+        <TextView
+            android:id="@+id/dailyEventsText"
+            android:layout_below="@+id/customEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/daily_custom" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/noEventsDaily"
+            android:layout_below="@+id/dailyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:textColor="#464E51"
+            android:textStyle="italic"
+            android:text="@string/no_events" />
 
-</LinearLayout>
+        <ListView
+            android:id="@+id/dailyEventsListView"
+            android:layout_below="@+id/noEventsDaily"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <TextView
+            android:id="@+id/weeklyEventsText"
+            android:layout_below="@+id/dailyEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/weekly_custom" />
+
+        <TextView
+            android:id="@+id/noEventsWeekly"
+            android:layout_below="@+id/weeklyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:textColor="#464E51"
+            android:textStyle="italic"
+            android:text="@string/no_events" />
+
+        <ListView
+            android:id="@+id/weeklyEventsListView"
+            android:layout_below="@+id/noEventsWeekly"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <TextView
+            android:id="@+id/monthlyEventsText"
+            android:layout_below="@+id/weeklyEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/monthly_custom" />
+
+        <TextView
+            android:id="@+id/noEventsMonthly"
+            android:layout_below="@+id/monthlyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:textColor="#464E51"
+            android:textStyle="italic"
+            android:text="@string/no_events" />
+
+        <ListView
+            android:id="@+id/monthlyEventsListView"
+            android:layout_below="@+id/noEventsMonthly"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+        <TextView
+            android:id="@+id/yearlyEventsText"
+            android:layout_below="@+id/monthlyEventsListView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:text="@string/yearly_custom" />
+
+        <TextView
+            android:id="@+id/noEventsYearly"
+            android:layout_below="@+id/yearlyEventsText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:textSize="20sp"
+            android:textColor="#464E51"
+            android:textStyle="italic"
+            android:text="@string/no_events" />
+
+        <ListView
+            android:id="@+id/yearlyEventsListView"
+            android:layout_below="@+id/noEventsYearly"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"/>
+
+        </RelativeLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

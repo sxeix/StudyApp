@@ -1,0 +1,88 @@
+<resources>
+    <!--    Page Titles     -->
+    <string name="app_name">Study Now</string>
+    <string name="title_activity_info_page">Информация</string>
+    <string name="title_activity_events_page">Събития</string>
+    <string name="title_activity_calendar_date">Събитие по Дата</string>
+
+    <!--    Universal Strings   -->
+    <string name="title_activity_input_page">Добави Събитие</string>
+    <string name="title_activity_settings_page">Настройки</string>
+    <string name="title_activity_edit_page">Поправи Събитие</string>
+    <string name="delete">Изтрий</string>
+    <string name="description">Описание</string>
+    <string name="event_edit">Поправи Събитие</string>
+    <string name="event_settings">Събитие Настройки</string>
+
+    <!--    Page elements   -->
+    <string name="change_colour">Промени Цвета</string>
+    <string name="events_custom">Персонализирани Събития</string>
+    <string name="daily_custom">Ежедневни Събития</string>
+    <string name="weekly_custom">Седмични Събития</string>
+    <string name="monthly_custom">Месечни Събития</string>
+    <string name="yearly_custom">Годишни Събития</string>
+    <string name="events_for">Събития за %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date formal is different in another language-->
+    <string name="title_input">Заглавие</string>
+    <string name="all_day_event_switch">Всекидневно Събитие</string>
+    <string name="location_input">Местоположение</string>
+    <string name="description_input">Описание</string>
+    <string name="pick_start">Избери Дата и Време на Завършване</string>
+    <string name="pick_end">Избери Край на Дата и Време</string>
+    <string name="start_date">Дата на Започване:</string>
+    <string name="start_time">Време на Започване:</string>
+    <string name="end_date">Дата на Завършване:</string>
+    <string name="end_time">Време на Завършване:</string>
+    <string name="info">Study Now е лесен календар приложение, който е създаден да улесни студента да управлява схемата като прави лесно планирането на събития, времето за учене, възможните почивки и други.</string>
+    <string name="application_version">Версия на Приложението: 2.0.3</string>
+    <string name="participants">Създаден чрез: Segmentation Fault\n\nЧленове:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="type_custom">Персонализиран</string>
+    <string name="type_daily">Ежедневно</string>
+    <string name="type_weekly">Седмично</string>
+    <string name="type_monthly">Месечно</string>
+    <string name="type_yearly">Годишно</string>
+    <string name="type_allday">Цял ден</string>
+    <string name="event_type">Вид събитие</string>
+    <string name="day_sunday">неделя</string>
+    <string name="day_monday">Понеделник</string>
+    <string name="day_tuesday">Вторник</string>
+    <string name="day_wednesday">Сряда</string>
+    <string name="day_thursday">Четвъртък</string>
+    <string name="day_friday">Петък</string>
+    <string name="day_saturday">Събота</string>
+    <string name="formatted_character">0</string> <!--08/03/2020 as opposed to 8/3/2020. leave blank if this kind of formatting isn't necessary in the other language-->
+    <string name="full_date">%1$s/%2$s/%3$d</string> <!--the order in which the date is written. 1 = day, 2 = month 3 = year. the / represents the / between the dates in the formal itself. e.g. 08/03/2020-->
+    <string name="month_date">%1$d</string><!--day of month and its ending. e.g. 3rd or 2nd. remove the %2$s if there is no unique ending like there is in english-->
+    <string name="short_date">%1$s/%2$s</string><!--same as full_date but without year. 1 = day, 2 = month-->
+    <string name="time">%1$s:%2$s</string><!--time of day. 1 = hour, 2 = minutes-->
+    <string name="language">език:</string>
+    <string name="no_events">Няма събития</string>
+    <string name="event_added">Събитието е добавено</string>
+    <string name="event_edited">Събитието редактирано</string>
+    <string name="input_needed">Необходимо въвеждане</string>
+
+    <string-array name="Repeat">
+        <item>Не се Повтаряйте</item>
+        <item>Ежедневно</item>
+        <item>Седмично</item>
+        <item>Месечно</item>
+        <item>Годишно</item>
+    </string-array>
+
+    <string-array name="lang">
+        <item>English</item>
+        <item>日本語</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
+        <item>русский</item>
+        <item>Français</item>
+        <item>Български</item>
+        <item>Türk</item>
+        <item>Espanol</item>
+        <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
+    </string-array>
+    <string name="reset">нулиране</string>
+    <string name="OK">потвърждаване</string>
+    <string name="cancel">анулира</string>
+</resources>
