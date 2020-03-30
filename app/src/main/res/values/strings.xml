@@ -86,5 +86,18 @@
     <string name="resetConfirmation">Are you sure that you would like to reset the application? You will lose all information stored on the app and the application will revert to default.</string>
     <string name="cancel">Cancel</string>
     <string name="OK">Confirm</string>
+    <string name="enter_course_module">Enter course module</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
+    <string name="lecture">Lecture</string>
+    <string name="lecture_running_this_module">Lecture running this module</string>
+    <string name="start_time_lecture">Start time: </string>
+    <string name="end_time_Lecture">End time: </string>
+    <string name="class_classSwitch">class</string>
+    <string name="name_of_lecture_running_class">Name of lecture running class</string>
+    <string name="class_start_time">Start time: </string>
+    <string name="class_end_time">End time: </string>
+    <string name="add_modules">Add modules</string>
+    <string name="title_activity_adding_modules">Addin modules</string>
+    <string name="addin_modules">Addin\' Modules</string>
 
 </resources>

@@ -104,6 +104,10 @@ public class MainActivity extends AppCompatActivity {
             Intent settings = new Intent(MainActivity.this, settingsPage.class);
             startActivity(settings);
         }
+        else if (id == R.id.addModules) {
+            Intent modulesAdd = new Intent(MainActivity.this, adding_modules.class);
+            startActivity(modulesAdd);
+        }
         return true;
     }
 
