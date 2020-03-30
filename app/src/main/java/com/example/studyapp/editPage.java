@@ -1,5 +1,4 @@
 package com.example.studyapp;
-import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -23,7 +22,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar;
 import studynowbackend.RepeatFrequency;
 import studynowbackend.Timetable;
@@ -88,7 +86,6 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
         mySpinner.setOnItemSelectedListener(this);
-
         // Following code initializes two buttons that are used to indicate all day and routine events#
         // Each switch shares the same function to update the variable holding the boolean
         Switch allSwitch = (Switch) findViewById(R.id.editdayEventSwitch);
@@ -133,57 +130,35 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
         addEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (allSwitch.isChecked()) allDayEventBool = true;
                 t = title.getText().toString();
                 l = location.getText().toString();
                 d = description.getText().toString();
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
-                    Timetable.getInstance().AddEvent(x);
-                    sortListByType(x);
-                    Toast.makeText(editPage.this, "Event Created", Toast.LENGTH_SHORT).show();
+                    Timetable.getInstance().removeEvent(eventsPage.selectedEvent);
+                    Timetable.getInstance().addEvent(x);
+                    InputPage.sortListByType(x);
+                    Intent mainActivity = new Intent(editPage.this, MainActivity.class);
+                    startActivity(mainActivity);
+                    Toast.makeText(editPage.this, getResources().getString(R.string.event_edited), Toast.LENGTH_SHORT).show();
                 } else {
-                    // TODO Remove this method in the future after testing is complete
-                    testEvents();
-                    Toast.makeText(editPage.this, "Input needed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(editPage.this, getResources().getString(R.string.input_needed), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-
-    @TargetApi(26)
-    public void testEvents() {
-        String d1 = "2020-03-01 12:30";
-        String d2 = "2020-03-01 13:30";
-        DateTimeFormatter f = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        TimetableEvent a = new TimetableEvent("Test1", "Desc1", "Location1",
-                LocalDateTime.parse(d1, f), LocalDateTime.parse(d2, f), false, RepeatFrequency.NoRepeat);
-
-        Timetable.getInstance().AddEvent(a);
-        sortListByType(a);
-
-        String d3 = "2020-03-01 14:30";
-        String d4 = "2020-03-01 15:30";
-        TimetableEvent b = new TimetableEvent("Test2", "Desc2", "Location3",
-                LocalDateTime.parse(d3, f), LocalDateTime.parse(d4, f), false, RepeatFrequency.Daily);
-
-        Timetable.getInstance().AddEvent(b);
-        sortListByType(b);
-
-        String d5 = "2020-03-01 09:30";
-        String d6 = "2020-03-01 11:30";
-        TimetableEvent c = new TimetableEvent("Test3", "Desc3", "Location3",
-                LocalDateTime.parse(d5, f), LocalDateTime.parse(d6, f), true, RepeatFrequency.NoRepeat);
-
-        Timetable.getInstance().AddEvent(c);
-        sortListByType(c);
-
-        String d7 = "2020-03-01 16:30";
-        String d8 = "2020-03-01 17:30";
-        TimetableEvent d = new TimetableEvent("Test4", "Desc4", "Location4",
-                LocalDateTime.parse(d7, f), LocalDateTime.parse(d8, f), true, RepeatFrequency.Weekly);
-
-        Timetable.getInstance().AddEvent(d);
-        sortListByType(d);
+        title.setText(eventsPage.selectedEvent.getName());
+        location.setText(eventsPage.selectedEvent.getLocation());
+        description.setText(eventsPage.selectedEvent.getDescription());
+        mySpinner.setSelection(eventsPage.selectedEvent.getRepeatFrequency().ordinal());
+        tv_result.setText(getResources().getString(R.string.start_date) + "\n" + String.format(getResources().getString(R.string.full_date), requiresFormat(eventsPage.selectedEvent.getStart().getDayOfMonth()) + eventsPage.selectedEvent.getStart().getDayOfMonth(), requiresFormat(eventsPage.selectedEvent.getStart().getMonthValue()) + eventsPage.selectedEvent.getStart().getMonthValue(), eventsPage.selectedEvent.getStart().getYear()));
+        tv_result2.setText(getResources().getString(R.string.start_time) + "\n " + String.format(getResources().getString(R.string.time), requiresFormat(eventsPage.selectedEvent.getStart().getHour()) + eventsPage.selectedEvent.getStart().getHour(), requiresFormat(eventsPage.selectedEvent.getStart().getMinute()) + eventsPage.selectedEvent.getStart().getMinute()));
+        endDateResult.setText("  " + getResources().getString(R.string.end_date) + "\n   " + String.format(getResources().getString(R.string.full_date), requiresFormat(eventsPage.selectedEvent.getEnd().getDayOfMonth()) + eventsPage.selectedEvent.getEnd().getDayOfMonth(), requiresFormat(eventsPage.selectedEvent.getEnd().getMonthValue()) + eventsPage.selectedEvent.getEnd().getMonthValue(), eventsPage.selectedEvent.getEnd().getYear()));
+        endTimeResult.setText("  " + getResources().getString(R.string.end_time) + "\n   " + String.format(getResources().getString(R.string.time), requiresFormat(eventsPage.selectedEvent.getEnd().getHour()) + eventsPage.selectedEvent.getEnd().getHour(), requiresFormat(eventsPage.selectedEvent.getEnd().getMinute()) + eventsPage.selectedEvent.getEnd().getMinute()));
+        allSwitch.setChecked(eventsPage.selectedEvent.getAllDay());
+        set1 = true; set2 = true;
+        start = eventsPage.selectedEvent.getStart();
+        end = eventsPage.selectedEvent.getEnd();
     }
 
     // This method is used for updating the switches and changing them from true to false
@@ -246,7 +221,6 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
     This method will update the text displaying the time and date depending on whether the user is choosing a start or end time/date
      */
     @Override
-    @TargetApi(26)
     public void onTimeSet(TimePicker view, int h, int m) {
         String date = formatCharacter(dayFinal) + formatCharacter(monthFinal) + formatCharacter(yearFinal);
         String time = formatCharacter(h) + formatCharacter(m) + "00";
@@ -257,15 +231,15 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
             start = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
-            tv_result.setText("Start Date:" + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
-            tv_result2.setText("Start Time:" + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
+            tv_result.setText(getResources().getString(R.string.start_date) + "\n" + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
+            tv_result2.setText(getResources().getString(R.string.start_time) + "\n " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         } else if (option == 2) {
             set2 = true;
             end = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
-            endDateResult.setText("  End Date:\n   " + formatCharacter(dayFinal) + "/" + formatCharacter(monthFinal) + "/" + formatCharacter(yearFinal));
-            endTimeResult.setText("  End Time:\n   " + formatCharacter(hourFinal) + ":" + formatCharacter(minuteFinal));
+            endDateResult.setText("  " + getResources().getString(R.string.end_date) + "\n   " + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
+            endTimeResult.setText("  " + getResources().getString(R.string.end_time) + "\n   " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         }
     }
 
@@ -276,28 +250,6 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
             return "0" + a;
         }
         return Integer.toString(a);
-    }
-
-    @TargetApi(26)
-    public void sortList(TimetableEvent a, ArrayList<TimetableEvent> list){
-        if (list.size() > 1) {
-            if(a.getAllDay()){
-                list.remove(a);
-                list.add(0, a);
-                return;
-            }
-            int index = list.indexOf(a);
-            while (index > 0) {
-                if (a.getStart().isBefore(list.get(index-1).getStart()))index--;
-                else {
-                    list.remove(a);
-                    list.add(index, a);
-                    return;
-                }
-            }
-            list.remove(a);
-            list.add(0, a);
-        }
     }
 
     @Override
@@ -323,20 +275,10 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
 
     }
 
-    public void sortListByType(TimetableEvent x){
-        switch(x.getRepeatFrequency()){
-            case NoRepeat:
-                sortList(x, Timetable.getInstance().getEvents()); break;
-            case Daily:
-                sortList(x, Timetable.getInstance().getDailyEvents()); break;
-            case Weekly:
-                sortList(x, Timetable.getInstance().getWeeklyEvents()); break;
-            case Monthly:
-                sortList(x, Timetable.getInstance().getMonthlyEvents()); break;
-            case Yearly:
-                sortList(x, Timetable.getInstance().getYearlyEvents()); break;
-            default:
-                return;
+    public String requiresFormat(int a) {
+        if (a < 10) {
+            return getResources().getString(R.string.formatted_character);
         }
+        return "";
     }
 }
