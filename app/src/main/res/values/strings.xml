@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!--    Page Titles     -->
-    <string name="app_name">Study Now</string>
+    <string name="app_name">StudyApp</string>
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
@@ -18,6 +18,7 @@
     <string name="addModule" translatable="false">Add Module</string>
     <string name="event_settings">Event Settings</string>
 
+
     <!--    Page elements   -->
     <string name="change_colour">Change Colour</string>
     <string name="events_custom">Custom Events</string>
@@ -33,12 +34,15 @@
     <string name="pick_start">PICK START DATE AND TIME</string>
     <string name="pick_end">PICK END DATE AND TIME</string>
     <string name="start_date">Start Date:</string>
-    <string name="start_time">Start Time:</string>
+    <string name="start_time">Start Time</string>
     <string name="end_date">End Date:</string>
-    <string name="end_time">End Time:</string>
+    <string name="end_time">End Time</string>
     <string name="info">Study Now is a simple calendar application developed to facilitate student schedule management; making it easier to plan events, times to study, possible breaks and more.</string>
     <string name="application_version">Application Version: 2.0.3</string>
     <string name="participants">Created by: Segmentation Fault\n\nMembers:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
+    <string name="eng">English</string>
+    <string name="jap">日本語</string>
+    <string name="can">廣東話</string>
     <string name="type_custom">Custom</string>
     <string name="type_daily">Daily</string>
     <string name="type_weekly">Weekly</string>
@@ -78,22 +82,17 @@
         <item>Yearly</item>
     </string-array>
 
+    <string-array name="languages">
+        <item>English</item>
+        <item>Japanese</item>
+    </string-array>
+
     <string-array name="lang">
         <item>English</item>
-        <item>日本語</item>
-        <item>繁體中文</item>
-        <item>简体中文</item>
-        <item>русский</item>
-        <item>Français</item>
-        <item>Български</item>
-        <item>Türk</item>
-        <item>Espanol</item>
-        <item>Português</item>
-        <item>Deutsch</item>
-        <item>Norsk</item>
+        <item>Japanese</item>
+        <item>Cantonese</item>
+        <item>Russian</item>
+        <item>Bulgarian</item>
     </string-array>
-    <string name="resetConfirmation">Are you sure that you would like to reset the application? You will lose all information stored on the app and the application will revert to default.</string>
-    <string name="cancel">Cancel</string>
-    <string name="OK">Confirm</string>
 
 </resources>

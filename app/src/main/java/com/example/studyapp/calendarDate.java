@@ -12,22 +12,19 @@ import android.view.MenuItem;
 
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
-
+import android.annotation.TargetApi;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.ListView;
-
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class calendarDate extends AppCompatActivity {
     private SimpleAdapter sa;
-    LocalDateTime currentDateTime = LocalDateTime.now();
     SharedPrefs sharedPrefs;
     ListView listView;
     TextView title;
@@ -57,14 +54,13 @@ public class calendarDate extends AppCompatActivity {
 
         lCalendarDate = new ArrayList<HashMap<String,String>>();
         todayEvent = Timetable.getInstance().getEventsOnDay(MainActivity.localDate);
-        sortListRelativeOnDay(todayEvent);
 
         HashMap<String,String> item;
         for(TimetableEvent e: todayEvent){
             item = new HashMap<String, String>();
             item.put("line1", getResources().getString(R.string.title_input) + ": " + e.getName());
             item.put("line2", getResources().getString(R.string.location_input) + ": " + e.getLocation());
-            item.put("line3", getResources().getString(R.string.start_time) + " " + dailyCheck(e));
+            item.put("line3", getResources().getString(R.string.start_time) + ": " + dailyCheck(e));
             item.put("line4", getResources().getString(R.string.event_type) + ": " + returnFreqString(e));
             lCalendarDate.add(item);
         }
@@ -78,7 +74,6 @@ public class calendarDate extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(sa);
         listView.setNestedScrollingEnabled(true);
-        noEventsTextViewUpdater();
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
@@ -103,7 +98,6 @@ public class calendarDate extends AppCompatActivity {
                                 todayEvent.remove(position);
                                 lCalendarDate.remove(position);
                                 sa.notifyDataSetChanged();
-                                noEventsTextViewUpdater();
                                 return true;
                             case R.id.edit_event:
                                 Intent edit = new Intent(calendarDate.this, editPage.class);
@@ -168,26 +162,5 @@ public class calendarDate extends AppCompatActivity {
             return getResources().getString(R.string.formatted_character);
         }
         return "";
-    }
-
-    public void sortListRelativeOnDay(ArrayList<TimetableEvent> list){
-        int size = list.size();
-        TimetableEvent e; int i = 0; int count = 0;
-        while(i<size && count<size){
-            count++;
-            e = list.get(i);
-            if (e.getAllDay())continue;
-            if (e.getEnd().toLocalTime().isBefore(currentDateTime.toLocalTime())&& MainActivity.localDate.equals(currentDateTime.toLocalDate())){
-                list.remove(e);continue;
-            }
-            i++;
-        }
-    }
-
-    public void noEventsTextViewUpdater(){
-        if (sa.getCount() == 0){
-            TextView noEvOnDate = findViewById(R.id.noEventsOnDate);
-            noEvOnDate.setVisibility(View.VISIBLE);
-        }
     }
 }

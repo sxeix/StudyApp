@@ -1,12 +1,15 @@
 package com.example.studyapp;
 
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -22,11 +25,10 @@ import android.widget.Toast;
 
 import java.util.Locale;
 
-public class settingsPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class settingsPage extends AppCompatActivity {
     public Switch colorMode;
     SharedPrefs sharedPrefs;
     Locale myLocale;
-    private Button alertButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,37 +72,8 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.lang));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         LanSpinner.setAdapter(myAdapter);
-        setSpinnerLang(LanSpinner);
-        LanSpinner.setOnItemSelectedListener(this);
+//        LanSpinner.setDropDownVerticalOffset(100);
 
-        alertButton = (Button) findViewById(R.id.resetButton);
-
-        alertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(settingsPage.this);
-
-                builder.setCancelable(true);
-                builder.setTitle(getResources().getString(R.string.reset));
-                builder.setMessage(getResources().getString(R.string.resetConfirmation));
-
-                builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        // This is intentional to display that the option is functional and is ready to have functionality implemented
-                        startActivity(new Intent(settingsPage.this, MainActivity.class));
-                    }
-                });
-                builder.show();
-            }
-        });
     }
 
     public void restartApp() {
@@ -143,17 +116,26 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+    public void onRadioButtonClicked(View view) {
+        switch (view.getId()) {
+            case R.id.radio_eng:
+                setLocale("en-GB");
+                break;
+            case R.id.radio_ja:
+                setLocale("ja");
+                break;
+            case R.id.radio_can:
+                setLocale("zh-rHK");
+                break;
+        }
+    }
+
     public void setLocale(String lang) {
-        myLocale = new Locale(lang);
-        switch(lang) {
-            case "zh_hk":
-                myLocale = new Locale("zh", "HK"); break;
-            case "es_es":
-                myLocale = new Locale("es", "ES"); break;
-            case "pt_pt":
-                myLocale = new Locale("pt", "PT"); break;
-            case "zh_cn":
-                myLocale = new Locale("zh", "CN"); break;
+        if (lang.equals("zh-rHK")) {
+            myLocale = new Locale("zh", "HK");
+            lang = "zh-HK";
+        } else {
+            myLocale = new Locale(lang);
         }
         Resources res = getResources();
         DisplayMetrics dm = res.getDisplayMetrics();
@@ -163,90 +145,5 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         Intent refresh = new Intent(this, MainActivity.class);
         sharedPrefs.setLangPref(lang);
         startActivity(refresh);
-    }
-
-    public boolean checkLocaleDifferent(String cur, String select) {
-        return !cur.equals(select.toLowerCase());
-    }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        String currentPref = sharedPrefs.getLangPref().toLowerCase();
-        switch (position) {
-            case 0:
-                if (checkLocaleDifferent(currentPref, "en-GB")) setLocale("en-GB");
-                break;
-            case 1:
-                if (checkLocaleDifferent(currentPref, "ja")) setLocale("ja");
-                break;
-            case 2:
-                if (checkLocaleDifferent(currentPref, "zh_hk")) setLocale("zh_hk");
-                break;
-            case 3:
-                if (checkLocaleDifferent(currentPref, "zh_cn")) setLocale("zh_cn");
-                break;
-            case 4:
-                if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
-                break;
-            case 5:
-                if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
-                break;
-            case 6:
-                if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
-                break;
-            case 7:
-                if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
-                break;
-            case 8:
-                if (checkLocaleDifferent(currentPref, "es_es")) setLocale("es_es");
-                break;
-            case 9:
-                if (checkLocaleDifferent(currentPref, "pt_pt")) setLocale("pt_pt");
-                break;
-            case 10:
-                if (checkLocaleDifferent(currentPref, "de")) setLocale("de");
-                break;
-            case 11:
-                if (checkLocaleDifferent(currentPref, "no")) setLocale("no");
-                break;
-            default:
-                break;
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    public void setSpinnerLang(Spinner spinny){
-        String currentLang = sharedPrefs.getLangPref().toLowerCase();
-        switch(currentLang){
-            case "en-gb":
-                spinny.setSelection(0); break;
-            case "ja":
-                spinny.setSelection(1); break;
-            case "zh_hk":
-                spinny.setSelection(2); break;
-            case "zh_cn":
-                spinny.setSelection(3); break;
-            case "ru":
-                spinny.setSelection(4); break;
-            case "fr":
-                spinny.setSelection(5); break;
-            case "bg":
-                spinny.setSelection(6); break;
-            case "tr":
-                spinny.setSelection(7); break;
-            case "es_es":
-                spinny.setSelection(8); break;
-            case "pt_pt":
-                spinny.setSelection(9); break;
-            case "de":
-                spinny.setSelection(10); break;
-            case "no":
-                spinny.setSelection(11); break;
-
-        }
     }
 }

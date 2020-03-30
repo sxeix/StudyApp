@@ -24,10 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="20dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <TextView
@@ -39,20 +35,14 @@
                 android:textColor="#000000"
                 android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/noEventsOnDate"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:textSize="20sp"
-                android:textColor="#464E51"
-                android:textStyle="italic"
-                android:text="@string/no_events" />
-
             <ListView
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
         </LinearLayout>
