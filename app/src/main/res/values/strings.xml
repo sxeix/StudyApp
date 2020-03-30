@@ -4,6 +4,9 @@
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_events_page">Events</string>
     <string name="title_activity_calendar_date">Events on Date</string>
+    <string name="language">language</string>
+    <string name="reset">reset</string>
+    <string name="no_events">no events</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Add Event</string>
