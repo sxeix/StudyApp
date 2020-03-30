@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--    Page Titles     -->
     <string name="app_name">StudyApp</string>
     <string name="title_activity_info_page">Information</string>
@@ -9,11 +9,13 @@
     <string name="title_activity_input_page">Add Event</string>
     <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_edit_page">Edit Event</string>
+    <string name="title_activity_adding_modules" translatable="false">Addin Modules</string>
 
     <!--    <string name="title_activity_description_page">Description</string>-->
     <string name="delete">Delete</string>
     <string name="description">Description</string>
     <string name="event_edit">Edit Event</string>
+    <string name="addModule" translatable="false">Add Module</string>
     <string name="event_settings">Event Settings</string>
 
 
@@ -59,7 +61,18 @@
     <string name="full_date">%1$s/%2$s/%3$d</string> <!--the order in which the date is written. 1 = day, 2 = month 3 = year. the / represents the / between the dates in the formal itself. e.g. 08/03/2020-->
     <string name="month_date">%1$d%2$s</string><!--day of month and its ending. e.g. 3rd or 2nd. remove the %2$s if there is no unique ending like there is in english-->
     <string name="short_date">%1$s/%2$s</string><!--same as full_date but without year. 1 = day, 2 = month-->
-    <string name="time">%1$s:%2$s</string><!--time of day. 1 = hour, 2 = minutes-->
+    <string name="time">%1$s:%2$s</string>
+    <string name="enter_course_module" translatable="false">Enter Course / Module</string>
+    <string name="enter_number_of_recommended_hours_for_revision" translatable="false">Enter no. of recommended hours for revision</string>
+    <string name="lecture" translatable="false">Lecture</string>
+    <string name="lecture_running_this_module" translatable="false">lecture running this module</string>
+    <string name="start_time_lecture" translatable="false">Start time:</string>
+    <string name="end_time_Lecture" translatable="false">End Time:</string>
+    <string name="name_of_lecture_running_class" translatable="false">Name of lecture running class</string>
+    <string name="class_start_time" translatable="false">Start Time:</string>
+    <string name="class_end_time" translatable="false">End Time:</string>
+    <string name="add_modules" translatable="false">Add Modules</string>
+    <string name="class_classSwitch" translatable="false">Class</string><!--time of day. 1 = hour, 2 = minutes-->
 
     <string-array name="Repeat">
         <item>Do Not Repeat</item>

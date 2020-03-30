@@ -25,9 +25,12 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.CalendarView;
+
 import java.util.Calendar;
+
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
+
 import java.util.GregorianCalendar;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -45,14 +48,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
-        
+
         // This section of code is used to check the current language off the application and if it is incorrect then
         // it reloads the app with the user's preferred language
         String lang = sharedPrefs.getLangPref();
         if (!lang.equals("en-GB") && !lang.equals("ja")) lang = "zh_HK";
 //        Toast.makeText(this, "lang " + lang, Toast.LENGTH_SHORT).show();
 //        Toast.makeText(this, "current " + getResources().getConfiguration().locale.toString(), Toast.LENGTH_SHORT).show();
-        if(!lang.toLowerCase().equals(getResources().getConfiguration().locale.toString().toLowerCase())) {
+        if (!lang.toLowerCase().equals(getResources().getConfiguration().locale.toString().toLowerCase())) {
             myLocale = new Locale(lang);
             Resources res = getResources();
             DisplayMetrics dm = res.getDisplayMetrics();
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configureNextButton();
+
         /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
@@ -117,6 +121,9 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.settings) {
             Intent settings = new Intent(MainActivity.this, settingsPage.class);
             startActivity(settings);
+        } else if (id == R.id.addModules) {
+            Intent modulesAdd = new Intent(MainActivity.this, adding_modules.class);
+            startActivity(modulesAdd);
         }
         return true;
     }
