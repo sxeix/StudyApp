@@ -64,9 +64,9 @@ public class popupWindowDesc extends Activity {
         TextView date = findViewById(R.id.desc_date);
         date.setText(getResources().getString(R.string.start_date) + " " + routineCheck(event));
         TextView start_time = findViewById(R.id.desc_start);
-        start_time.setText(getResources().getString(R.string.start_time) + ": " + dailyCheck(event, 0));
+        start_time.setText(getResources().getString(R.string.start_time) + " " + dailyCheck(event, 0));
         TextView end_time = findViewById(R.id.desc_end);
-        end_time.setText(getResources().getString(R.string.end_time) + ": " + dailyCheck(event, 1));
+        end_time.setText(getResources().getString(R.string.end_time) + " " + dailyCheck(event, 1));
         TextView type = findViewById(R.id.desc_type);
         type.setText(getResources().getString(R.string.event_type) + ": " + returnFreqString(event));
 

@@ -1,6 +1,6 @@
 <resources>
     <!--    Page Titles     -->
-    <string name="app_name">勉強アプリ</string>
+    <string name="app_name">Study Now</string>
     <string name="title_activity_info_page">詳細</string>
     <string name="title_activity_events_page">イベント</string>
     <string name="title_activity_calendar_date">日のイベント</string>
@@ -29,34 +29,36 @@
     <string name="pick_start">開始の日付や時間を選択</string>
     <string name="pick_end">終了の日付や時間を選択</string>
     <string name="start_date">開始日付:</string>
-    <string name="start_time">開始時間</string>
+    <string name="start_time">開始時間:</string>
     <string name="end_date">終了日付:</string>
-    <string name="end_time">終了時間</string>
+    <string name="end_time">終了時間:</string>
     <string name="info">Study Nowは、学生の日程の管理のために開発した単純なカレンダーアプリであり、それでイベントや勉強時間や休憩時間などの企画がしやすくなる。</string>
     <string name="application_version">アプリバージョン: 2.0.3</string>
     <string name="participants">開発会社: Segmentation Fault\n\nメンバー:\nDaniel\nJames\nChris\nRoyston\nRyan</string>
-    <string name="eng">English</string>
-    <string name="jap">日本語</string>
-    <string name="can">廣東話</string>
     <string name="type_custom">特殊</string>
     <string name="type_daily">日毎</string>
-    <string name="type_monthly">月毎</string>
     <string name="type_weekly">週毎</string>
+    <string name="type_monthly">月毎</string>
     <string name="type_yearly">年毎</string>
     <string name="type_allday">終日</string>
     <string name="event_type">イベント種類</string>
-    <string name="day_friday">金曜日</string>
-    <string name="day_monday">月曜日</string>
-    <string name="day_saturday">土曜日</string>
     <string name="day_sunday">日曜日</string>
-    <string name="day_thursday">木曜日</string>
+    <string name="day_monday">月曜日</string>
     <string name="day_tuesday">火曜日</string>
     <string name="day_wednesday">水曜日</string>
+    <string name="day_thursday">木曜日</string>
+    <string name="day_friday">金曜日</string>
+    <string name="day_saturday">土曜日</string>
     <string name="formatted_character"></string>
     <string name="full_date">%3$d年%2$s月%1$s日</string>
     <string name="month_date">%1$d日</string>
     <string name="short_date">%2$s月%1$s日</string>
     <string name="time">%1$s時%2$s分</string>
+    <string name="language">言語:</string>
+    <string name="no_events">イベントなし</string>
+    <string name="event_added">追加完了</string>
+    <string name="event_edited">変更完了</string>
+    <string name="input_needed">入力不足</string>
 
     <string-array name="Repeat">
         <item>繰り返しなし</item>
@@ -66,8 +68,23 @@
         <item>年毎</item>
     </string-array>
 
-    <string-array name="languages">
+    <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
+        <item>繁體中文</item>
+        <item>简体中文</item>
+        <item>русский</item>
+        <item>Français</item>
+        <item>Български</item>
+        <item>Türk</item>
+        <item>Espanol</item>
+        <item>Português</item>
+        <item>Deutsch</item>
+        <item>Norsk</item>
     </string-array>
+    <string name="reset">リセット</string>
+    <string name="OK">確認</string>
+    <string name="cancel">キャンセル</string>
+    <string name="resetConfirmation">アプリを初期化しますか？アプリに保存しているデータが削除されて元の設定に戻ります。</string>
+
 </resources>
