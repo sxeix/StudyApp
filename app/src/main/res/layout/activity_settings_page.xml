@@ -18,7 +18,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="167dp"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <Switch
@@ -34,39 +34,35 @@
                 android:text="@string/change_colour"
                 android:textColor="#000000" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/language"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="14dp"
-                    android:text="@string/language" />
-
-                <Spinner
-                    android:id="@+id/langSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
-                    android:popupTheme="@style/AppTheme" />
-            </LinearLayout>
-
-            <Button
-                android:id="@+id/resetButton"
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="10dp"
-                android:background="@drawable/custom_buttons"
-                android:text="@string/reset"
-                android:textColor="#FEFEFE" />
+                android:orientation="vertical">
+                <RadioButton android:id="@+id/radio_eng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eng"
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/radio_ja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/jap"
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/radio_can"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/can"
+                    android:onClick="onRadioButtonClicked"
+                    android:textColor="#000000"/>
+            </RadioGroup>
+
+            <Spinner
+                android:id="@+id/langSpinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:popupTheme="@style/AppTheme"
+                android:layout_marginTop="14dp"/>
 
         </LinearLayout>
-
     </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>
