@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -16,24 +17,36 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.PopupMenu;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.util.List;
 import java.util.Locale;
 
-public class settingsPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-    public Switch colorMode;
+public class settingsPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     SharedPrefs sharedPrefs;
+    Switch p, b, g, r, y, o;
     Locale myLocale;
     private Button alertButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
-        if (sharedPrefs.loadBlueMode()) {
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
-        } else {
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
+        }else{
             setTheme(R.style.AppTheme);
         }
 
@@ -49,22 +62,34 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_settings_page));
 
-        colorMode = (Switch) findViewById(R.id.light_mode_switch);
-        if (sharedPrefs.loadBlueMode()) {
-            colorMode.setChecked(true);
-        }
-        colorMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        Button colorbtn = findViewById(R.id.color_btn);
+        colorbtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onCheckedChanged(CompoundButton view, boolean isChecked) {
-                if (isChecked) {
-                    sharedPrefs.setBlueMode(true);
-                    restartApp();
-                } else {
-                    sharedPrefs.setBlueMode(false);
-                    restartApp();
-                }
+            public void onClick(View v) {
+                Intent colorspage = new Intent(settingsPage.this, colors.class);
+                startActivity(colorspage);
             }
         });
+
+
+//        colorMode = (Switch) findViewById(R.id.light_mode_switch);
+//        if (sharedPrefs.loadBlueMode()) {
+//            colorMode.setChecked(true);
+//        }
+//        colorMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton view, boolean isChecked) {
+//                if (isChecked) {
+//                    sharedPrefs.setBlueMode(true);
+//                    restartApp();
+//                } else {
+//                    sharedPrefs.setBlueMode(false);
+//                    restartApp();
+//                }
+//            }
+//        });
+
+
         Spinner LanSpinner = (Spinner) findViewById(R.id.langSpinner);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.lang));
@@ -137,8 +162,12 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
             startActivity(infopage);
         } else if (id == R.id.settings) {
             return true;
-        } else if (id == android.R.id.home) {
-            this.finish();
+        } else if(id == R.id.addModules){
+            Intent modules = new Intent(settingsPage.this, adding_modules.class);
+            startActivity(modules);
+        }else if (id == android.R.id.home) {
+            Intent modules = new Intent(settingsPage.this, MainActivity.class);
+            startActivity(modules);
         }
         return true;
     }
@@ -172,47 +201,50 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String currentPref = sharedPrefs.getLangPref().toLowerCase();
-        switch (position) {
-            case 0:
-                if (checkLocaleDifferent(currentPref, "en-GB")) setLocale("en-GB");
-                break;
-            case 1:
-                if (checkLocaleDifferent(currentPref, "ja")) setLocale("ja");
-                break;
-            case 2:
-                if (checkLocaleDifferent(currentPref, "zh_hk")) setLocale("zh_hk");
-                break;
-            case 3:
-                if (checkLocaleDifferent(currentPref, "zh_cn")) setLocale("zh_cn");
-                break;
-            case 4:
-                if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
-                break;
-            case 5:
-                if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
-                break;
-            case 6:
-                if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
-                break;
-            case 7:
-                if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
-                break;
-            case 8:
-                if (checkLocaleDifferent(currentPref, "es_es")) setLocale("es_es");
-                break;
-            case 9:
-                if (checkLocaleDifferent(currentPref, "pt_pt")) setLocale("pt_pt");
-                break;
-            case 10:
-                if (checkLocaleDifferent(currentPref, "de")) setLocale("de");
-                break;
-            case 11:
-                if (checkLocaleDifferent(currentPref, "no")) setLocale("no");
-                break;
-            default:
-                break;
+                switch (position) {
+                    case 0:
+                        if (checkLocaleDifferent(currentPref, "en-GB")) setLocale("en-GB");
+                        break;
+                    case 1:
+                        if (checkLocaleDifferent(currentPref, "ja")) setLocale("ja");
+                        break;
+                    case 2:
+                        if (checkLocaleDifferent(currentPref, "zh_hk")) setLocale("zh_hk");
+                        break;
+                    case 3:
+                        if (checkLocaleDifferent(currentPref, "zh_cn")) setLocale("zh_cn");
+                        break;
+                    case 4:
+                        if (checkLocaleDifferent(currentPref, "ru")) setLocale("ru");
+                        break;
+                    case 5:
+                        if (checkLocaleDifferent(currentPref, "fr")) setLocale("fr");
+                        break;
+                    case 6:
+                        if (checkLocaleDifferent(currentPref, "bg")) setLocale("bg");
+                        break;
+                    case 7:
+                        if (checkLocaleDifferent(currentPref, "tr")) setLocale("tr");
+                        break;
+                    case 8:
+                        if (checkLocaleDifferent(currentPref, "es_es")) setLocale("es_es");
+                        break;
+                    case 9:
+                        if (checkLocaleDifferent(currentPref, "pt_pt")) setLocale("pt_pt");
+                        break;
+                    case 10:
+                        if (checkLocaleDifferent(currentPref, "de")) setLocale("de");
+                        break;
+                    case 11:
+                        if (checkLocaleDifferent(currentPref, "no")) setLocale("no");
+                        break;
+                    default:
+                        break;
+                }
         }
-    }
+
+
+
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
@@ -249,4 +281,5 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
 
         }
     }
+
 }

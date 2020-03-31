@@ -71,6 +71,14 @@
     <string name="lecture_running_this_module">Lecturer running this module</string>
     <string name="name_of_lecture_running_class">Lecturer running class</string>
     <string name="class_classSwitch">Class</string>
+    <string name="title_activity_colors_page">顏色</string>
+    <string name="app_color" >顏色</string>
+    <string name="pink">粉紅色</string>
+    <string name="blue">藍色</string>
+    <string name="red">紅</string>
+    <string name="green">綠色</string>
+    <string name="yellow">黃色</string>
+    <string name="orange">橙</string>
 
     <string-array name="Repeat">
         <item>不重複</item>

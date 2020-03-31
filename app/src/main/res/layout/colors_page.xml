@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".infoPage">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme"
+            app:titleTextColor="#000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <Switch
+                android:id="@+id/pink_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="150dp"
+                android:checked="false"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="@string/pink"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/blue_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="150dp"
+                android:checked="false"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="@string/blue"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/red_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="150dp"
+                android:checked="false"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="@string/red"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/green_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="150dp"
+                android:checked="false"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="@string/green"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/yellow_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="150dp"
+                android:checked="false"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="@string/yellow"
+                android:textColor="#000000" />
+
+            <Switch
+                android:id="@+id/orange_switch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="150dp"
+                android:checked="false"
+                android:gravity="center_horizontal|fill_horizontal|center_vertical"
+                android:padding="2dp"
+                android:text="@string/orange"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
+
+    </android.support.design.widget.AppBarLayout>
+</android.support.design.widget.CoordinatorLayout>

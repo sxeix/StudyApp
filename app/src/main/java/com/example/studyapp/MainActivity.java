@@ -49,9 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
         loadLanguage();
         /**Imports theme mode user preferences*/
-        if (sharedPrefs.loadBlueMode()) {
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
-        } else {
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
+        }else{
             setTheme(R.style.AppTheme);
         }
 

@@ -21,26 +21,6 @@
             android:layout_height="167dp"
             android:orientation="vertical">
 
-            <Switch
-                android:id="@+id/light_mode_switch"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="150dp"
-                android:checked="false"
-                android:gravity="center_horizontal|fill_horizontal|center_vertical"
-                android:padding="2dp"
-                android:text="@string/change_colour"
-                android:textColor="#000000" />
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/color_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
@@ -62,6 +42,17 @@
                     android:popupTheme="@style/AppTheme" />
 
             </LinearLayout>
+
+            <Button
+                android:id="@+id/color_btn"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custom_buttons"
+                android:text="@string/app_color"
+                android:textColor="#FEFEFE" />
 
             <Button
                 android:id="@+id/resetButton"

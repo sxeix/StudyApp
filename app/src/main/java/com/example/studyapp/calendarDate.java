@@ -37,20 +37,46 @@ public class calendarDate extends AppCompatActivity {
     @SuppressLint("StringFormatInvalid")
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadBlueMode()){
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
         }else{
             setTheme(R.style.AppTheme);
         }
+
         setContentView(R.layout.activity_calendar_date);
         super.onCreate(savedInstanceState);
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_calendar_date));
-        if (sharedPrefs.loadBlueMode()) {
+        if (sharedPrefs.loadPinkMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
+        }else if (sharedPrefs.loadBlueMode()) {
             CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
-        } else {
+        } else if (sharedPrefs.loadRedMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#F68989"));
+        } else if (sharedPrefs.loadGreenMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#9DF689"));
+        }else if (sharedPrefs.loadYellowMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#F6DB89"));
+        }else if (sharedPrefs.loadOrangeMode()) {
+            CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
+            lLayout.setBackgroundColor(Color.parseColor("#F6B182"));
+        }else {
             CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
             lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
         }
@@ -137,8 +163,12 @@ public class calendarDate extends AppCompatActivity {
         }else if(id == R.id.settings){
             Intent settings = new Intent(calendarDate.this, settingsPage.class);
             startActivity(settings);
+        }else if(id == R.id.addModules){
+            Intent modules = new Intent(calendarDate.this, adding_modules.class);
+            startActivity(modules);
         }else if(id == android.R.id.home){
-            this.finish();
+            Intent modules = new Intent(calendarDate.this, MainActivity.class);
+            startActivity(modules);
         }
         return true;
     }

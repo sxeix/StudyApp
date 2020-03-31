@@ -2,12 +2,15 @@ package com.example.studyapp;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -59,9 +62,19 @@ public class adding_modules extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
         /**Imports theme mode user preferences*/
-        if (sharedPrefs.loadBlueMode()) {
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
-        } else {
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
+        }else{
             setTheme(R.style.AppTheme);
         }
 
@@ -259,5 +272,34 @@ public class adding_modules extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Module added", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    /** Toolbar dropdown menu*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+    /** Toolbar icons implementations*/
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == R.id.events){
+            Intent eventspage = new Intent(adding_modules.this, eventsPage.class);
+            startActivity(eventspage);
+        }else if(id == R.id.about){
+            Intent info = new Intent(adding_modules.this, infoPage.class);
+            startActivity(info);
+        }else if(id == R.id.settings){
+            Intent settings = new Intent(adding_modules.this, settingsPage.class);
+            startActivity(settings);
+        }else if(id == android.R.id.home){
+            Intent modules = new Intent(adding_modules.this, MainActivity.class);
+            startActivity(modules);
+        }else if(id == R.id.addModules){
+            return true;
+        }
+        return true;
     }
 }

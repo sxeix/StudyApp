@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">Colores</string>
     <string name="title_activity_input_page">Agregar Evento</string>
     <string name="title_activity_settings_page">Opciones</string>
     <string name="title_activity_edit_page">Editar Evento</string>
@@ -71,6 +72,13 @@
     <string name="name_of_lecture_running_class">Profesor haciendo la clase</string>
     <string name="resetConfirmation">Estás seguro de que deseas restablecer la aplicación? Perderá toda la información almacenada en la aplicación y la aplicación volverá a la predeterminada.</string>
     <string name="class_classSwitch">Clase</string>
+    <string name="app_color" >Colores</string>
+    <string name="pink">Rosado</string>
+    <string name="blue">Azul</string>
+    <string name="red">Rojo</string>
+    <string name="green">Verde</string>
+    <string name="yellow">Amarillo</string>
+    <string name="orange">Naranja</string>
 
     <string-array name="Repeat">
         <item>No Repetir</item>

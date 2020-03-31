@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">Цветове</string>
     <string name="title_activity_input_page">Добави Събитие</string>
     <string name="title_activity_settings_page">Настройки</string>
     <string name="title_activity_edit_page">Поправи Събитие</string>
@@ -71,6 +72,13 @@
     <string name="name_of_lecture_running_class">Преподавателски клас по бягане</string>
     <string name="resetConfirmation">Сигурни ли сте, че искате да нулирате приложението? Ще загубите цялата информация, съхранявана в приложението, и приложението ще се върне по подразбиране.</string>
     <string name="class_classSwitch">клас</string>
+    <string name="app_color" >Цветове</string>
+    <string name="pink">розов</string>
+    <string name="blue">Син</string>
+    <string name="red">червен</string>
+    <string name="green">зелен</string>
+    <string name="yellow">жълт</string>
+    <string name="orange">оранжев</string>
 
     <string-array name="Repeat">
         <item>Не се Повтаряйте</item>

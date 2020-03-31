@@ -71,6 +71,14 @@
     <string name="name_of_lecture_running_class">Professor encarregue pela classe</string>
     <string name="resetConfirmation">Tem certeza de que deseja fazer reset à aplicação? Você perderá todas as informações guardadas na aplicação e volta as definições originais.</string>
     <string name="class_classSwitch">Classe</string>
+    <string name="title_activity_colors_page">Cores</string>
+    <string name="app_color" >Cores</string>
+    <string name="pink">Cor de Rosa</string>
+    <string name="blue">Azul</string>
+    <string name="red">Vermelho</string>
+    <string name="green">Verde</string>
+    <string name="yellow">Amarelo</string>
+    <string name="orange">Laranja</string>
 
     <string-array name="Repeat">
         <item>Não Repetir</item>

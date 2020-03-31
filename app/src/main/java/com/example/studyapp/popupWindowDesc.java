@@ -15,6 +15,11 @@ import android.widget.TextView;
 import studynowbackend.TimetableEvent;
 
 import static com.example.studyapp.R.drawable.custom_popup;
+import static com.example.studyapp.R.drawable.custom_popup1;
+import static com.example.studyapp.R.drawable.green_gradient;
+import static com.example.studyapp.R.drawable.orange_gradient;
+import static com.example.studyapp.R.drawable.red_gradient;
+import static com.example.studyapp.R.drawable.yellow_gradient;
 
 public class popupWindowDesc extends Activity {
     SharedPrefs sharedPrefs;
@@ -43,14 +48,30 @@ public class popupWindowDesc extends Activity {
 
         /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadBlueMode()){
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+            ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
+            scrollview.setBackgroundResource(custom_popup1);
+        } else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
             ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
             scrollview.setBackgroundResource(custom_popup);
-        }else{
-            setTheme(R.style.AppTheme);
+        }if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
             ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
-            scrollview.setBackgroundResource(R.drawable.custom_popup1);
+            scrollview.setBackgroundResource(red_gradient);
+        }if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+            ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
+            scrollview.setBackgroundResource(green_gradient);
+        }if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+            ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
+            scrollview.setBackgroundResource(yellow_gradient);
+        }if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
+            ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
+            scrollview.setBackgroundResource(orange_gradient);
         }
 
         /**Code that gets the information sent from clicking description buttons!*/

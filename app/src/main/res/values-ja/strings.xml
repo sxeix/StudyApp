@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">色</string>
     <string name="title_activity_input_page">イベントを追加</string>
     <string name="title_activity_settings_page">設定</string>
     <string name="title_activity_edit_page">イベント変更</string>
@@ -71,6 +72,13 @@
     <string name="lecture_running_this_module">Lecturer running this module</string>
     <string name="name_of_lecture_running_class">Lecturer running class</string>
     <string name="class_classSwitch">Class</string>
+    <string name="app_color" >色</string>
+    <string name="pink">ピンク</string>
+    <string name="blue">青い</string>
+    <string name="red">赤</string>
+    <string name="green">緑</string>
+    <string name="yellow">黄</string>
+    <string name="orange">オレンジ</string>
 
     <string-array name="Repeat">
         <item>繰り返しなし</item>

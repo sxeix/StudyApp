@@ -73,9 +73,19 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         /**Imports theme mode user preferences*/
 
         sharedPrefs = new SharedPrefs(this);
-        if (sharedPrefs.loadBlueMode()) {
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
-        } else {
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
+        }else{
             setTheme(R.style.AppTheme);
         }
 
@@ -223,8 +233,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         } else if (id == R.id.settings) {
             Intent settings = new Intent(InputPage.this, settingsPage.class);
             startActivity(settings);
-        } else if (id == android.R.id.home) {
-            this.finish();
+        } else if(id == R.id.addModules){
+            Intent modules = new Intent(InputPage.this, adding_modules.class);
+            startActivity(modules);
+        }else if (id == android.R.id.home) {
+            Intent modules = new Intent(InputPage.this, MainActivity.class);
+            startActivity(modules);
         }
         return true;
     }

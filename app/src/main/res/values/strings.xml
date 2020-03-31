@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--    Page Titles     -->
     <string name="app_name">Study Now</string>
     <string name="title_activity_info_page">Information</string>
@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">Colors</string>
     <string name="title_activity_input_page">Add Event</string>
     <string name="title_activity_settings_page">Settings</string>
     <string name="title_activity_edit_page">Edit Event</string>
@@ -71,6 +72,14 @@
     <string name="class_classSwitch">Class</string>
     <string name="name_of_lecture_running_class">Name of lecture running class</string>
     <string name="add_modules">Add modules</string>
+    <string name="app_color" >Colors</string>
+    <string name="pink">Pink</string>
+    <string name="blue">Blue</string>
+    <string name="red">Red</string>
+    <string name="green">Green</string>
+    <string name="yellow">Yellow</string>
+    <string name="orange">Orange</string>
+
 
     <string-array name="Repeat">
         <item>Do Not Repeat</item>

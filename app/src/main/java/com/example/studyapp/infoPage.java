@@ -19,8 +19,18 @@ public class infoPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadBlueMode()){
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
         }else{
             setTheme(R.style.AppTheme);
         }
@@ -52,8 +62,12 @@ public class infoPage extends AppCompatActivity {
         }else if(id == R.id.settings){
             Intent settings = new Intent(infoPage.this, settingsPage.class);
             startActivity(settings);
+        }else if(id == R.id.addModules){
+            Intent modules = new Intent(infoPage.this, adding_modules.class);
+            startActivity(modules);
         }else if(id == android.R.id.home){
-            this.finish();
+            Intent modules = new Intent(infoPage.this, MainActivity.class);
+            startActivity(modules);
         }
         return true;
     }

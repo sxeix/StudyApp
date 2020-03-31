@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">Farben</string>
     <string name="title_activity_input_page">Veranstaltung Hinzufügen</string>
     <string name="title_activity_settings_page">Einstellungen</string>
     <string name="title_activity_edit_page">Veranstaltung Bearbeiten</string>
@@ -71,6 +72,13 @@
     <string name="lecture_running_this_module">Lecturer running this module</string>
     <string name="name_of_lecture_running_class">Lecturer running class</string>
     <string name="class_classSwitch">Class</string>
+    <string name="app_color" >Farben</string>
+    <string name="pink">Rosa</string>
+    <string name="blue">Blau</string>
+    <string name="red">Rot</string>
+    <string name="green">Grün</string>
+    <string name="yellow">Gelb</string>
+    <string name="orange">Orange</string>
 
     <string-array name="Repeat">
         <item>Nicht Wiederholen</item>

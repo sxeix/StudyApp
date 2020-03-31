@@ -55,6 +55,11 @@
             android:label="@string/title_activity_edit_page"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".colors"
+            android:label="@string/title_activity_colors_page"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

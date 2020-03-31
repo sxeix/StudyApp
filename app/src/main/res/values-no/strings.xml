@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">Farger</string>
     <string name="title_activity_input_page">Legg til Hendelse</string>
     <string name="title_activity_settings_page">Innstillinger</string>
     <string name="title_activity_edit_page">Rediger Hendelse</string>
@@ -71,6 +72,13 @@
     <string name="lecture_running_this_module">Lecturer running this module</string>
     <string name="name_of_lecture_running_class">Lecturer running class</string>
     <string name="class_classSwitch">Class</string>
+    <string name="app_color" >Farger</string>
+    <string name="pink">Rosa</string>
+    <string name="blue">Blå</string>
+    <string name="red">Rød</string>
+    <string name="green">Grønn</string>
+    <string name="yellow">Gul</string>
+    <string name="orange">Oransje</string>
 
     <string-array name="Repeat">
         <item>Ikke Gjenta</item>

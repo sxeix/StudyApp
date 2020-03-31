@@ -71,6 +71,14 @@
     <string name="name_of_lecture_running_class">Öğretim üyesi koşu sınıfı</string>
     <string name="resetConfirmation">Uygulamayı sıfırlamak istediğinizden emin misiniz? Uygulamada depolanan tüm bilgileri kaybedersiniz ve uygulama varsayılana geri döner.</string>
     <string name="class_classSwitch">Sınıf</string>
+    <string name="title_activity_colors_page">Renkler</string>
+    <string name="app_color" >Renkler</string>
+    <string name="pink">Pembe</string>
+    <string name="blue">Mavi</string>
+    <string name="red">Kırmızı</string>
+    <string name="green">Yeşil</string>
+    <string name="yellow">Sarı</string>
+    <string name="orange">Portakal</string>
 
     <string-array name="Repeat">
         <item>Tekrarlama</item>

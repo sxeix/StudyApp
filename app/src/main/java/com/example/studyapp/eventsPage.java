@@ -52,9 +52,19 @@ public class eventsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
-        if (sharedPrefs.loadBlueMode()) {
+        if(sharedPrefs.loadPinkMode()){
+            setTheme(R.style.AppTheme);
+        }else if(sharedPrefs.loadBlueMode()){
             setTheme(R.style.BlueMode);
-        } else {
+        }else if(sharedPrefs.loadRedMode()){
+            setTheme(R.style.RedMode);
+        }else if(sharedPrefs.loadGreenMode()){
+            setTheme(R.style.GreenMode);
+        }else if(sharedPrefs.loadYellowMode()){
+            setTheme(R.style.YellowMode);
+        }else if(sharedPrefs.loadOrangeMode()){
+            setTheme(R.style.OrangeMode);
+        }else{
             setTheme(R.style.AppTheme);
         }
 
@@ -64,10 +74,19 @@ public class eventsPage extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_events_page));
         CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
-        if (sharedPrefs.loadBlueMode()) {
+        if (sharedPrefs.loadPinkMode()) {
+            lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
+        }else if (sharedPrefs.loadBlueMode()) {
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
-
-        } else {
+        }else if (sharedPrefs.loadRedMode()) {
+            lLayout.setBackgroundColor(Color.parseColor("#F68989"));
+        }else if (sharedPrefs.loadGreenMode()) {
+            lLayout.setBackgroundColor(Color.parseColor("#9DF689"));
+        }else if (sharedPrefs.loadYellowMode()) {
+            lLayout.setBackgroundColor(Color.parseColor("#F6DB89"));
+        }else if (sharedPrefs.loadOrangeMode()) {
+            lLayout.setBackgroundColor(Color.parseColor("#F6B182"));
+        }else {
             lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
         }
         sortListRelativeCustom(customEvents);
@@ -195,8 +214,12 @@ public class eventsPage extends AppCompatActivity {
         } else if (id == R.id.settings) {
             Intent settings = new Intent(eventsPage.this, settingsPage.class);
             startActivity(settings);
-        } else if (id == android.R.id.home) {
-            this.finish();
+        } else if(id == R.id.addModules){
+            Intent modules = new Intent(eventsPage.this, adding_modules.class);
+            startActivity(modules);
+        }else if (id == android.R.id.home) {
+            Intent modules = new Intent(eventsPage.this, MainActivity.class);
+            startActivity(modules);
         }
         return true;
     }

@@ -369,15 +369,19 @@
 
         <Button
             android:id="@+id/buttonAddModules"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/add_modules"
-            android:textColor="#000000"
+            android:textColor="#FFFFFF"
             android:textSize="16sp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+            android:background="@drawable/custom_buttons"/>
     </android.support.design.widget.AppBarLayout>
 </android.support.constraint.ConstraintLayout>

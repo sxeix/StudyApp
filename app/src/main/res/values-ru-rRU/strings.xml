@@ -71,6 +71,14 @@
     <string name="name_of_lecture_running_class">Преподаватель бегового класса</string>
     <string name="resetConfirmation">Вы уверены, что хотите сбросить приложение? Вы потеряете всю информацию, хранящуюся в приложении, и приложение вернется к значению по умолчанию.</string>
     <string name="class_classSwitch">Учебный класс</string>
+    <string name="title_activity_colors_page">Цвета</string>
+    <string name="app_color" >Цвета</string>
+    <string name="pink">розовый</string>
+    <string name="blue">синий</string>
+    <string name="red">красный</string>
+    <string name="green">зеленый</string>
+    <string name="yellow">желтый</string>
+    <string name="orange">оранжевый</string>
 
     <string-array name="Repeat">
         <item>Не повторяй</item>
