@@ -25,12 +25,9 @@ import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 import android.widget.CalendarView;
-
 import java.util.Calendar;
-
 import studynowbackend.Timetable;
 import studynowbackend.TimetableEvent;
-
 import java.util.GregorianCalendar;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -48,24 +45,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
+        Timetable.getInstance().load(this);
 
-        // This section of code is used to check the current language off the application and if it is incorrect then
-        // it reloads the app with the user's preferred language
-        String lang = sharedPrefs.getLangPref();
-        if (!lang.equals("en-GB") && !lang.equals("ja")) lang = "zh_HK";
-//        Toast.makeText(this, "lang " + lang, Toast.LENGTH_SHORT).show();
-//        Toast.makeText(this, "current " + getResources().getConfiguration().locale.toString(), Toast.LENGTH_SHORT).show();
-        if (!lang.toLowerCase().equals(getResources().getConfiguration().locale.toString().toLowerCase())) {
-            myLocale = new Locale(lang);
-            Resources res = getResources();
-            DisplayMetrics dm = res.getDisplayMetrics();
-            Configuration conf = res.getConfiguration();
-            conf.locale = myLocale;
-            res.updateConfiguration(conf, dm);
-            Intent refresh = new Intent(this, MainActivity.class);
-            startActivity(refresh);
-        }
-
+        loadLanguage();
         /**Imports theme mode user preferences*/
         if (sharedPrefs.loadNightMode()) {
             setTheme(R.style.LightMode);
@@ -76,14 +58,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         configureNextButton();
-
         /**calls toolbar by ID, created in layout/toolbar.xml and activity.main.xml.*/
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
 
         calendar = (CalendarView) findViewById(R.id.calendarView);
         calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth) {
                 sYear = year;
@@ -96,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     /**
      * Toolbar dropdown menu
@@ -121,7 +103,8 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.settings) {
             Intent settings = new Intent(MainActivity.this, settingsPage.class);
             startActivity(settings);
-        } else if (id == R.id.addModules) {
+        }
+        else if (id == R.id.addModules) {
             Intent modulesAdd = new Intent(MainActivity.this, adding_modules.class);
             startActivity(modulesAdd);
         }
@@ -136,5 +119,47 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, InputPage.class));
             }
         });
+    }
+
+    // This section of code is used to check the current language off the application and if it is incorrect then
+    // it reloads the app with the user's preferred language
+    private void loadLanguage() {
+        String lang = sharedPrefs.getLangPref();
+        String displayLang = getResources().getConfiguration().locale.toString().toLowerCase();
+        if (!lang.toLowerCase().equals(displayLang)) {
+            if (lang.equals("zh_hk") || lang.equals("es_es") || lang.equals("pt_pt")|| lang.equals("zh_cn")) {
+                String[] tmp = localeStringConverter(lang);
+                myLocale = new Locale(tmp[0], tmp[1]);
+            }
+            else {
+                myLocale = new Locale(lang);
+            }
+            Resources res = getResources();
+            DisplayMetrics dm = res.getDisplayMetrics();
+            Configuration conf = res.getConfiguration();
+            conf.locale = myLocale;
+            res.updateConfiguration(conf, dm);
+            Intent refresh = new Intent(this, MainActivity.class);
+            startActivity(refresh);
+        }
+    }
+
+    public String[] localeStringConverter(String l) {
+        String[] hk = {"zh", "HK"};
+        String[] es = {"es", "ES"};
+        String[] pt = {"pt", "PT"};
+        String[] cn = {"zh", "CN"};
+        switch(l) {
+            case "zh_hk":
+                return hk;
+            case "es_es":
+                return es;
+            case "pt_pt":
+                return pt;
+            case "zh_cn":
+                return cn;
+            default:
+                throw new IllegalStateException("Unexpected value: " + l);
+        }
     }
 }

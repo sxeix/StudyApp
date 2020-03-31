@@ -143,13 +143,15 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                 d = description.getText().toString();
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
-                    Timetable.getInstance().AddEvent(x);
+                    Timetable.getInstance().addEvent(x);
                     sortListByType(x);
-                    Toast.makeText(InputPage.this, "Event Created", Toast.LENGTH_SHORT).show();
+                    Intent mainActivity = new Intent(InputPage.this, MainActivity.class);
+                    startActivity(mainActivity);
+                    Toast.makeText(InputPage.this, getResources().getString(R.string.event_added), Toast.LENGTH_SHORT).show();
                 } else {
                     // TODO Remove this method in the future after testing is complete
                     testEvents();
-                    Toast.makeText(InputPage.this, "Input needed", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(InputPage.this, getResources().getString(R.string.input_needed), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -163,7 +165,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         TimetableEvent a = new TimetableEvent("Test1", "Desc1", "Location1",
                 LocalDateTime.parse(d1, f), LocalDateTime.parse(d2, f), false, RepeatFrequency.NoRepeat);
 
-        Timetable.getInstance().AddEvent(a);
+        Timetable.getInstance().addEvent(a);
         sortListByType(a);
 
         String d3 = "2020-03-01 14:30";
@@ -171,7 +173,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         TimetableEvent b = new TimetableEvent("Test2", "Desc2", "Location3",
                 LocalDateTime.parse(d3, f), LocalDateTime.parse(d4, f), false, RepeatFrequency.Daily);
 
-        Timetable.getInstance().AddEvent(b);
+        Timetable.getInstance().addEvent(b);
         sortListByType(b);
 
         String d5 = "2020-03-01 09:30";
@@ -179,7 +181,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         TimetableEvent c = new TimetableEvent("Test3", "Desc3", "Location3",
                 LocalDateTime.parse(d5, f), LocalDateTime.parse(d6, f), true, RepeatFrequency.NoRepeat);
 
-        Timetable.getInstance().AddEvent(c);
+        Timetable.getInstance().addEvent(c);
         sortListByType(c);
 
         String d7 = "2020-03-01 16:30";
@@ -187,7 +189,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         TimetableEvent d = new TimetableEvent("Test4", "Desc4", "Location4",
                 LocalDateTime.parse(d7, f), LocalDateTime.parse(d8, f), true, RepeatFrequency.Weekly);
 
-        Timetable.getInstance().AddEvent(d);
+        Timetable.getInstance().addEvent(d);
         sortListByType(d);
     }
 
@@ -268,14 +270,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             hourFinal = h;
             minuteFinal = m;
             tv_result.setText(getResources().getString(R.string.start_date) + "\n" + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
-            tv_result2.setText(getResources().getString(R.string.start_time) + ":\n " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
+            tv_result2.setText(getResources().getString(R.string.start_time) + "\n " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         } else if (option == 2) {
             set2 = true;
             end = LocalDateTime.parse(dateTime, format);
             hourFinal = h;
             minuteFinal = m;
             endDateResult.setText("  " + getResources().getString(R.string.end_date) + "\n   " + String.format(getResources().getString(R.string.full_date), requiresFormat(dayFinal) + dayFinal, requiresFormat(monthFinal) + monthFinal, yearFinal));
-            endTimeResult.setText("  " + getResources().getString(R.string.end_time) + ":\n   " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
+            endTimeResult.setText("  " + getResources().getString(R.string.end_time) + "\n   " + String.format(getResources().getString(R.string.time), requiresFormat(hourFinal) + hourFinal, requiresFormat(minuteFinal) + minuteFinal));
         }
     }
 

@@ -10,10 +10,6 @@
         android:supportsRtl="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".adding_modules"
-            android:screenOrientation="portrait"
-            android:parentActivityName=".MainActivity"></activity>
-        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -23,10 +19,14 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".adding_modules"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name=".calendarDate"
             android:label="@string/title_activity_calendar_date"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".eventsPage"
             android:label="@string/title_activity_events_page"
