@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.time.LocalDateTime;
 
+import studynowbackend.RepeatFrequency;
 import studynowbackend.TimetableEvent;
 
 import static org.junit.Assert.*;
@@ -16,7 +17,8 @@ public class TimetableEventTests {
                 "test description",
                 "test location",
                 LocalDateTime.of(1999, 3, 23, 12, 33),
-                LocalDateTime.of(1999, 3, 23, 19, 33)
+                LocalDateTime.of(1999, 3, 23, 19, 33),
+                true, RepeatFrequency.NoRepeat
         );
         assertEquals("test name", event.getName());
         assertEquals("test description", event.getDescription());
@@ -32,7 +34,8 @@ public class TimetableEventTests {
                 "test description",
                 "test location",
                 LocalDateTime.of(1999, 3, 23, 12, 33),
-                LocalDateTime.of(1999, 3, 23, 19, 33)
+                LocalDateTime.of(1999, 3, 23, 19, 33),
+                false, RepeatFrequency.Daily
         );
         assertEquals("test name", event.getName());
         event.setName("new test name");

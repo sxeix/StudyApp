@@ -79,12 +79,12 @@ public class Timetable {
             FileOutputStream fileOut = context.openFileOutput(SAVE_FILE_NAME, Activity.MODE_PRIVATE);
             objOut = new ObjectOutputStream(fileOut);
 
-            objOut.writeObject(instance.courses);
             objOut.writeObject(instance.events);
             objOut.writeObject(instance.dailyEvents);
             objOut.writeObject(instance.weeklyEvents);
             objOut.writeObject(instance.monthlyEvents);
             objOut.writeObject(instance.yearlyEvents);
+            objOut.writeObject(instance.courses);
 
             fileOut.getFD().sync();
             saved = true;
@@ -567,4 +567,11 @@ public class Timetable {
 
         return revisionTimeSlots;
     }
+
+
+
+    /**
+     * Overwrites the current Timetable with an empty Timetable instance. Also saves this state.
+     */
+    public void clearTimetable() { instance = new Timetable(); save(); }
 }

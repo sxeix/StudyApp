@@ -33,7 +33,10 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class InputPage extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener, CompoundButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
+    // Dynamic Variables
+
     SharedPrefs sharedPrefs;
+
     // These variables are for selecting the Date and Time for start time and end time
     Button b_pick;
     TextView tv_result, tv_result2;
@@ -47,9 +50,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     EditText title, location, description;
     String t, l, d;
 
-    /**
-     * These integers can be used to be passed into the event class
-     */
+    // These integers can be used to be passed into the event class
+
     int day, month, year, hour, minute;
     int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
 
@@ -68,16 +70,20 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
     // Variable to define the repeat frequency selected by the user
     RepeatFrequency spinnerOption;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /**Imports theme mode user preferences*/
 
+
+        /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
         if (sharedPrefs.loadNightMode()) {
             setTheme(R.style.LightMode);
         } else {
             setTheme(R.style.AppTheme);
         }
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_input_page);
@@ -86,6 +92,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_input_page));
 
+
         // Spinner code
         Spinner mySpinner = (Spinner) findViewById(R.id.routine);
         ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(InputPage.this,
@@ -93,6 +100,7 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mySpinner.setAdapter(myAdapter);
         mySpinner.setOnItemSelectedListener(this);
+
 
         // Following code initializes two buttons that are used to indicate all day and routine events#
         // Each switch shares the same function to update the variable holding the boolean
@@ -104,7 +112,6 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         b_pick = (Button) findViewById(R.id.pickDate);
         tv_result = (TextView) findViewById(R.id.dateTV);
         tv_result2 = (TextView) findViewById(R.id.timeTV);
-
         b_pick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -113,11 +120,11 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             }
         });
 
+
         // Starts the sequence of methods to get the user's end date and time input
         endDT = (Button) findViewById(R.id.pickEndDate);
         endDateResult = (TextView) findViewById(R.id.dateTVend);
         endTimeResult = (TextView) findViewById(R.id.timeTVend);
-
         endDT.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -127,9 +134,9 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         });
 
 
-        // AddEvent button is declared along with instances of string input
-        // When AddEvent button is clicked, strings from the input boxes are retrieved
-        // Furthermore, event is created and inserted into the TimeTable
+         /* AddEvent button is declared along with instances of string input
+         When AddEvent button is clicked, strings from the input boxes are retrieved
+         Furthermore, event is created and inserted into the TimeTable */
         title = (EditText) findViewById(R.id.eventTitleInput);
         location = (EditText) findViewById(R.id.eventLocationInput);
         description = (EditText) findViewById(R.id.eventDescInput);
@@ -156,6 +163,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
             }
         });
     }
+
+
 
     @TargetApi(26)
     public void testEvents() {
@@ -193,11 +202,20 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         sortListByType(d);
     }
 
-    // This method is used for updating the switches and changing them from true to false
+
+
+    /**
+     * This method is used for updating the switches and changing them from true to false
+     *
+     * @param buttonView button that is being referred to.
+     * @param isChecked true or false depending on user's choice.
+     */
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
         if (buttonView.getId() == R.id.dayEventSwitch) allDayEventBool = isChecked;
     }
+
+
 
     /**
      * Toolbar dropdown menu
@@ -207,6 +225,8 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
     }
+
+
 
     /**
      * Toolbar icons implementations
@@ -229,7 +249,11 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         return true;
     }
 
-    // This function opens the calendar and time picker for the user
+
+
+    /**
+     * This function retrieves the user's date choice
+     */
     public void calendarOpen() {
         Calendar c = Calendar.getInstance();
         year = c.get(Calendar.YEAR);
@@ -240,6 +264,17 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         datePickerDialog.show();
     }
 
+
+
+    /**
+     * Adjusts date for appropriate viewing and usage.
+     * Takes user's input for time.
+     *
+     * @param view DatePicker for user input.
+     * @param y selected year.
+     * @param m selected month.
+     * @param d selected day.
+     */
     @Override
     public void onDateSet(DatePicker view, int y, int m, int d) {
         yearFinal = y;
@@ -254,8 +289,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         timePickerDialog.show();
     }
 
-    /*
-    This method will update the text displaying the time and date depending on whether the user is choosing a start or end time/date
+
+
+    /**
+     *  Finalizes user's input into variables and displays the current choice.
+     *
+     * @param view Used for user input.
+     * @param h selected hour.
+     * @param m selected minute.
      */
     @Override
     @TargetApi(26)
@@ -281,8 +322,14 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         }
     }
 
-    // This method is used for displaying date and time values correctly
-    // If the value is less than 10 then it adds a '0' to the start of a string with the number
+
+
+    /**
+     * Ensures integers are displayed accordingly for date and time i.e. 2 becomes 02.
+     *
+     * @param a the date/time integer that needs fixing.
+     * @return a string to be displayed.
+     */
     public static String formatCharacter(int a) {
         if (a < 10) {
             return "0" + a;
@@ -290,6 +337,16 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         return Integer.toString(a);
     }
 
+
+
+    /**
+     * Selects an event repeat frequency from the spinner.
+     *
+     * @param parent n/a
+     * @param view n/a
+     * @param position index of selected item on the spinner.
+     * @param id associated with item selected.
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
@@ -313,10 +370,16 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         }
     }
 
+
+
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        // does nothing
     }
+
+
+
 
     public static void sortList(TimetableEvent a, ArrayList<TimetableEvent> list, int type) {
         if (list.size() > 1) {
