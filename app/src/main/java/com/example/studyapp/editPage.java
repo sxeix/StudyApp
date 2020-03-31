@@ -67,8 +67,8 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
         /**Imports theme mode user preferences*/
 
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
+        if(sharedPrefs.loadBlueMode()){
+            setTheme(R.style.BlueMode);
         }else{
             setTheme(R.style.AppTheme);
         }

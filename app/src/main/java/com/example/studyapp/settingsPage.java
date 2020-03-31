@@ -31,8 +31,8 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
-        if (sharedPrefs.loadNightMode()) {
-            setTheme(R.style.LightMode);
+        if (sharedPrefs.loadBlueMode()) {
+            setTheme(R.style.BlueMode);
         } else {
             setTheme(R.style.AppTheme);
         }
@@ -50,17 +50,17 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_settings_page));
 
         colorMode = (Switch) findViewById(R.id.light_mode_switch);
-        if (sharedPrefs.loadNightMode()) {
+        if (sharedPrefs.loadBlueMode()) {
             colorMode.setChecked(true);
         }
         colorMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton view, boolean isChecked) {
                 if (isChecked) {
-                    sharedPrefs.setNightMode(true);
+                    sharedPrefs.setBlueMode(true);
                     restartApp();
                 } else {
-                    sharedPrefs.setNightMode(false);
+                    sharedPrefs.setBlueMode(false);
                     restartApp();
                 }
             }

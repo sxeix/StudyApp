@@ -9,16 +9,18 @@ public class SharedPrefs {
          myShared = context.getSharedPreferences("filename", Context.MODE_PRIVATE);
     }
 
-    public void setNightMode(Boolean state){
+    public void setBlueMode(Boolean state){
         SharedPreferences.Editor editor = myShared.edit();
-        editor.putBoolean("NightMode", state);
+        editor.putBoolean("BlueMode", state);
         editor.commit();
     }
 
-    public boolean loadNightMode(){
-        Boolean state = myShared.getBoolean("NightMode", false);
+    public boolean loadBlueMode(){
+        Boolean state = myShared.getBoolean("BlueMode", false);
         return state;
     }
+
+
     public void setLangPref(String lang) {
         SharedPreferences.Editor editor = myShared.edit();
         editor.putString("language", lang);

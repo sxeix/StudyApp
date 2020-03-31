@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         loadLanguage();
         /**Imports theme mode user preferences*/
-        if (sharedPrefs.loadNightMode()) {
-            setTheme(R.style.LightMode);
+        if (sharedPrefs.loadBlueMode()) {
+            setTheme(R.style.BlueMode);
         } else {
             setTheme(R.style.AppTheme);
         }

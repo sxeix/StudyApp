@@ -69,7 +69,7 @@
     <string name="lecture">Conférence</string>
     <string name="lecture_running_this_module">Conférencier exécutant ce module</string>
     <string name="name_of_lecture_running_class">Cours de cours de conférencier</string>
-    <string name="resetConfirmation">Êtes-vous sûr de vouloir réinitialiser l\'application? Vous perdrez toutes les informations stockées sur l\'application et l'application reviendra par défaut.</string>
+    <string name="resetConfirmation">Êtes-vous sûr de vouloir réinitialiser l’application? Vous perdrez toutes les informations stockées sur l’application et l’application reviendra par défaut.</string>
     <string name="class_classSwitch">Classe</string>
 
     <string-array name="Repeat">

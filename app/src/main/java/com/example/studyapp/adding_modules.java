@@ -59,8 +59,8 @@ public class adding_modules extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
         /**Imports theme mode user preferences*/
-        if (sharedPrefs.loadNightMode()) {
-            setTheme(R.style.LightMode);
+        if (sharedPrefs.loadBlueMode()) {
+            setTheme(R.style.BlueMode);
         } else {
             setTheme(R.style.AppTheme);
         }

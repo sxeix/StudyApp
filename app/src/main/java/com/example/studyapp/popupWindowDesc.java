@@ -43,8 +43,8 @@ public class popupWindowDesc extends Activity {
 
         /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
+        if(sharedPrefs.loadBlueMode()){
+            setTheme(R.style.BlueMode);
             ScrollView scrollview = (ScrollView)findViewById(R.id.popupLayout);
             scrollview.setBackgroundResource(custom_popup);
         }else{

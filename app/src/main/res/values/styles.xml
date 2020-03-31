@@ -20,7 +20,7 @@
 
     <!--    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />-->
 
-    <style name="LightMode" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="BlueMode" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#B9EEF5</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">#B9EEF5</item>
