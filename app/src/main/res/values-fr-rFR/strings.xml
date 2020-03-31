@@ -4,7 +4,7 @@
     <string name="title_activity_info_page">L’information</string>
     <string name="title_activity_events_page">Les événements</string>
     <string name="title_activity_calendar_date">Événements à la Date</string>
-    <string name="title_activity_adding_modules">Add Module</string>
+    <string name="title_activity_adding_modules">Ajouter un module</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_colors_page">Couleurs</string>

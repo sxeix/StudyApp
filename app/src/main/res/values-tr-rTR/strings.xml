@@ -4,7 +4,7 @@
     <string name="title_activity_info_page">Bilgi</string>
     <string name="title_activity_events_page">Etkinlikler</string>
     <string name="title_activity_calendar_date">Tarihte Olay</string>
-    <string name="title_activity_adding_modules">Add Module</string>
+    <string name="title_activity_adding_modules">Modül Ekle</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Etkinlik Ekle</string>

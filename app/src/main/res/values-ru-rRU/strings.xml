@@ -4,7 +4,7 @@
     <string name="title_activity_info_page">Информация</string>
     <string name="title_activity_events_page">События</string>
     <string name="title_activity_calendar_date">События на дату</string>
-    <string name="title_activity_adding_modules">Add Module</string>
+    <string name="title_activity_adding_modules">Добавить модуль</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Добавить событие</string>

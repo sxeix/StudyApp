@@ -4,7 +4,7 @@
     <string name="title_activity_info_page">Информация</string>
     <string name="title_activity_events_page">Събития</string>
     <string name="title_activity_calendar_date">Събитие по Дата</string>
-    <string name="title_activity_adding_modules">Add Module</string>
+    <string name="title_activity_adding_modules">Добавяне на модул</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_colors_page">Цветове</string>
