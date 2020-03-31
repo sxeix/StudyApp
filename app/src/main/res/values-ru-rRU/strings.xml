@@ -4,6 +4,7 @@
     <string name="title_activity_info_page">Информация</string>
     <string name="title_activity_events_page">События</string>
     <string name="title_activity_calendar_date">События на дату</string>
+    <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Добавить событие</string>
@@ -59,6 +60,17 @@
     <string name="event_added">Событие добавлено</string>
     <string name="event_edited">Событие отредактировано</string>
     <string name="input_needed">Необходим вход</string>
+    <string name="reset">сброс настроек</string>
+    <string name="OK">подтверждения</string>
+    <string name="cancel">Отмена</string>
+    <string name="add_modules">Добавить модули</string>
+    <string name="enter_course_module">Введите имя модуля</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Введите количество рекомендуемых часов для пересмотра</string>
+    <string name="lecture">лекция</string>
+    <string name="lecture_running_this_module">Лектор работает с этим модулем</string>
+    <string name="name_of_lecture_running_class">Преподаватель бегового класса</string>
+    <string name="resetConfirmation">Вы уверены, что хотите сбросить приложение? Вы потеряете всю информацию, хранящуюся в приложении, и приложение вернется к значению по умолчанию.</string>
+    <string name="class_classSwitch">Учебный класс</string>
 
     <string-array name="Repeat">
         <item>Не повторяй</item>
@@ -82,8 +94,5 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
-    <string name="reset">сброс настроек</string>
-    <string name="OK">подтверждения</string>
-    <string name="cancel">Отмена</string>
 
 </resources>

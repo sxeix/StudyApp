@@ -52,8 +52,8 @@ public class eventsPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
-        if (sharedPrefs.loadNightMode()) {
-            setTheme(R.style.LightMode);
+        if (sharedPrefs.loadBlueMode()) {
+            setTheme(R.style.BlueMode);
         } else {
             setTheme(R.style.AppTheme);
         }
@@ -64,7 +64,7 @@ public class eventsPage extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_events_page));
         CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
-        if (sharedPrefs.loadNightMode()) {
+        if (sharedPrefs.loadBlueMode()) {
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
 
         } else {

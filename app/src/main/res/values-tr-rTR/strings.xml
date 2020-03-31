@@ -4,6 +4,7 @@
     <string name="title_activity_info_page">Bilgi</string>
     <string name="title_activity_events_page">Etkinlikler</string>
     <string name="title_activity_calendar_date">Tarihte Olay</string>
+    <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Etkinlik Ekle</string>
@@ -59,6 +60,17 @@
     <string name="event_added">Etkinlik Eklendi</string>
     <string name="event_edited">Etkinlik Düzenlendi</string>
     <string name="input_needed">Giriş Gerekli</string>
+    <string name="reset">Sıfırla</string>
+    <string name="OK">Onaylamak</string>
+    <string name="cancel">" Iptal etmek"</string>
+    <string name="add_modules">Modül ekle</string>
+    <string name="enter_course_module">Modül Adını Girin</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Düzeltme için önerilen saat sayısını girin</string>
+    <string name="lecture">Ders</string>
+    <string name="lecture_running_this_module">Bu modülü çalıştıran öğretim üyesi</string>
+    <string name="name_of_lecture_running_class">Öğretim üyesi koşu sınıfı</string>
+    <string name="resetConfirmation">Uygulamayı sıfırlamak istediğinizden emin misiniz? Uygulamada depolanan tüm bilgileri kaybedersiniz ve uygulama varsayılana geri döner.</string>
+    <string name="class_classSwitch">Sınıf</string>
 
     <string-array name="Repeat">
         <item>Tekrarlama</item>
@@ -82,8 +94,5 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
-    <string name="reset">Sıfırla</string>
-    <string name="OK">Onaylamak</string>
-    <string name="cancel">" Iptal etmek"</string>
 
 </resources>

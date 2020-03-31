@@ -19,8 +19,8 @@ public class infoPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         /**Imports theme mode user preferences*/
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
+        if(sharedPrefs.loadBlueMode()){
+            setTheme(R.style.BlueMode);
         }else{
             setTheme(R.style.AppTheme);
         }

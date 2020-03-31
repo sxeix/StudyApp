@@ -1,5 +1,4 @@
 package com.example.studyapp;
-import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -23,7 +22,6 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Calendar;
 import studynowbackend.RepeatFrequency;
 import studynowbackend.Timetable;
@@ -69,8 +67,8 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
         /**Imports theme mode user preferences*/
 
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
+        if(sharedPrefs.loadBlueMode()){
+            setTheme(R.style.BlueMode);
         }else{
             setTheme(R.style.AppTheme);
         }
@@ -139,7 +137,7 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
                     TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
                     Timetable.getInstance().removeEvent(eventsPage.selectedEvent);
-                    Timetable.getInstance().AddEvent(x);
+                    Timetable.getInstance().addEvent(x);
                     InputPage.sortListByType(x);
                     Intent mainActivity = new Intent(editPage.this, MainActivity.class);
                     startActivity(mainActivity);

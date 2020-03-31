@@ -3,9 +3,7 @@ package studynowbackend;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 
-import com.example.studyapp.BuildConfig;
 import com.example.studyapp.InputPage;
 
 import java.io.FileInputStream;
@@ -71,6 +69,10 @@ public class Timetable {
     }
 
     public boolean save() {
+        if (context == null) {
+            return false;
+        }
+
         ObjectOutputStream objOut = null;
 
         boolean saved = false;
@@ -131,8 +133,11 @@ public class Timetable {
     public ArrayList<TimetableEvent> getYearlyEvents() {
         return yearlyEvents;
     }
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
 
-    public void AddEvent(TimetableEvent event) {
+    public void addEvent(TimetableEvent event) {
         switch (event.getRepeatFrequency()) {
             case NoRepeat:
                 this.events.add(event);
@@ -153,8 +158,9 @@ public class Timetable {
         save();
     }
 
-    public void AddCourse(Course course) {
+    public void addCourse(Course course) {
         courses.add(course);
+        save();
     }
 
     public Course removeCourse(String name) {
@@ -305,10 +311,10 @@ public class Timetable {
         save();
     }
 
-    public ArrayList<TimeSlot> getFreeSlotsForWeekStarting(LocalDate date) {
+    private ArrayList<TimeSlot> getFreeSlotsForWeekStarting(LocalDate date) {
         ArrayList<TimetableEvent> eventsInWeek = new ArrayList<>();
 
-        LocalDateTime dateTime = LocalDateTime.from(date);
+        LocalDateTime dateTime = LocalDateTime.of(date, LocalTime.MIN);
 
         int i = 0;
         // Get Events that start before and end after the start date
@@ -458,8 +464,13 @@ public class Timetable {
 
             if (event.getStart().compareTo(dateTime) > 0) {
                 TimeSlot timeSlot = new TimeSlot(dateTime, event.getStart());
+                freeSlots.add(timeSlot);
             }
+        } else {
+            TimeSlot timeSlot = new TimeSlot(dateTime, dateTime.plusDays(7));
+            freeSlots.add(timeSlot);
         }
+
         // Find space between events
         for (i = 0; i < eventsInWeek.size() - 1; i++) {
             TimetableEvent event = weeklyEvents.get(i);
@@ -486,7 +497,7 @@ public class Timetable {
         return freeSlots;
     }
 
-    public ArrayList<TimeSlot> getSlotsAvailableForRevision(LocalDate date) {
+    private ArrayList<TimeSlot> getSlotsAvailableForRevision(LocalDate date) {
         ArrayList<TimeSlot> revisionSlots = new ArrayList<>();
 
         ArrayList<TimeSlot> temp = getFreeSlotsForWeekStarting(date);
@@ -525,15 +536,16 @@ public class Timetable {
         return revisionSlots;
     }
 
-    public ArrayList<CourseTimeSlot> GetCourseTimeSlots(LocalDate date) {
+    public ArrayList<CourseTimeSlot> getCourseTimeSlots(LocalDate date) {
 
         ArrayList<TimeSlot>[] days = new ArrayList[7];
         for (int i = 0; i < 7; i++) {
             days[i] = new ArrayList<>();
         }
 
+        ArrayList<TimeSlot> timeSlots = getSlotsAvailableForRevision(date);
 
-        for (TimeSlot timeSlot : getSlotsAvailableForRevision(date)) {
+        for (TimeSlot timeSlot : timeSlots) {
             for (int i = 0; i < 7; i++) {
                 if (timeSlot.getStart().toLocalDate().equals(date.plusDays(i))) {
                     days[i].add(timeSlot);

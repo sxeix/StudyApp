@@ -37,8 +37,8 @@ public class calendarDate extends AppCompatActivity {
     @SuppressLint("StringFormatInvalid")
     protected void onCreate(Bundle savedInstanceState) {
         sharedPrefs = new SharedPrefs(this);
-        if(sharedPrefs.loadNightMode()){
-            setTheme(R.style.LightMode);
+        if(sharedPrefs.loadBlueMode()){
+            setTheme(R.style.BlueMode);
         }else{
             setTheme(R.style.AppTheme);
         }
@@ -47,7 +47,7 @@ public class calendarDate extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_calendar_date));
-        if (sharedPrefs.loadNightMode()) {
+        if (sharedPrefs.loadBlueMode()) {
             CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventOnDayCoord);
             lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
         } else {

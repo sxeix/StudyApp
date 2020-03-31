@@ -7,6 +7,11 @@
         android:title="@string/title_activity_events_page"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/addModules"
+        android:icon="@drawable/ic_add_module"
+        android:title="@string/title_activity_adding_modules"
+        app:showAsAction="always" />
+    <item
         android:title="@string/title_activity_info_page"
         android:id="@+id/about"
         android:icon="@drawable/ic_info" />

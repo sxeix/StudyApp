@@ -49,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
 
         loadLanguage();
         /**Imports theme mode user preferences*/
-        if (sharedPrefs.loadNightMode()) {
-            setTheme(R.style.LightMode);
+        if (sharedPrefs.loadBlueMode()) {
+            setTheme(R.style.BlueMode);
         } else {
             setTheme(R.style.AppTheme);
         }
@@ -103,6 +103,10 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.settings) {
             Intent settings = new Intent(MainActivity.this, settingsPage.class);
             startActivity(settings);
+        }
+        else if (id == R.id.addModules) {
+            Intent modulesAdd = new Intent(MainActivity.this, adding_modules.class);
+            startActivity(modulesAdd);
         }
         return true;
     }
