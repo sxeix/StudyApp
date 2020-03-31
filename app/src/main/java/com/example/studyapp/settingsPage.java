@@ -26,6 +26,8 @@ import android.widget.Toast;
 import java.util.List;
 import java.util.Locale;
 
+import studynowbackend.Timetable;
+
 public class settingsPage extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
     SharedPrefs sharedPrefs;
     Switch p, b, g, r, y, o;
@@ -67,24 +69,6 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
                 startActivity(colorspage);
             }
         });
-
-
-//        colorMode = (Switch) findViewById(R.id.light_mode_switch);
-//        if (sharedPrefs.loadBlueMode()) {
-//            colorMode.setChecked(true);
-//        }
-//        colorMode.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton view, boolean isChecked) {
-//                if (isChecked) {
-//                    sharedPrefs.setBlueMode(true);
-//                    restartApp();
-//                } else {
-//                    sharedPrefs.setBlueMode(false);
-//                    restartApp();
-//                }
-//            }
-//        });
 
 
         Spinner LanSpinner = (Spinner) findViewById(R.id.langSpinner);
