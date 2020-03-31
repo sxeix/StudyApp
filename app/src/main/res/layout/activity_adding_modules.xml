@@ -200,7 +200,7 @@
                         android:layout_marginRight="4dp"
                         android:layout_weight="50"
                         android:ems="10"
-                        android:text="@string/start_time_lecture"
+                        android:text="@string/start_time"
                         android:textColor="#000000"
                         android:textSize="16sp" />
 
@@ -234,7 +234,7 @@
                         android:layout_marginRight="4dp"
                         android:layout_weight="50"
                         android:ems="10"
-                        android:text="@string/end_time_Lecture"
+                        android:text="@string/end_time"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         tools:ignore="NestedWeights" />
@@ -313,7 +313,7 @@
                         android:layout_marginRight="4dp"
                         android:layout_weight="50"
                         android:ems="10"
-                        android:text="@string/class_start_time"
+                        android:text="@string/start_time"
                         android:textColor="#000000"
                         android:textSize="16sp" />
 
@@ -347,7 +347,7 @@
                         android:layout_marginRight="4dp"
                         android:layout_weight="50"
                         android:ems="10"
-                        android:text="@string/class_end_time"
+                        android:text="@string/end_time"
                         android:textColor="#000000"
                         android:textSize="16sp"
                         tools:ignore="NestedWeights" />

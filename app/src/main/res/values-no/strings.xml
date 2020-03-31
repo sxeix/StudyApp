@@ -4,6 +4,7 @@
     <string name="title_activity_info_page">Informasjon</string>
     <string name="title_activity_events_page">Hendelser</string>
     <string name="title_activity_calendar_date">Hendelser på Dato</string>
+    <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_input_page">Legg til Hendelse</string>
@@ -59,6 +60,17 @@
     <string name="event_added">Hendelse Lagt Til</string>
     <string name="input_needed">Tilførsel Trengs</string>
     <string name="event_edited">Hendelse Forandret</string>
+    <string name="reset">Nullstille</string>
+    <string name="OK">Fortsett</string>
+    <string name="cancel">Nullstill</string>
+    <string name="resetConfirmation">Er du sikker på at du vil nullstille applikasjonen? Du vil miste alt av informasjon lagret på appen og applikasjonen vil tilbakestilles til grunntilstanden.</string>
+    <string name="add_modules">Add modules</string>
+    <string name="enter_course_module">Enter Module Name</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
+    <string name="lecture">Lecture</string>
+    <string name="lecture_running_this_module">Lecturer running this module</string>
+    <string name="name_of_lecture_running_class">Lecturer running class</string>
+    <string name="class_classSwitch">Class</string>
 
     <string-array name="Repeat">
         <item>Ikke Gjenta</item>
@@ -82,9 +94,5 @@
         <item>Deutsch</item>
         <item>Norsk</item>
     </string-array>
-    <string name="reset">Nullstille</string>
-    <string name="OK">Fortsett</string>
-    <string name="cancel">Nullstill</string>
-    <string name="resetConfirmation">Er du sikker på at du vil nullstille applikasjonen? Du vil miste alt av informasjon lagret på appen og applikasjonen vil tilbakestilles til grunntilstanden.</string>
 
 </resources>

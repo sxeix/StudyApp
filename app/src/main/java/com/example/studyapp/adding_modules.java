@@ -256,7 +256,7 @@ public class adding_modules extends AppCompatActivity {
         addModule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Modules haven been added", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Module added", Toast.LENGTH_SHORT).show();
             }
         });
     }
