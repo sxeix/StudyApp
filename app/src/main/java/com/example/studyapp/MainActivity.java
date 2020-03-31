@@ -131,8 +131,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    // This section of code is used to check the current language off the application and if it is incorrect then
-    // it reloads the app with the user's preferred language
+
+
+
+    /**
+     * This section of code is used to check the current language off the application and if it is incorrect then
+     * it reloads the app with the user's preferred language.
+     */
     private void loadLanguage() {
         String lang = sharedPrefs.getLangPref();
         String displayLang = getResources().getConfiguration().locale.toString().toLowerCase();
@@ -154,6 +159,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+
+    /**
+     * Converts language string into multiple strings if the saved preference is double-barrel
+     *
+     * @param l saved language preference string.
+     * @return array of strings to be used for creating the locale.
+     */
     public String[] localeStringConverter(String l) {
         String[] hk = {"zh", "HK"};
         String[] es = {"es", "ES"};

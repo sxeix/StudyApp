@@ -579,4 +579,11 @@ public class Timetable {
 
         return revisionTimeSlots;
     }
+
+
+
+    /**
+     * Overwrites the current Timetable with an empty Timetable instance. Also saves this state.
+     */
+    public void clearTimetable() { instance = new Timetable(); save(); }
 }

@@ -2,6 +2,7 @@ package com.example.studyapp;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -49,10 +50,6 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         }else{
             setTheme(R.style.AppTheme);
         }
-
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        mySpinner.setAdapter(adapter);
-//        mySpinner.setOnItemSelectedListener(this);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
@@ -119,7 +116,8 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
                 builder.setPositiveButton(getResources().getString(R.string.OK), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // This is intentional to display that the option is functional and is ready to have functionality implemented
+                        Timetable.getInstance().clearTimetable();
+                        sharedPrefs.restorePrefs();
                         startActivity(new Intent(settingsPage.this, MainActivity.class));
                     }
                 });
@@ -172,6 +170,13 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         return true;
     }
 
+
+
+    /**
+     * Sets language based on user choice and refreshes the application in said language.
+     *
+     * @param lang language user selects on the spinner.
+     */
     public void setLocale(String lang) {
         myLocale = new Locale(lang);
         switch(lang) {
@@ -194,10 +199,31 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
         startActivity(refresh);
     }
 
+
+
+    /**
+     * Checks that the app's current language is different to the chosen language.
+     * Ensures no pointless language changes/loops. Returns a boolean.
+     *
+     * @param cur current language on the device
+     * @param select selected language on the spinner
+     * @return whether the local language is the same as the selected language
+     */
     public boolean checkLocaleDifferent(String cur, String select) {
         return !cur.equals(select.toLowerCase());
     }
 
+
+
+
+    /**
+     * Acts accordingly depending on user's selection from the language spinner.
+     *
+     * @param parent n/a
+     * @param view n/a
+     * @param position index of item selected on spinner.
+     * @param id associated with item selected.
+     */
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String currentPref = sharedPrefs.getLangPref().toLowerCase();
@@ -246,11 +272,20 @@ public class settingsPage extends AppCompatActivity implements AdapterView.OnIte
 
 
 
+
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
-
+        // do nothing
     }
 
+
+
+    /**
+     * Ensures that the spinner for languages displays the current language running on the application.
+     *
+     * @param spinny spinner displayed on page.
+     */
     public void setSpinnerLang(Spinner spinny){
         String currentLang = sharedPrefs.getLangPref().toLowerCase();
         switch(currentLang){
