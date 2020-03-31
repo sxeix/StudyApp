@@ -63,14 +63,14 @@
     <string name="reset">сброс настроек</string>
     <string name="OK">подтверждения</string>
     <string name="cancel">Отмена</string>
-    <string name="add_modules">Add modules</string>
-    <string name="enter_course_module">Enter Module Name</string>
-    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
-    <string name="lecture">Lecture</string>
-    <string name="lecture_running_this_module">Lecturer running this module</string>
-    <string name="name_of_lecture_running_class">Lecturer running class</string>
-    <string name="resetConfirmation">Are you sure that you would like to reset the application? You will lose all information stored on the app and the application will revert to default.</string>
-    <string name="class_classSwitch">Class</string>
+    <string name="add_modules">Добавить модули</string>
+    <string name="enter_course_module">Введите имя модуля</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Введите количество рекомендуемых часов для пересмотра</string>
+    <string name="lecture">лекция</string>
+    <string name="lecture_running_this_module">Лектор работает с этим модулем</string>
+    <string name="name_of_lecture_running_class">Преподаватель бегового класса</string>
+    <string name="resetConfirmation">Вы уверены, что хотите сбросить приложение? Вы потеряете всю информацию, хранящуюся в приложении, и приложение вернется к значению по умолчанию.</string>
+    <string name="class_classSwitch">Учебный класс</string>
 
     <string-array name="Repeat">
         <item>Не повторяй</item>

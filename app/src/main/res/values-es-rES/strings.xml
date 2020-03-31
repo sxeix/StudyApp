@@ -63,14 +63,14 @@
     <string name="reset">Reiniciar</string>
     <string name="OK">Confirmar</string>
     <string name="cancel">Cancelar</string>
-    <string name="add_modules">Add modules</string>
-    <string name="enter_course_module">Enter Module Name</string>
-    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
-    <string name="lecture">Lecture</string>
-    <string name="lecture_running_this_module">Lecturer running this module</string>
-    <string name="name_of_lecture_running_class">Lecturer running class</string>
-    <string name="resetConfirmation">Are you sure that you would like to reset the application? You will lose all information stored on the app and the application will revert to default.</string>
-    <string name="class_classSwitch">Class</string>
+    <string name="add_modules">Agregar módulos</string>
+    <string name="enter_course_module">Ingrese el nombre del módulo</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Ingrese el número de horas recomendadas para la revisión</string>
+    <string name="lecture">Conferencia</string>
+    <string name="lecture_running_this_module">Profesor que ejecuta este módulo</string>
+    <string name="name_of_lecture_running_class">Profesor haciendo la clase</string>
+    <string name="resetConfirmation">Estás seguro de que deseas restablecer la aplicación? Perderá toda la información almacenada en la aplicación y la aplicación volverá a la predeterminada.</string>
+    <string name="class_classSwitch">Clase</string>
 
     <string-array name="Repeat">
         <item>No Repetir</item>

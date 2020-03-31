@@ -63,14 +63,14 @@
     <string name="reset">нулиране</string>
     <string name="OK">потвърждаване</string>
     <string name="cancel">анулира</string>
-    <string name="add_modules">Add modules</string>
-    <string name="enter_course_module">Enter Module Name</string>
-    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
-    <string name="lecture">Lecture</string>
-    <string name="lecture_running_this_module">Lecturer running this module</string>
-    <string name="name_of_lecture_running_class">Lecturer running class</string>
-    <string name="resetConfirmation">Are you sure that you would like to reset the application? You will lose all information stored on the app and the application will revert to default.</string>
-    <string name="class_classSwitch">Class</string>
+    <string name="add_modules">Добавете модули</string>
+    <string name="enter_course_module">Въведете Име на модула</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Въведете брой препоръчани часове за ревизия</string>
+    <string name="lecture">лекция</string>
+    <string name="lecture_running_this_module">Преподавател, изпълняващ този модул</string>
+    <string name="name_of_lecture_running_class">Преподавателски клас по бягане</string>
+    <string name="resetConfirmation">Сигурни ли сте, че искате да нулирате приложението? Ще загубите цялата информация, съхранявана в приложението, и приложението ще се върне по подразбиране.</string>
+    <string name="class_classSwitch">клас</string>
 
     <string-array name="Repeat">
         <item>Не се Повтаряйте</item>
