@@ -2,5 +2,6 @@
 <resources>
     <declare-styleable name="ds">
         <attr name="popupBackground" format="color"/>
+        <attr name="ePagesBackground" format="color"/>
     </declare-styleable>
 </resources>

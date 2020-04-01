@@ -7,6 +7,7 @@
     <string name="title_activity_adding_modules">Add Module</string>
 
     <!--    Universal Strings   -->
+    <string name="title_activity_colors_page">色彩</string>
     <string name="title_activity_input_page">坿活动</string>
     <string name="title_activity_settings_page">设定</string>
     <string name="title_activity_edit_page">编辑活动</string>
@@ -71,7 +72,6 @@
     <string name="lecture_running_this_module">Lecturer running this module</string>
     <string name="name_of_lecture_running_class">Lecturer running class</string>
     <string name="class_classSwitch">Class</string>
-    <string name="title_activity_colors_page">色彩</string>
     <string name="app_color" >色彩</string>
     <string name="pink">粉</string>
     <string name="blue">蓝色</string>

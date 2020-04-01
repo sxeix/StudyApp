@@ -73,22 +73,7 @@ public class eventsPage extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.Toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(getResources().getString(R.string.title_activity_events_page));
-        CoordinatorLayout lLayout = (CoordinatorLayout) findViewById(R.id.eventpagecoord);
-        if (sharedPrefs.loadPinkMode()) {
-            lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
-        }else if (sharedPrefs.loadBlueMode()) {
-            lLayout.setBackgroundColor(Color.parseColor("#B9EEF5"));
-        }else if (sharedPrefs.loadRedMode()) {
-            lLayout.setBackgroundColor(Color.parseColor("#F68989"));
-        }else if (sharedPrefs.loadGreenMode()) {
-            lLayout.setBackgroundColor(Color.parseColor("#9DF689"));
-        }else if (sharedPrefs.loadYellowMode()) {
-            lLayout.setBackgroundColor(Color.parseColor("#F6DB89"));
-        }else if (sharedPrefs.loadOrangeMode()) {
-            lLayout.setBackgroundColor(Color.parseColor("#F6B182"));
-        }else {
-            lLayout.setBackgroundColor(Color.parseColor("#F5E2E1"));
-        }
+
         sortListRelativeCustom(customEvents);
         sortListRelativeDaily(dailyEvents);
         sortListRelativeWeekly(weeklyEvents);
@@ -102,19 +87,19 @@ public class eventsPage extends AppCompatActivity {
         lMonthly = new ArrayList<HashMap<String, String>>();
         lYearly = new ArrayList<HashMap<String, String>>();
         for (TimetableEvent e : customEvents) {
-            addToArrayList(e);
+            createHashEvent(e);
         }
         for (TimetableEvent e : dailyEvents) {
-            addToArrayList(e);
+            createHashEvent(e);
         }
         for (TimetableEvent e : weeklyEvents) {
-            addToArrayList(e);
+            createHashEvent(e);
         }
         for (TimetableEvent e : monthlyEvents) {
-            addToArrayList(e);
+            createHashEvent(e);
         }
         for (TimetableEvent e : yearlyEvents) {
-            addToArrayList(e);
+            createHashEvent(e);
         }
         aCustom = new SimpleAdapter(this, lCustom,
                 R.layout.activity_event_list,
@@ -158,7 +143,6 @@ public class eventsPage extends AppCompatActivity {
         adapters.addAll(Arrays.asList(aCustom, aDaily, aWeekly, aMonthly, aYearly));
         hashMapLists.addAll(Arrays.asList(lCustom, lDaily, lWeekly, lMonthly, lYearly));
 
-        /** Ignore all bellow for now. Still working on popup window or page*/
         vCustom.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
@@ -225,7 +209,10 @@ public class eventsPage extends AppCompatActivity {
     }
 
     /**
-     * changes list view height depending on the number of items it has
+     * sets the height of the ListView based on the amount of elements it has.
+     * this method also handles the case in which there are no elements in the ListView at all, in which case it will display a "No Events" message in the corresponding language
+     * @param listView the ListView to be checked
+     * @param type 0 = custom, 1 = daily, 2 = weekly, 3 = monthly, 4 = yearly
      */
     public void setListViewHeightBasedOnChildren(ListView listView, int type) {
         ListAdapter listAdapter = listView.getAdapter();
@@ -267,7 +254,9 @@ public class eventsPage extends AppCompatActivity {
     }
 
     /**
-     * Adds events to correct list depending on event type
+     * adds HashMap so the correct HashMap ArrayList depending on the TimetableEvent's RepeatFrequency
+     * @param item the HashMap to be added
+     * @param x the TimetableEvent that the HashMap was created from
      */
     public void addByFreq(HashMap<String, String> item, TimetableEvent x) {
         switch (x.getRepeatFrequency()) {
@@ -290,9 +279,10 @@ public class eventsPage extends AppCompatActivity {
     }
 
     /**
-     * creates HashMap of event and then adds to array
+     * takes a TimetableEvent and creates a HashMap of it and then adds it to the corresponding ArrayList
+     * @param e the TimetableEvent instance
      */
-    public void addToArrayList(TimetableEvent e) {
+    public void createHashEvent(TimetableEvent e) {
         HashMap<String, String> item = new HashMap<String, String>();
         item.put("line1", getResources().getString(R.string.title_input) + ": " + e.getName());
         item.put("line2", getResources().getString(R.string.start_date) + " " + routineCheck(e));
@@ -301,6 +291,16 @@ public class eventsPage extends AppCompatActivity {
         addByFreq(item, e);
     }
 
+    /**
+     * takes a TimetableEvent and returns an appropriate start date depending on its RepeatFrequency
+     * @param e the TimetableEvent to be checked
+     * @return
+     * <b>{@code NoRepeat}:</b> returns the full start date of event <br>
+     * <b>{@code Daily}:</b> returns "Daily" in the corresponding language <br>
+     * <b>{@code Weekly}:</b> returns the day of the week that the event occurs on in the corresponding language <br>
+     * <b>{@code Monthly}:</b> returns the day of the month the event starts on <br>
+     * <b>{@code Yearly}:</b> returns the date the event starts on excluding the year
+     */
     @SuppressLint("StringFormatMatches")
     public String routineCheck(TimetableEvent e) {
         switch (e.getRepeatFrequency()) {
@@ -319,6 +319,11 @@ public class eventsPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * returns the correct date ending for the english language given the start date of the TimetableEvent
+     * @param e the TimetableEvent to be checked
+     * @return st/nd/rd/th depending on the start date
+     */
     public String monthEnd(TimetableEvent e) {
         int i = e.getStart().getDayOfMonth() % 10;
         if (i == 1 && e.getStart().getDayOfMonth() != 11) {
@@ -331,6 +336,11 @@ public class eventsPage extends AppCompatActivity {
         return "th";
     }
 
+    /**
+     * gets the day of the week of which the event starts on
+     * @param e the TimetableEvent to be checked
+     * @return a String containing the name of the day that the event starts in the corresponding language
+     */
     public String dayOfWeek(TimetableEvent e) {
         switch (e.getStart().getDayOfWeek().name()) {
             case "MONDAY":
@@ -352,6 +362,11 @@ public class eventsPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * checks whether the TimetableEvent in question is an AllDay event or not and returns the corresponding string
+     * @param e the TimetableEvent instance to be checked
+     * @return either "All Day" if an AllDay event or the event's start time in the corresponding language
+     */
     public String dailyCheck(TimetableEvent e) {
         if (e.getAllDay()) {
             return getResources().getString(R.string.type_allday);
@@ -359,8 +374,13 @@ public class eventsPage extends AppCompatActivity {
         return String.format(getResources().getString(R.string.time), requiresFormat(e.getStart().getHour()) + e.getStart().getHour(), requiresFormat(e.getStart().getMinute()) + e.getStart().getMinute());
     }
 
+    /**
+     * handles onClick events for the 5 ListViews
+     * @param position the index position of the item in the ListView that was clicked
+     * @param type 0 = custom, 1 = daily, 2 = weekly, 3 = monthly, 4 = yearly
+     */
     public void listViewClick(AdapterView<?> parent, View view, final int position, long id, int type) {
-        selectedEvent = getTypeListByIndex(type).get(position);
+        selectedEvent = getListByType(type).get(position);
         final PopupMenu popup = new PopupMenu(eventsPage.this, view);
         popup.getMenuInflater().inflate(R.menu.popup_menu, popup.getMenu());
         popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -369,11 +389,11 @@ public class eventsPage extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.description:
                         Intent description = new Intent(eventsPage.this, popupWindowDesc.class);
-                        description.putExtra("Description", getTypeListByIndex(type).get(position).getDescription().toString());
+                        description.putExtra("Description", getListByType(type).get(position).getDescription().toString());
                         startActivity(description);
                         return true;
                     case R.id.delete:
-                        Timetable.getInstance().removeEvent(getTypeListByIndex(type).get(position));
+                        Timetable.getInstance().removeEvent(getListByType(type).get(position));
                         hashMapLists.get(type).remove(position);
                         setListViewHeightBasedOnChildren(listViews.get(type), type);
                         adapters.get(type).notifyDataSetChanged();
@@ -389,7 +409,12 @@ public class eventsPage extends AppCompatActivity {
         popup.show();
     }
 
-    public ArrayList<TimetableEvent> getTypeListByIndex(int x) {
+    /**
+     *
+     * @param x 0 = custom, 1 = daily, 2 = weekly, 3 = monthly, 4 = yearly
+     * @return ArrayList corresponding to the Type integer
+     */
+    public ArrayList<TimetableEvent> getListByType(int x) {
         switch (x) {
             case 0:
                 return customEvents;
@@ -406,6 +431,12 @@ public class eventsPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * returns an extra 0 (or whatever character the language requires) if the number is less than 10 else it returns an empty string
+     * is used to change dates from 1/3/2020 into 01/03/2020 or change times from 11:5 into 11:05
+     * @param a the integer
+     * @return either a String containing the formatted character with respect to the current language or an empty string
+     */
     public String requiresFormat(int a) {
         if (a < 10) {
             return getResources().getString(R.string.formatted_character);
@@ -413,12 +444,23 @@ public class eventsPage extends AppCompatActivity {
         return "";
     }
 
+    /**
+     * this will take a list of custom events that are already arranged in date/time order and will
+     * rearrange the order so that they are ordered relative to the current time the person is
+     * using the application
+     * @param list the ArrayList of TimetableEvents with a RepeatFrequency of NoRepeat
+     */
     public void sortListRelativeCustom(ArrayList<TimetableEvent> list){
         int size = list.size();
         TimetableEvent e; int i = 0; int count = 0;
         while(i<size && count<size){
             count++;
             e = list.get(i);
+            if (e.getAllDay()){
+                if(e.getEnd().toLocalDate().isBefore(currentDateTime.toLocalDate())){
+                    list.remove(e); list.add(e); continue;
+                }
+            }
             if (e.getEnd().isBefore(currentDateTime)){
                 list.remove(e); list.add(e);
                 // TODO may decide to have custom events be removed permanently if it's past end date
@@ -427,6 +469,13 @@ public class eventsPage extends AppCompatActivity {
             i++;
         }
     }
+
+    /**
+     * this will take a list of daily events that are already arranged in time order for the day  and will
+     * rearrange the order so that they are ordered relative to the current time the person is
+     * using the application
+     * @param list the ArrayList of TimetableEvents with a RepeatFrequency of Daily
+     */
     public void sortListRelativeDaily(ArrayList<TimetableEvent> list){
         int size = list.size();
         TimetableEvent e; int i = 0; int count = 0;
@@ -441,6 +490,13 @@ public class eventsPage extends AppCompatActivity {
             i++;
         }
     }
+
+    /**
+     * this will take a list of weekly events that are already arranged in day order and will
+     * rearrange the order so that they are ordered relative to the current time the person is
+     * using the application
+     * @param list the ArrayList of TimetableEvents with a RepeatFrequency of Weekly
+     */
     public void sortListRelativeWeekly(ArrayList<TimetableEvent> list){
         int size = list.size();
         TimetableEvent e; int i = 0; int count = 0;
@@ -458,6 +514,13 @@ public class eventsPage extends AppCompatActivity {
             i++;
         }
     }
+
+    /**
+     * this will take a list of monthly events that are already arranged in date order and will
+     * rearrange the order so that they are ordered relative to the current time the person is
+     * using the application
+     * @param list the ArrayList of TimetableEvents with a RepeatFrequency of Monthly
+     */
     public void sortListRelativeMonthly(ArrayList<TimetableEvent> list){
         int size = list.size();
         TimetableEvent e; int i = 0; int count = 0;
@@ -475,6 +538,13 @@ public class eventsPage extends AppCompatActivity {
             i++;
         }
     }
+
+    /**
+     * this will take a list of yearly events that are already arranged in date/time order and will
+     * rearrange the order so that they are ordered relative to the current time the person is
+     * using the application
+     * @param list the ArrayList of TimetableEvents with a RepeatFrequency of Yearly
+     */
     public void sortListRelativeYearly(ArrayList<TimetableEvent> list){
         int size = list.size();
         TimetableEvent e; int i = 0; int count = 0;

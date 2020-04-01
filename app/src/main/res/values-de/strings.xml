@@ -1,6 +1,6 @@
 <resources>
     <!--    Page Titles     -->
-    <string name="app_name">LernApp</string>
+    <string name="app_name">Study Now</string>
     <string name="title_activity_info_page">Information</string>
     <string name="title_activity_events_page">Veranstaltungen</string>
     <string name="title_activity_calendar_date">Veranstaltungen am Datum</string>
@@ -65,13 +65,13 @@
     <string name="OK">Bestätigen</string>
     <string name="cancel">Abbrechen</string>
     <string name="resetConfirmation">Sind Sie sich sicher, dass sie die App zurücksetzen wollen? Alle in der App gespeicherten Informationen gehen verloren und die Applikation wird auf Werkseinstellung zurückgesetzt.</string>
-    <string name="add_modules">Add modules</string>
-    <string name="enter_course_module">Enter Module Name</string>
-    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
-    <string name="lecture">Lecture</string>
-    <string name="lecture_running_this_module">Lecturer running this module</string>
-    <string name="name_of_lecture_running_class">Lecturer running class</string>
-    <string name="class_classSwitch">Class</string>
+    <string name="add_modules">Modul Hinzufügen</string>
+    <string name="enter_course_module">Modulname Eingeben</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Gib die vorgeschlagene Stundenzahl für die Revision ein</string>
+    <string name="lecture">Vorlesung</string>
+    <string name="lecture_running_this_module">Name des Modulleitenden Dozenten</string>
+    <string name="name_of_lecture_running_class">Name des Klassenleitenden Lehrer</string>
+    <string name="class_classSwitch">Klasse</string>
     <string name="app_color" >Farben</string>
     <string name="pink">Rosa</string>
     <string name="blue">Blau</string>

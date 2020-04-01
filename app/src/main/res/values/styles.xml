@@ -11,6 +11,7 @@
         <item name="android:statusBarColor">#F5E2E1</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
         <item name="popupBackground">@drawable/custom_popup1</item>
+        <item name="ePagesBackground">#F5E2E1</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -30,6 +31,7 @@
         <item name="android:statusBarColor">#B9EEF5</item>
         <item name="popupBackground">@drawable/custom_popup</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="ePagesBackground">#B9EEF5</item>
     </style>
 
     <style name="RedMode" parent="Theme.AppCompat.Light.NoActionBar">
@@ -42,6 +44,7 @@
         <item name="android:statusBarColor">#F68989</item>
         <item name="popupBackground">@drawable/red_gradient</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="ePagesBackground">#F68989</item>
     </style>
 
     <style name="YellowMode" parent="Theme.AppCompat.Light.NoActionBar">
@@ -54,6 +57,7 @@
         <item name="android:statusBarColor">#F6DB89</item>
         <item name="popupBackground">@drawable/red_gradient</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="ePagesBackground">#F6DB89</item>
     </style>
 
     <style name="GreenMode" parent="Theme.AppCompat.Light.NoActionBar">
@@ -66,6 +70,7 @@
         <item name="android:statusBarColor">#9DF689</item>
         <item name="popupBackground">@drawable/green_gradient</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="ePagesBackground">#9DF689</item>
     </style>
 
     <style name="OrangeMode" parent="Theme.AppCompat.Light.NoActionBar">
@@ -78,6 +83,7 @@
         <item name="android:statusBarColor">#F6B182</item>
         <item name="popupBackground">@drawable/orange_gradient</item>
         <item name="android:windowAnimationStyle">@style/WindowTransition</item>
+        <item name="ePagesBackground">#F6B182</item>
     </style>
 
     <!--How the the transitions look like between pages-->

@@ -145,7 +145,7 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
                 l = location.getText().toString();
                 d = description.getText().toString();
                 if (set1 && set2 && !t.isEmpty() && !l.isEmpty() && !d.isEmpty()) {
-                    TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption);
+                    TimetableEvent x = new TimetableEvent(t, d, l, start, end, allDayEventBool, spinnerOption, eventsPage.selectedEvent.getExcludedDates());
                     Timetable.getInstance().removeEvent(eventsPage.selectedEvent);
                     Timetable.getInstance().addEvent(x);
                     InputPage.sortListByType(x);
@@ -289,6 +289,12 @@ public class editPage extends AppCompatActivity implements DatePickerDialog.OnDa
 
     }
 
+    /**
+     * returns an extra 0 (or whatever character the language requires) if the number is less than 10 else it returns an empty string
+     * is used to change dates from 1/3/2020 into 01/03/2020 or change times from 11:5 into 11:05
+     * @param a the integer
+     * @return either a String containing the formatted character with respect to the current language or an empty string
+     */
     public String requiresFormat(int a) {
         if (a < 10) {
             return getResources().getString(R.string.formatted_character);

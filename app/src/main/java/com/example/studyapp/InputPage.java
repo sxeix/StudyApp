@@ -392,9 +392,12 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
         // does nothing
     }
 
-
-
-
+    /**
+     * takes a TimetableEvent and places it in the correct position in the list
+     * @param a the TimetableEvent to be correctly sorted into the list
+     * @param list Custom/Daily/Weekly/Monthly/Yearly events list
+     * @param type 1 = custom, 2 = daily, 3 = weekly, 4 = monthly, 5 = yearly
+     */
     public static void sortList(TimetableEvent a, ArrayList<TimetableEvent> list, int type) {
         if (list.size() > 1) {
             int index = list.indexOf(a);
@@ -403,132 +406,102 @@ public class InputPage extends AppCompatActivity implements DatePickerDialog.OnD
                     while (index > 0) {
                         if (a.getAllDay()) {
                             if (a.getStart().toLocalDate().isAfter(list.get(index - 1).getStart().toLocalDate())) {
-                                list.remove(a);
-                                list.add(index, a);
-                                return;
-                            }
-                            index--;
+                                moveTimetableObject(list, a, index); return;
+                            }index--;
                         } else if (a.getStart().toLocalDate().isBefore(list.get(index - 1).getStart().toLocalDate()) || (a.getStart().toLocalDate().isEqual(list.get(index - 1).getStart().toLocalDate()) && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay())))
                             index--;
                         else {
-                            list.remove(a);
-                            list.add(index, a);
-                            return;
+                            moveTimetableObject(list, a, index); return;
                         }
-                    }
-                    list.remove(a);
-                    list.add(0, a);
-                    break;
+                    }moveTimetableObject(list, a, 0); break;
                 case 2:
                     if (a.getAllDay()) {
-                        list.remove(a);
-                        list.add(0, a);
-                        return;
+                        moveTimetableObject(list, a, 0); return;
                     }
                     while (index > 0) {
-                        if (list.get(index - 1).getAllDay()) {
-                            list.remove(a);
-                            list.add(index, a);
-                            return;
-                        } else if (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime())) {
+                        if (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay()) {
                             index--;
                         } else {
-                            list.remove(a);
-                            list.add(index, a);
-                            return;
+                            moveTimetableObject(list, a, index); return;
                         }
-                    }
-                    list.remove(a);
-                    list.add(index, a);
-                    break;
+                    }moveTimetableObject(list, a, 0); break;
                 case 3:
                     while (index > 0) {
                         if (a.getAllDay()) {
                             if (a.getStart().getDayOfWeek().getValue() > list.get(index - 1).getStart().getDayOfWeek().getValue()) {
-                                list.remove(a);
-                                list.add(index, a);
-                                return;
-                            }
-                            index--;
+                                moveTimetableObject(list, a, index); return;
+                            }index--;
                         } else if (a.getStart().getDayOfWeek().getValue() < list.get(index - 1).getStart().getDayOfWeek().getValue() || (a.getStart().getDayOfWeek().getValue() == list.get(index - 1).getStart().getDayOfWeek().getValue() && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay())))
                             index--;
                         else {
-                            list.remove(a);
-                            list.add(index, a);
-                            return;
+                            moveTimetableObject(list, a, index); return;
                         }
-                    }
-                    list.remove(a);
-                    list.add(index, a);
-                    break;
+                    }moveTimetableObject(list, a, 0); break;
                 case 4:
                     while (index > 0) {
                         if (a.getAllDay()) {
                             if (a.getStart().getDayOfMonth() > list.get(index - 1).getStart().getDayOfMonth()) {
-                                list.remove(a);
-                                list.add(index, a);
-                                return;
-                            }
-                            index--;
+                                moveTimetableObject(list, a, index); return;
+                            }index--;
                         } else if (a.getStart().getDayOfMonth() < list.get(index - 1).getStart().getDayOfMonth() || (a.getStart().getDayOfMonth() == list.get(index - 1).getStart().getDayOfMonth() && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay()))) {
                             index--;
                         } else {
-                            list.remove(a);
-                            list.add(index, a);
-                            return;
+                            moveTimetableObject(list, a, index); return;
                         }
-                    }
-                    list.remove(a);
-                    list.add(index, a);
-                    break;
+                    }moveTimetableObject(list, a, 0); break;
                 case 5:
                     while (index > 0) {
                         if (a.getAllDay()) {
                             if (a.getStart().getDayOfYear() > list.get(index - 1).getStart().getDayOfYear()) {
-                                list.remove(a);
-                                list.add(index, a);
-                                return;
-                            }
-                            index--;
+                                moveTimetableObject(list, a, index); return;
+                            }index--;
                         } else if (a.getStart().getDayOfYear() < list.get(index - 1).getStart().getDayOfYear() || (a.getStart().getDayOfYear() == list.get(index - 1).getStart().getDayOfYear() && (a.getStart().toLocalTime().isBefore(list.get(index - 1).getStart().toLocalTime()) && !list.get(index - 1).getAllDay()))) {
                             index--;
                         } else {
-                            list.remove(a);
-                            list.add(index, a);
-                            return;
+                            moveTimetableObject(list, a, index); return;
                         }
-                    }
-                    list.remove(a);
-                    list.add(index, a);
-                    break;
+                    }moveTimetableObject(list, a, 0); break;
             }
         }
     }
 
+    /**
+     * moves the TimetableEvent through the ArrayList
+     * @param list the list that contains the TimetableEvent that will be moved
+     * @param event the TimetableEvent to be moved
+     * @param index the position in the list that it will be moved to
+     */
+    private static void moveTimetableObject(ArrayList<TimetableEvent> list, TimetableEvent event, int index){
+        list.remove(event); list.add(index, event);
+    }
+
+    /**
+     * takes the TimetableEvent and finds which array it is a part of and then runs the correct sortList method with the correct parameters
+     * @param x the TimetableEvent instance
+     */
     public static void sortListByType(TimetableEvent x) {
         switch (x.getRepeatFrequency()) {
             case NoRepeat:
-                sortList(x, Timetable.getInstance().getEvents(), 1);
-                break;
+                sortList(x, Timetable.getInstance().getEvents(), 1); break;
             case Daily:
-                sortList(x, Timetable.getInstance().getDailyEvents(), 2);
-                break;
+                sortList(x, Timetable.getInstance().getDailyEvents(), 2); break;
             case Weekly:
-                sortList(x, Timetable.getInstance().getWeeklyEvents(), 3);
-                break;
+                sortList(x, Timetable.getInstance().getWeeklyEvents(), 3); break;
             case Monthly:
-                sortList(x, Timetable.getInstance().getMonthlyEvents(), 4);
-                break;
+                sortList(x, Timetable.getInstance().getMonthlyEvents(), 4); break;
             case Yearly:
-                sortList(x, Timetable.getInstance().getYearlyEvents(), 5);
-                break;
+                sortList(x, Timetable.getInstance().getYearlyEvents(), 5); break;
         }
     }
 
+    /**
+     * returns an extra 0 (or whatever character the language requires) if the number is less than 10 else it returns an empty string
+     * is used to change dates from 1/3/2020 into 01/03/2020 or change times from 11:5 into 11:05
+     * @param a the integer
+     * @return either a String containing the formatted character with respect to the current language or an empty string
+     */
     public String requiresFormat(int a) {
-        if (a < 10) {
-            return getResources().getString(R.string.formatted_character);
-        }
+        if (a < 10) return getResources().getString(R.string.formatted_character);
         return "";
     }
 }

@@ -1,7 +1,9 @@
 package studynowbackend;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 public class TimetableEvent implements Serializable {
     private String name;
@@ -11,6 +13,7 @@ public class TimetableEvent implements Serializable {
     private LocalDateTime end;
     private boolean allDay;
     private RepeatFrequency repeatFrequency;
+    private ArrayList<LocalDate> excludedDates;
 
     public TimetableEvent(String name, String description, String location, LocalDateTime start, LocalDateTime end, boolean allDay, RepeatFrequency repeatFrequency) {
         this.name = name;
@@ -20,6 +23,18 @@ public class TimetableEvent implements Serializable {
         this.end = end;
         this.allDay = allDay;
         this.repeatFrequency = repeatFrequency;
+        this.excludedDates = new ArrayList<>();
+    }
+
+    public TimetableEvent(String name, String description, String location, LocalDateTime start, LocalDateTime end, boolean allDay, RepeatFrequency repeatFrequency, ArrayList<LocalDate> list) {
+        this.name = name;
+        this.description = description;
+        this.location = location;
+        this.start = start;
+        this.end = end;
+        this.allDay = allDay;
+        this.repeatFrequency = repeatFrequency;
+        this.excludedDates = new ArrayList<>(list);
     }
 
     public TimetableEvent(TimetableEvent event) {
@@ -30,6 +45,7 @@ public class TimetableEvent implements Serializable {
         this.end = event.end;
         this.allDay = event.allDay;
         this.repeatFrequency = event.repeatFrequency;
+        this.excludedDates = new ArrayList<>(event.excludedDates);
     }
 
     public String getName() {
@@ -83,6 +99,8 @@ public class TimetableEvent implements Serializable {
     public RepeatFrequency getRepeatFrequency() {
         return repeatFrequency;
     }
+
+    public ArrayList<LocalDate> getExcludedDates(){ return excludedDates; }
 
     public void setRepeatFrequency(RepeatFrequency repeatFrequency) {
         this.repeatFrequency = repeatFrequency;

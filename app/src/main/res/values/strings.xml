@@ -70,7 +70,7 @@
     <string name="lecture">Lecture</string>
     <string name="lecture_running_this_module">Lecturer running this module</string>
     <string name="class_classSwitch">Class</string>
-    <string name="name_of_lecture_running_class">Name of lecture running class</string>
+    <string name="name_of_lecture_running_class">Lecturer running class</string>
     <string name="add_modules">Add modules</string>
     <string name="app_color" >Colors</string>
     <string name="pink">Pink</string>

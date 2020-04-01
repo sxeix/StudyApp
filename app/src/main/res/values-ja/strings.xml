@@ -65,20 +65,20 @@
     <string name="OK">確認</string>
     <string name="cancel">キャンセル</string>
     <string name="resetConfirmation">アプリを初期化しますか？アプリに保存しているデータが削除されて元の設定に戻ります。</string>
-    <string name="add_modules">Add modules</string>
-    <string name="enter_course_module">Enter Module Name</string>
-    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
-    <string name="lecture">Lecture</string>
-    <string name="lecture_running_this_module">Lecturer running this module</string>
-    <string name="name_of_lecture_running_class">Lecturer running class</string>
-    <string name="class_classSwitch">Class</string>
+    <string name="add_modules">学科を追加</string>
+    <string name="enter_course_module">学科名を入力</string>
+    <string name="enter_number_of_recommended_hours_for_revision">おすすめの勉強時間の数を入力</string>
+    <string name="lecture">講義</string>
+    <string name="lecture_running_this_module">学科の担当者</string>
+    <string name="name_of_lecture_running_class">授業の担当者</string>
+    <string name="class_classSwitch">授業</string>
     <string name="app_color" >色</string>
-    <string name="pink">ピンク</string>
-    <string name="blue">青い</string>
+    <string name="pink">桃色</string>
+    <string name="blue">青</string>
     <string name="red">赤</string>
     <string name="green">緑</string>
-    <string name="yellow">黄</string>
-    <string name="orange">オレンジ</string>
+    <string name="yellow">黄色</string>
+    <string name="orange">橙色</string>
 
     <string-array name="Repeat">
         <item>繰り返しなし</item>
