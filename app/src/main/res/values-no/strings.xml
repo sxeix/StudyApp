@@ -4,7 +4,7 @@
     <string name="title_activity_info_page">Informasjon</string>
     <string name="title_activity_events_page">Hendelser</string>
     <string name="title_activity_calendar_date">Hendelser på Dato</string>
-    <string name="title_activity_adding_modules">Add Module</string>
+    <string name="title_activity_adding_modules">Legg til Modul</string>
 
     <!--    Universal Strings   -->
     <string name="title_activity_colors_page">Farger</string>
@@ -23,7 +23,7 @@
     <string name="weekly_custom">Ukentlige Hendelser</string>
     <string name="monthly_custom">Månedlige Hendelser</string>
     <string name="yearly_custom">Årlige Hendelser</string>
-    <string name="events_for">Hendelser for %1$d/%2$d/%3$d</string><!--%1$d/%2$d/%3$d represents the british english date format. 1 = day, 2 = month, 3 = year. They can be swapped around if the date format is different in another language-->
+    <string name="events_for">Hendelser for %1$d/%2$d/%3$d</string>
     <string name="title_input">Tittel</string>
     <string name="all_day_event_switch">Hel-dags Hendelse</string>
     <string name="location_input">Sted</string>
@@ -51,7 +51,7 @@
     <string name="day_thursday">Torsdag</string>
     <string name="day_friday">Fredag</string>
     <string name="day_saturday">Lørdag</string>
-    <string name="formatted_character">0</string> <!--08/03/2020 as opposed to 8/3/2020. leave blank if this kind of formatting isn't necessary in the other language-->
+    <string name="formatted_character">0</string>
     <string name="full_date">%1$s/%2$s/%3$d</string>
     <string name="month_date">%1$d.</string>
     <string name="short_date">%1$s/%2$s</string>
@@ -65,13 +65,13 @@
     <string name="OK">Fortsett</string>
     <string name="cancel">Nullstill</string>
     <string name="resetConfirmation">Er du sikker på at du vil nullstille applikasjonen? Du vil miste alt av informasjon lagret på appen og applikasjonen vil tilbakestilles til grunntilstanden.</string>
-    <string name="add_modules">Add modules</string>
-    <string name="enter_course_module">Enter Module Name</string>
-    <string name="enter_number_of_recommended_hours_for_revision">Enter no of recommended hours for revision</string>
-    <string name="lecture">Lecture</string>
-    <string name="lecture_running_this_module">Lecturer running this module</string>
-    <string name="name_of_lecture_running_class">Lecturer running class</string>
-    <string name="class_classSwitch">Class</string>
+    <string name="add_modules">Legg til moduler</string>
+    <string name="enter_course_module">Skriv inn Modul Navn</string>
+    <string name="enter_number_of_recommended_hours_for_revision">Skriv inn hvor mange anbefalte timer for revisjon</string>
+    <string name="lecture">Foredrag</string>
+    <string name="lecture_running_this_module">Foreleser som har denne modulen</string>
+    <string name="name_of_lecture_running_class">Lærer som har denne klassen</string>
+    <string name="class_classSwitch">Klasse</string>
     <string name="app_color" >Farger</string>
     <string name="pink">Rosa</string>
     <string name="blue">Blå</string>
@@ -88,7 +88,7 @@
         <item>Årlig</item>
     </string-array>
 
-    <string-array name="lang"> <!-- ignore this bit i'll add norwegian to the list later -->
+    <string-array name="lang">
         <item>English</item>
         <item>日本語</item>
         <item>繁體中文</item>
